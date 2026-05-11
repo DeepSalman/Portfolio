@@ -14,12 +14,12 @@
   --text:         #F0EDE6;
   --text-sec:     #8A8480;
   --text-muted:   #3D3A37;
-  --gold:         #C9A84C;
+  --gold:         #10bee0;
   --gold-dim:     #7A6430;
   --green:        #4CAF7D;
   --red:          #C94C4C;
   --border:       #1E1E1E;
-  --border-active:#C9A84C;
+  --border-active:#10bee0;
 
   --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-body:    'IBM Plex Mono', 'Courier New', monospace;
@@ -62,7 +62,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   --text-sec:   #5A524A;
   --text-muted: #9A9088;
   --border:     #D8D0C4;
-  --border-active: #C9A84C;
+  --border-active: #10bee0;
 }
 [data-theme="light"] .navbar.scrolled {
   background: rgba(245,240,232,0.92);
@@ -445,7 +445,7 @@ section { padding: 128px 0; }
   position: absolute;
   bottom: 0; left: 0; right: 0;
   height: 220px;
-  background: linear-gradient(to top, rgba(201,168,76,0.06), transparent);
+  background: linear-gradient(to top, rgba(16,190,224,0.06), transparent);
 }
 
 /* Floating math formulas */
@@ -793,7 +793,7 @@ section { padding: 128px 0; }
 .skill-tile:hover {
   border-color: var(--gold);
   background: var(--elevated);
-  box-shadow: 0 0 16px rgba(201,168,76,0.12);
+  box-shadow: 0 0 16px rgba(16,190,224,0.12);
   transform: translateY(-2px);
 }
 
@@ -1136,6 +1136,18 @@ section { padding: 128px 0; }
   color: var(--gold);
   border-bottom-style: solid;
 }
+.timeline-degree-link {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dashed #10bee0;
+  padding-bottom: 1px;
+  transition: color 0.2s, border-color 0.2s;
+  cursor: pointer;
+}
+.timeline-degree-link:hover {
+  color: #10bee0;
+  border-bottom-style: solid;
+}
 .timeline-org {
   font-family: var(--font-body);
   font-size: 13px;
@@ -1164,43 +1176,17 @@ section { padding: 128px 0; }
    GITHUB ACTIVITY
    ============================================================ */
 #github { background: var(--surface); }
-.github-inner { text-align: center; }
-.github-quote {
-  font-family: var(--font-body);
-  font-size: 14px;
-  color: var(--text-sec);
-  font-style: italic;
-  margin-bottom: 48px;
-}
-.github-stats-row {
+.github-heatmap {
   display: flex;
   justify-content: center;
-  gap: 64px;
-  margin-bottom: 48px;
+  margin-top: 16px;
 }
-.gh-stat-val {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 40px;
-  color: var(--text);
-  display: block;
-  line-height: 1;
-  margin-bottom: 6px;
+.heatmap-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  opacity: 0.9;
 }
-.gh-stat-lbl {
-  font-family: var(--font-label);
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--gold);
-}
-.github-embeds {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 24px;
-}
-.github-embeds img { max-width: 100%; height: auto; }
 
 /* ============================================================
    WRITING / BLOG
@@ -1391,7 +1377,7 @@ footer {
   .project-featured { grid-template-columns: 1fr; }
   .project-grid { grid-template-columns: 1fr 1fr; }
   .writing-grid { grid-template-columns: 1fr 1fr; }
-  .github-stats-row { gap: 40px; }
+
 }
 
 @media (max-width: 768px) {
@@ -1408,7 +1394,7 @@ footer {
   .skills-icon-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
   .contact-email-btn { font-size: 15px; padding: 16px 24px; }
   .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
-  .github-stats-row { flex-wrap: wrap; gap: 32px; }
+
   .project-featured-body { padding: 24px; }
   .contact-heading { font-size: 28px; }
   .palette-box { margin: 0 16px; }
