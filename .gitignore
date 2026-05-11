@@ -1,0 +1,12 @@
+# Claude Code internal directory (worktrees, sessions, etc.)
+.claude/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+
+# Logs
+*.log
