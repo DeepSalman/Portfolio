@@ -160,9 +160,22 @@ function scrollTo(hash) {
   const hamburger = document.querySelector('.nav-hamburger');
   const mobileOverlay = document.querySelector('.nav-mobile-overlay');
 
+  const progressFill = document.querySelector('.nav-progress-fill');
+
+  function updateProgress() {
+    if (!progressFill) return;
+    const doc = document.documentElement;
+    const scrolled = doc.scrollTop || document.body.scrollTop;
+    const max = (doc.scrollHeight - doc.clientHeight) || 1;
+    const pct = Math.max(0, Math.min(100, (scrolled / max) * 100));
+    progressFill.style.width = pct + '%';
+  }
+  updateProgress();
+
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 40);
     updateActiveLink();
+    updateProgress();
   }, { passive: true });
 
   hamburger?.addEventListener('click', () => {
@@ -261,6 +274,113 @@ function initReveal() {
   });
 })();
 
+
+
+// ============================================================
+// PARTICLE CONSTELLATION (hero background)
+// ============================================================
+(function initConstellation() {
+  const canvas = document.querySelector('.hero-constellation');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  let w, h, particles, mouseX = -9999, mouseY = -9999;
+  const isMobile = window.innerWidth < 768;
+  const COUNT    = isMobile ? 28 : 60;
+  const MAX_DIST = isMobile ? 110 : 150;
+
+  // Read --gold from CSS so the colour follows the theme
+  function getAccent() {
+    const c = getComputedStyle(document.documentElement).getPropertyValue('--gold').trim();
+    return c || '#D97757';
+  }
+  // Convert hex to RGB triple
+  function hexToRgb(hex) {
+    const m = hex.replace('#', '');
+    const v = m.length === 3 ? m.split('').map(c => c + c).join('') : m;
+    const n = parseInt(v, 16);
+    return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+  }
+
+  function resize() {
+    const dpr = window.devicePixelRatio || 1;
+    w = canvas.width  = canvas.clientWidth  * dpr;
+    h = canvas.height = canvas.clientHeight * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function spawn() {
+    particles = Array.from({ length: COUNT }, () => ({
+      x: Math.random() * canvas.clientWidth,
+      y: Math.random() * canvas.clientHeight,
+      vx: (Math.random() - 0.5) * 0.35,
+      vy: (Math.random() - 0.5) * 0.35,
+      r: 0.8 + Math.random() * 1.6,
+    }));
+  }
+
+  function step() {
+    const cw = canvas.clientWidth;
+    const ch = canvas.clientHeight;
+    ctx.clearRect(0, 0, cw, ch);
+
+    const [r, g, b] = hexToRgb(getAccent());
+
+    // Move + draw nodes
+    particles.forEach(p => {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > cw) p.vx *= -1;
+      if (p.y < 0 || p.y > ch) p.vy *= -1;
+
+      // Gentle cursor parallax
+      const dx = mouseX - p.x, dy = mouseY - p.y;
+      const d  = Math.hypot(dx, dy);
+      if (d < 140) {
+        p.x -= dx * 0.0015;
+        p.y -= dy * 0.0015;
+      }
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${r},${g},${b},0.55)`;
+      ctx.fill();
+    });
+
+    // Draw connecting lines
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const a = particles[i], c = particles[j];
+        const dx = a.x - c.x, dy = a.y - c.y;
+        const dist = Math.hypot(dx, dy);
+        if (dist < MAX_DIST) {
+          const alpha = (1 - dist / MAX_DIST) * 0.35;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(c.x, c.y);
+          ctx.strokeStyle = `rgba(${r},${g},${b},${alpha})`;
+          ctx.lineWidth = 0.7;
+          ctx.stroke();
+        }
+      }
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  // Cursor tracking (gentle parallax pull)
+  window.addEventListener('mousemove', e => {
+    const rect = canvas.getBoundingClientRect();
+    mouseX = e.clientX - rect.left;
+    mouseY = e.clientY - rect.top;
+  }, { passive: true });
+  window.addEventListener('mouseleave', () => { mouseX = -9999; mouseY = -9999; });
+
+  window.addEventListener('resize', () => { resize(); spawn(); }, { passive: true });
+
+  resize();
+  spawn();
+  step();
+})();
 
 // ============================================================
 // FLOATING DATA GLYPHS (hero — bars / line / scatter / brackets / nodes)

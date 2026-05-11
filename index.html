@@ -60,31 +60,52 @@
 </div>
 
 <!-- ============================================================
-     NAVBAR
+     NAVBAR  ·  "Holographic Command Strip"
      ============================================================ -->
 <nav class="navbar" role="navigation" aria-label="Main navigation">
-  <a href="#" class="nav-logo" aria-label="Back to top">S.</a>
+  <div class="nav-shell">
 
-  <ul class="nav-links" role="list">
-    <li><a href="#about"><span class="nav-num">01</span> About</a></li>
-    <li><a href="#tech-stack"><span class="nav-num">02</span> Tech Stack</a></li>
-    <li><a href="#projects"><span class="nav-num">03</span> Projects</a></li>
-    <li><a href="#writing"><span class="nav-num">04</span> Writing</a></li>
-    <li><a href="#contact"><span class="nav-num">05</span> Contact</a></li>
-  </ul>
+    <!-- Left: brand identifier -->
+    <a href="#" class="nav-logo" aria-label="Back to top">
+      <span class="logo-bracket" aria-hidden="true">▸</span>
+      <span class="logo-text">S<span class="logo-period">.</span></span>
+      <span class="logo-pulse" aria-hidden="true"></span>
+    </a>
 
-  <div class="nav-right">
-    <button class="btn-palette" data-palette aria-label="Open command palette">
-      ⌘K <kbd>K</kbd>
-    </button>
-    <button class="btn-theme" id="theme-toggle" aria-label="Toggle light/dark mode" title="Toggle theme">
-      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-      <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-    </button>
-    <a href="#contact" class="btn-hire"><span>Hire Me →</span></a>
-    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <!-- Center: section nav -->
+    <ul class="nav-links" role="list">
+      <li><a href="#about"><span class="nav-num">[01]</span><span class="nav-label">About</span></a></li>
+      <li><a href="#tech-stack"><span class="nav-num">[02]</span><span class="nav-label">Stack</span></a></li>
+      <li><a href="#projects"><span class="nav-num">[03]</span><span class="nav-label">Projects</span></a></li>
+      <li><a href="#writing"><span class="nav-num">[04]</span><span class="nav-label">Writing</span></a></li>
+      <li><a href="#contact"><span class="nav-num">[05]</span><span class="nav-label">Contact</span></a></li>
+    </ul>
+
+    <!-- Right: tools + CTA -->
+    <div class="nav-right">
+      <button class="btn-palette" data-palette aria-label="Open command palette" title="Command palette">
+        <span class="palette-glyph">⌘</span>
+        <span class="palette-k">K</span>
+      </button>
+      <button class="btn-theme" id="theme-toggle" aria-label="Toggle light/dark mode" title="Toggle theme">
+        <svg class="icon-sun"  xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="#contact" class="btn-hire">
+        <span class="hire-dot" aria-hidden="true"></span>
+        <span>Hire Me</span>
+        <span class="hire-arrow" aria-hidden="true">→</span>
+      </a>
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Scroll progress bar at the bottom edge -->
+    <div class="nav-progress" aria-hidden="true">
+      <div class="nav-progress-fill"></div>
+    </div>
+
   </div>
 </nav>
 
@@ -93,12 +114,48 @@
      ============================================================ -->
 <section class="hero" id="home" aria-label="Introduction">
 
-  <!-- Layered atmospheric backdrop -->
-  <div class="hero-bg"        aria-hidden="true"></div>
-  <div class="hero-grid"      aria-hidden="true"></div>
+  <!-- ── Generative atmosphere · multi-layer creative backdrop ── -->
+
+  <!-- Layer 1: Aurora orbs (drifting blurred gradients) -->
+  <div class="hero-aurora" aria-hidden="true">
+    <span class="aurora-orb orb-1"></span>
+    <span class="aurora-orb orb-2"></span>
+    <span class="aurora-orb orb-3"></span>
+    <span class="aurora-orb orb-4"></span>
+  </div>
+
+  <!-- Layer 2: Topographic contour art (corner SVGs) -->
+  <svg class="hero-topo topo-tl" viewBox="0 0 400 400" aria-hidden="true">
+    <g fill="none" stroke="currentColor" stroke-width="0.8">
+      <path d="M 0 80  Q 80 60, 140 100  T 280 120  T 400 90"/>
+      <path d="M 0 130 Q 90 110, 160 150 T 300 160  T 400 140"/>
+      <path d="M 0 180 Q 100 160, 180 200 T 320 210 T 400 190"/>
+      <path d="M 0 230 Q 110 210, 200 250 T 340 260 T 400 240"/>
+    </g>
+  </svg>
+  <svg class="hero-topo topo-br" viewBox="0 0 400 400" aria-hidden="true">
+    <g fill="none" stroke="currentColor" stroke-width="0.8">
+      <path d="M 400 320 Q 320 340, 260 300 T 120 280 T 0   310"/>
+      <path d="M 400 270 Q 310 290, 240 250 T 100 240 T 0   260"/>
+      <path d="M 400 220 Q 300 240, 220 200 T 80  190 T 0   210"/>
+      <path d="M 400 170 Q 290 190, 200 150 T 60  140 T 0   160"/>
+    </g>
+  </svg>
+
+  <!-- Layer 3: Particle constellation (canvas) -->
+  <canvas class="hero-constellation" aria-hidden="true"></canvas>
+
+  <!-- Layer 4: Soft radial spotlight from center -->
   <div class="hero-spotlight" aria-hidden="true"></div>
-  <div class="math-bg"        aria-hidden="true"></div>
-  <div class="hero-glyphs"    aria-hidden="true"></div>
+
+  <!-- Layer 5: Floating math formulas (existing) -->
+  <div class="math-bg" aria-hidden="true"></div>
+
+  <!-- Layer 6: Scattered data-viz glyphs (existing) -->
+  <div class="hero-glyphs" aria-hidden="true"></div>
+
+  <!-- Layer 7: Film grain texture -->
+  <div class="hero-grain" aria-hidden="true"></div>
 
   <div class="hero-inner">
 
