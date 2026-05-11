@@ -261,6 +261,63 @@ function initReveal() {
   });
 })();
 
+
+// ============================================================
+// FLOATING DATA GLYPHS (hero — bars / line / scatter / brackets / nodes)
+// ============================================================
+(function initHeroGlyphs() {
+  const container = document.querySelector('.hero-glyphs');
+  if (!container) return;
+
+  // Inline SVG glyph definitions (each ~28-36px viewBox 32)
+  const glyphs = [
+    // Bar chart
+    `<svg width="34" height="34" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4"  y="18" width="4" height="10"/><rect x="12" y="10" width="4" height="18"/><rect x="20" y="14" width="4" height="14"/><rect x="28" y="6"  width="0.1" height="22"/></svg>`,
+    // Line graph
+    `<svg width="40" height="28" viewBox="0 0 40 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,22 10,14 18,18 26,6 38,10"/></svg>`,
+    // Scatter dots
+    `<svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor"><circle cx="6"  cy="22" r="1.6"/><circle cx="12" cy="10" r="1.6"/><circle cx="18" cy="18" r="1.6"/><circle cx="22" cy="6"  r="1.6"/><circle cx="26" cy="14" r="1.6"/><circle cx="28" cy="24" r="1.6"/></svg>`,
+    // Brackets [ ]
+    `<svg width="40" height="22" viewBox="0 0 40 22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M7 3 H3 V19 H7"/><path d="M33 3 H37 V19 H33"/></svg>`,
+    // Neural net (3 nodes connected)
+    `<svg width="36" height="32" viewBox="0 0 36 32" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="6"  cy="16" r="2.5"/><circle cx="30" cy="6"  r="2.5"/><circle cx="30" cy="26" r="2.5"/><line x1="8" y1="15" x2="28" y2="7"/><line x1="8" y1="17" x2="28" y2="25"/></svg>`,
+    // Sine wave
+    `<svg width="44" height="20" viewBox="0 0 44 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 10 Q 8 2, 14 10 T 26 10 T 38 10"/></svg>`,
+    // Hexagon outline
+    `<svg width="26" height="28" viewBox="0 0 26 28" fill="none" stroke="currentColor" stroke-width="1.4"><polygon points="13,2 24,8 24,20 13,26 2,20 2,8"/></svg>`,
+    // Crosshair
+    `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="14" cy="14" r="9"/><line x1="14" y1="2" x2="14" y2="6"/><line x1="14" y1="22" x2="14" y2="26"/><line x1="2" y1="14" x2="6" y2="14"/><line x1="22" y1="14" x2="26" y2="14"/></svg>`,
+    // Pie wedge
+    `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="14" cy="14" r="10"/><path d="M14 14 L14 4 A10 10 0 0 1 24 14 Z" fill="currentColor" opacity="0.4" stroke="none"/></svg>`,
+    // Code arrows < />
+    `<svg width="40" height="22" viewBox="0 0 40 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="10,5 3,11 10,17"/><polyline points="30,5 37,11 30,17"/><line x1="22" y1="3" x2="18" y2="19"/></svg>`,
+  ];
+
+  // Predefined positions to avoid overlapping with the centered portrait
+  // (avoid roughly the middle band: 35-65% x, 30-60% y)
+  const positions = [
+    {x:  5, y: 12}, {x: 18, y:  8}, {x: 30, y: 14}, {x: 70, y: 10}, {x: 86, y: 16},
+    {x:  4, y: 38}, {x: 12, y: 62}, {x:  8, y: 82}, {x: 24, y: 88}, {x: 28, y: 70},
+    {x: 78, y: 38}, {x: 88, y: 60}, {x: 72, y: 80}, {x: 84, y: 88}, {x: 92, y: 32},
+  ];
+
+  positions.forEach((pos, i) => {
+    const el = document.createElement('span');
+    el.className = 'hero-glyph';
+    el.innerHTML = glyphs[i % glyphs.length];
+    el.style.cssText = `
+      left: ${pos.x}%;
+      top:  ${pos.y}%;
+      --g-dur:   ${10 + Math.random() * 10}s;
+      --g-delay: ${-Math.random() * 8}s;
+      --g-dx:    ${(Math.random() - 0.5) * 30}px;
+      --g-dy:    ${(Math.random() - 0.5) * 24}px;
+      --g-rot:   ${(Math.random() - 0.5) * 14}deg;
+    `;
+    container.appendChild(el);
+  });
+})();
+
 // ============================================================
 // GITHUB STATS (live from API)
 // ============================================================

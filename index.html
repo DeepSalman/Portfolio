@@ -12,7 +12,7 @@
   <title>Salman — Developer · Founder</title>
 
   <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%2310bee0'>S</text></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23D97757'>S</text></svg>" />
 
   <!-- Fonts (preconnect first) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -89,59 +89,116 @@
 </nav>
 
 <!-- ============================================================
-     HERO
+     HERO  ·  "Terminal Observatory"
      ============================================================ -->
 <section class="hero" id="home" aria-label="Introduction">
 
-  <!-- Background image -->
-  <div class="hero-bg" aria-hidden="true"></div>
-
-  <!-- Floating math/code background texture -->
-  <div class="math-bg" aria-hidden="true"></div>
+  <!-- Layered atmospheric backdrop -->
+  <div class="hero-bg"        aria-hidden="true"></div>
+  <div class="hero-grid"      aria-hidden="true"></div>
+  <div class="hero-spotlight" aria-hidden="true"></div>
+  <div class="math-bg"        aria-hidden="true"></div>
+  <div class="hero-glyphs"    aria-hidden="true"></div>
 
   <div class="hero-inner">
-    <!-- Left: Content -->
-    <div class="hero-content">
-      <div class="hero-status">
-        <span class="status-dot" aria-hidden="true"></span>
-        Available · Dhaka, BD · Open to Remote
-      </div>
 
-      <h1 class="hero-name">Salman</h1>
+    <!-- Top terminal readout -->
+    <div class="hero-readout reveal">
+      <span class="readout-dot"></span>
+      <span>SYS<span class="readout-c">::</span>ONLINE</span>
+      <span class="readout-sep">|</span>
+      <span>LOC<span class="readout-c">::</span>DHAKA_BD</span>
+      <span class="readout-sep">|</span>
+      <span>STATUS<span class="readout-c">::</span>OPEN_TO_REMOTE</span>
+    </div>
 
-      <p class="hero-role">
-        CS Student
-        <span>·</span>
-        Developer
-        <span>·</span>
-        Founder
-      </p>
+    <!-- Centered portrait with brackets + orbit + ring -->
+    <div class="hero-portrait reveal" aria-hidden="true">
+      <!-- 4 corner targeting brackets -->
+      <span class="corner tl"></span>
+      <span class="corner tr"></span>
+      <span class="corner bl"></span>
+      <span class="corner br"></span>
 
-      <p class="hero-pitch">
-        <strong>I build things that work — and understand why they should.</strong><br />
-        From ML models to real product lines. Code meets commerce.
-      </p>
+      <!-- Cardinal registration marks -->
+      <span class="reg-mark rm-n"></span>
+      <span class="reg-mark rm-e"></span>
+      <span class="reg-mark rm-s"></span>
+      <span class="reg-mark rm-w"></span>
 
-      <div class="hero-cta">
-        <a href="#projects" class="cta-primary">
-          <span>View Projects</span>
-        </a>
-        <a href="assets/resume.pdf" class="cta-ghost" download>
-          Download Resume ↓
-        </a>
+      <!-- Rotating dashed outer ring -->
+      <div class="portrait-ring"></div>
+
+      <!-- Orbiting satellite dot -->
+      <div class="portrait-orbit"><span class="orbit-dot"></span></div>
+
+      <!-- The photo itself -->
+      <div class="portrait-frame">
+        <!-- Replace src with your real photo -->
+        <!-- <img src="assets/images/photo-1.jpg" alt="Salman" class="portrait-img" /> -->
+        <div class="portrait-placeholder">
+          <span class="pp-icon">S</span>
+        </div>
       </div>
     </div>
 
-    <!-- Right: Photo -->
-    <div class="hero-photo-wrap" aria-hidden="true">
-      <!-- Replace src with your actual photos -->
-      <!-- <img src="assets/images/photo-1.jpg" alt="Salman" class="hero-photo" /> -->
-      <!-- <img src="assets/images/photo-2.jpg" alt="Salman alternate" class="hero-photo-alt" /> -->
-      <div class="hero-photo-placeholder">
-        <span class="ph-icon">👤</span>
-        <span class="ph-text">Add photo-1.jpg + photo-2.jpg</span>
-      </div>
+    <!-- Name with terminal cursor -->
+    <h1 class="hero-name reveal">
+      Salman<span class="name-cursor" aria-hidden="true">▊</span>
+    </h1>
+
+    <!-- Short underline accent -->
+    <div class="hero-underline reveal" aria-hidden="true"></div>
+
+    <!-- Role tagline -->
+    <p class="hero-role reveal">
+      <span>CS STUDENT</span>
+      <span class="role-sep">|</span>
+      <span>DEVELOPER</span>
+      <span class="role-sep">|</span>
+      <span>FOUNDER</span>
+    </p>
+
+    <!-- Subtitle / pitch -->
+    <p class="hero-pitch reveal">
+      I build things that work — and understand why they should.
+    </p>
+
+    <!-- Social icon boxes -->
+    <div class="hero-socials reveal">
+      <a href="https://github.com/DeepSalman" target="_blank" rel="noopener" class="social-box" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+          <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-1.92c-3.2.7-3.88-1.54-3.88-1.54-.52-1.32-1.28-1.67-1.28-1.67-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.51-1.47.11-3.06 0 0 .97-.31 3.18 1.18.92-.26 1.91-.39 2.89-.39.98 0 1.97.13 2.89.39 2.2-1.49 3.17-1.18 3.17-1.18.62 1.59.23 2.77.11 3.06.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.41-5.26 5.69.41.36.78 1.07.78 2.16v3.2c0 .31.2.66.79.55 4.57-1.52 7.85-5.83 7.85-10.91C23.5 5.65 18.35.5 12 .5z"/>
+        </svg>
+      </a>
+      <a href="https://linkedin.com/in/salman" target="_blank" rel="noopener" class="social-box" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+          <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/>
+        </svg>
+      </a>
+      <a href="https://twitter.com/salman" target="_blank" rel="noopener" class="social-box" aria-label="X / Twitter">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+      </a>
     </div>
+
+    <!-- CTA buttons -->
+    <div class="hero-cta reveal">
+      <a href="#projects" class="cta-primary">
+        <span>View Projects</span>
+      </a>
+      <a href="assets/resume.pdf" class="cta-ghost" download>
+        Download Resume ↓
+      </a>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="hero-scroll reveal" aria-hidden="true">
+      <span class="scroll-label">SCROLL</span>
+      <span class="scroll-bar"></span>
+    </div>
+
   </div>
 </section>
 
@@ -554,7 +611,7 @@
     <!-- Replace YOUR_GITHUB with your actual GitHub username -->
     <div class="github-heatmap reveal">
       <img
-        src="https://ghchart.rshah.org/10bee0/YOUR_GITHUB"
+        src="https://ghchart.rshah.org/D97757/YOUR_GITHUB"
         alt="GitHub Contribution Heatmap"
         loading="lazy"
         class="heatmap-img"
