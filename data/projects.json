@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "title": "AI-Powered Chat App",
+    "description": "A real-time chat application with AI assistant integration, featuring end-to-end encryption and WebSocket communication.",
+    "tags": ["React", "Node.js", "Socket.io", "OpenAI"],
+    "github": "https://github.com/salman/ai-chat-app",
+    "live": "#",
+    "image": "assets/images/project1.svg",
+    "featured": true
+  },
+  {
+    "id": 2,
+    "title": "E-Commerce Platform",
+    "description": "Full-stack e-commerce solution with dynamic product catalog, cart management, payment integration, and admin dashboard.",
+    "tags": ["Next.js", "PostgreSQL", "Stripe", "Prisma"],
+    "github": "https://github.com/salman/ecommerce",
+    "live": "#",
+    "image": "assets/images/project2.svg",
+    "featured": true
+  },
+  {
+    "id": 3,
+    "title": "DevOps Dashboard",
+    "description": "Monitoring and analytics platform for cloud infrastructure with real-time metrics, alerts, and automated deployments.",
+    "tags": ["Python", "Docker", "Grafana", "AWS"],
+    "github": "https://github.com/salman/devops-dashboard",
+    "live": "#",
+    "image": "assets/images/project3.svg",
+    "featured": true
+  },
+  {
+    "id": 4,
+    "title": "Task Management API",
+    "description": "RESTful API for task management with JWT auth, role-based access control, and comprehensive documentation.",
+    "tags": ["FastAPI", "Redis", "MongoDB", "Docker"],
+    "github": "https://github.com/salman/task-api",
+    "live": "#",
+    "image": "assets/images/project4.svg",
+    "featured": false
+  },
+  {
+    "id": 5,
+    "title": "Neural Style Transfer App",
+    "description": "Web app that applies artistic styles to images using deep learning with real-time preview and batch processing.",
+    "tags": ["PyTorch", "Flask", "React", "TensorFlow"],
+    "github": "https://github.com/salman/style-transfer",
+    "live": "#",
+    "image": "assets/images/project5.svg",
+    "featured": false
+  },
+  {
+    "id": 6,
+    "title": "Blockchain Voting System",
+    "description": "Decentralized voting application on Ethereum with smart contracts, ensuring transparency and immutability.",
+    "tags": ["Solidity", "Web3.js", "Hardhat", "IPFS"],
+    "github": "https://github.com/salman/blockchain-vote",
+    "live": "#",
+    "image": "assets/images/project6.svg",
+    "featured": false
+  }
+]

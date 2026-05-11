@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Salman — CS Student, Developer, and Founder. I build things that work and understand why they should." />
+  <meta name="author" content="Salman" />
+  <meta property="og:title"       content="Salman | Developer · Founder" />
+  <meta property="og:description" content="I build things that work — and understand why they should." />
+  <meta property="og:type"        content="website" />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <title>Salman — Developer · Founder</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23C9A84C'>S</text></svg>" />
+
+  <!-- Fonts (preconnect first) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=IBM+Plex+Mono:wght@500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+<!-- ============================================================
+     LOADER
+     ============================================================ -->
+<div id="loader" role="status" aria-label="Loading">
+  <div class="loader-monogram">S.</div>
+  <div class="loader-text">Initializing...</div>
+  <div class="loader-bar-track">
+    <div class="loader-bar-fill"></div>
+  </div>
+</div>
+
+<!-- ============================================================
+     COMMAND PALETTE
+     ============================================================ -->
+<div class="palette-overlay" role="dialog" aria-modal="true" aria-label="Command palette">
+  <div class="palette-box">
+    <div class="palette-input-wrap">
+      <span class="palette-icon">⌘</span>
+      <input class="palette-input" type="text" placeholder="Search — jump to section, download resume..." autocomplete="off" />
+      <span class="palette-hint">ESC</span>
+    </div>
+    <div class="palette-results"></div>
+  </div>
+</div>
+
+<!-- ============================================================
+     MOBILE NAV OVERLAY
+     ============================================================ -->
+<div class="nav-mobile-overlay" aria-hidden="true">
+  <a href="#about">About</a>
+  <a href="#tech-stack">Tech Stack</a>
+  <a href="#projects">Projects</a>
+  <a href="#writing">Writing</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- ============================================================
+     NAVBAR
+     ============================================================ -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <a href="#" class="nav-logo" aria-label="Back to top">S.</a>
+
+  <ul class="nav-links" role="list">
+    <li><a href="#about"><span class="nav-num">01</span> About</a></li>
+    <li><a href="#tech-stack"><span class="nav-num">02</span> Tech Stack</a></li>
+    <li><a href="#projects"><span class="nav-num">03</span> Projects</a></li>
+    <li><a href="#writing"><span class="nav-num">04</span> Writing</a></li>
+    <li><a href="#contact"><span class="nav-num">05</span> Contact</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <button class="btn-palette" data-palette aria-label="Open command palette">
+      ⌘K <kbd>K</kbd>
+    </button>
+    <button class="btn-theme" id="theme-toggle" aria-label="Toggle light/dark mode" title="Toggle theme">
+      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <a href="#contact" class="btn-hire"><span>Hire Me →</span></a>
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero" id="home" aria-label="Introduction">
+
+  <!-- Background image -->
+  <div class="hero-bg" aria-hidden="true"></div>
+
+  <!-- Floating math/code background texture -->
+  <div class="math-bg" aria-hidden="true"></div>
+
+  <div class="hero-inner">
+    <!-- Left: Content -->
+    <div class="hero-content">
+      <div class="hero-status">
+        <span class="status-dot" aria-hidden="true"></span>
+        Available · Dhaka, BD · Open to Remote
+      </div>
+
+      <h1 class="hero-name">Salman</h1>
+
+      <p class="hero-role">
+        CS Student
+        <span>·</span>
+        Developer
+        <span>·</span>
+        Founder
+      </p>
+
+      <p class="hero-pitch">
+        <strong>I build things that work — and understand why they should.</strong><br />
+        From ML models to real product lines. Code meets commerce.
+      </p>
+
+      <div class="hero-cta">
+        <a href="#projects" class="cta-primary">
+          <span>View Projects</span>
+        </a>
+        <a href="assets/resume.pdf" class="cta-ghost" download>
+          Download Resume ↓
+        </a>
+      </div>
+    </div>
+
+    <!-- Right: Photo -->
+    <div class="hero-photo-wrap" aria-hidden="true">
+      <!-- Replace src with your actual photos -->
+      <!-- <img src="assets/images/photo-1.jpg" alt="Salman" class="hero-photo" /> -->
+      <!-- <img src="assets/images/photo-2.jpg" alt="Salman alternate" class="hero-photo-alt" /> -->
+      <div class="hero-photo-placeholder">
+        <span class="ph-icon">👤</span>
+        <span class="ph-text">Add photo-1.jpg + photo-2.jpg</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ABOUT
+     ============================================================ -->
+<section id="about" aria-label="About me">
+  <div class="container">
+    <div class="about-grid">
+
+      <!-- Left: Photo + Stats -->
+      <div class="about-photo-col reveal">
+        <!-- <img src="assets/images/about-photo.jpg" alt="Salman" class="about-photo" /> -->
+        <div class="about-photo-placeholder" aria-hidden="true">👤</div>
+
+        <div class="about-stats">
+          <div class="stat-box">
+            <span class="stat-val">3+</span>
+            <span class="stat-lbl">Projects Built</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-val">1</span>
+            <span class="stat-lbl">Brand Launched</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-val">4th</span>
+            <span class="stat-lbl">Sem · CSE</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Text -->
+      <div class="about-text-col reveal">
+        <span class="section-label">// 01 About</span>
+        <h2 class="about-heading">Developer.<br />Founder.<br />Researcher-in-progress.</h2>
+
+        <p>
+          CSE student with a deep interest in how <strong>ML systems reason about causality</strong>.
+          Building toward applied research and an Erasmus Mundus scholarship.
+          I care about understanding systems from first principles, not just using them.
+        </p>
+        <p>
+          I also run a <strong>fashion eCommerce brand</strong> — real inventory, real customers,
+          real ops. That hands-on experience with product, logistics, and customer behaviour
+          is what makes me different from other junior devs who've only shipped side projects.
+        </p>
+        <p>
+          Early in the journey. Learning fast. Shipping faster.
+        </p>
+
+        <!-- Currently pills -->
+        <div class="currently-section">
+          <div class="currently-row">
+            <span class="currently-icon">📖</span>
+            <span class="currently-label">Learning</span>
+            <div class="currently-pills">
+              <span class="pill">FastAPI</span>
+              <span class="pill">Causal ML</span>
+              <span class="pill">Research Writing</span>
+            </div>
+          </div>
+          <div class="currently-row">
+            <span class="currently-icon">🔨</span>
+            <span class="currently-label">Building</span>
+            <div class="currently-pills">
+              <span class="pill">LifeOS</span>
+              <span class="pill">ML Portfolio</span>
+            </div>
+          </div>
+          <div class="currently-row">
+            <span class="currently-icon">🎯</span>
+            <span class="currently-label">Planning</span>
+            <div class="currently-pills">
+              <span class="pill">Erasmus Mundus 2026–27</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TECH STACK
+     ============================================================ -->
+<section id="tech-stack" aria-label="Tech stack">
+  <div class="container">
+    <span class="section-label reveal">// 02 Tech Stack</span>
+    <h2 class="section-title reveal">What I work with.</h2>
+
+    <div class="tech-stack-groups">
+
+      <div class="tech-group reveal">
+        <div class="tech-group-label">Languages</div>
+        <div class="skills-icon-grid">
+          <div class="skill-tile">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="TypeScript" class="skill-tile-logo" />
+            <span class="skill-tile-name">TypeScript</span>
+          </div>
+          <div class="skill-tile">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" class="skill-tile-logo" />
+            <span class="skill-tile-name">JavaScript</span>
+          </div>
+          <div class="skill-tile">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" class="skill-tile-logo" />
+            <span class="skill-tile-name">Python</span>
+          </div>
+          <div class="skill-tile">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java" class="skill-tile-logo" />
+            <span class="skill-tile-name">Java</span>
+          </div>
+          <div class="skill-tile">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="C" class="skill-tile-logo" />
+            <span class="skill-tile-name">C</span>
+          </div>
+          <div class="skill-tile">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" alt="C++" class="skill-tile-logo" />
+            <span class="skill-tile-name">C++</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tech-group reveal">
+        <div class="tech-group-label">Web</div>
+        <div class="skills-icon-grid">
+          <div class="skill-tile">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5" class="skill-tile-logo" />
+            <span class="skill-tile-name">HTML</span>
+          </div>
+          <div class="skill-tile">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3" class="skill-tile-logo" />
+            <span class="skill-tile-name">CSS</span>
+          </div>
+          <div class="skill-tile">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" class="skill-tile-logo" />
+            <span class="skill-tile-name">JavaScript</span>
+          </div>
+          <div class="skill-tile">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS" class="skill-tile-logo" />
+            <span class="skill-tile-name">Tailwind</span>
+          </div>
+          <div class="skill-tile">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React" class="skill-tile-logo" />
+            <span class="skill-tile-name">React</span>
+          </div>
+          <div class="skill-tile">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg" alt="Flask" class="skill-tile-logo" style="filter:invert(var(--logo-invert))" />
+            <span class="skill-tile-name">Flask</span>
+          </div>
+          <div class="skill-tile">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg" alt="FastAPI" class="skill-tile-logo" />
+            <span class="skill-tile-name">FastAPI</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tech-group reveal">
+        <div class="tech-group-label">Data &amp; ML</div>
+        <div class="skills-icon-grid">
+          <div class="skill-tile">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" alt="NumPy" class="skill-tile-logo" />
+            <span class="skill-tile-name">NumPy</span>
+          </div>
+          <div class="skill-tile">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt="Pandas" class="skill-tile-logo" />
+            <span class="skill-tile-name">Pandas</span>
+          </div>
+          <div class="skill-tile">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" alt="Scikit-learn" class="skill-tile-logo" />
+            <span class="skill-tile-name">Scikit-learn</span>
+          </div>
+          <div class="skill-tile">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg" alt="PyTorch" class="skill-tile-logo" />
+            <span class="skill-tile-name">PyTorch</span>
+          </div>
+          <div class="skill-tile">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" class="skill-tile-logo" />
+            <span class="skill-tile-name">TensorFlow</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tech-group reveal">
+        <div class="tech-group-label">Tools &amp; DB</div>
+        <div class="skills-icon-grid">
+          <div class="skill-tile">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git" class="skill-tile-logo" />
+            <span class="skill-tile-name">Git</span>
+          </div>
+          <div class="skill-tile">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="SQL" class="skill-tile-logo" />
+            <span class="skill-tile-name">SQL</span>
+          </div>
+          <div class="skill-tile">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" alt="VS Code" class="skill-tile-logo" />
+            <span class="skill-tile-name">VS Code</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tech-group reveal">
+        <div class="tech-group-label">CS Concepts</div>
+        <div class="skills-icon-grid cs-concepts-grid">
+          <div class="skill-tile skill-tile-text"><span class="skill-tile-abbr">DSA</span><span class="skill-tile-name">Data Structures &amp; Algorithms</span></div>
+          <div class="skill-tile skill-tile-text"><span class="skill-tile-abbr">DM</span><span class="skill-tile-name">Discrete Math</span></div>
+          <div class="skill-tile skill-tile-text"><span class="skill-tile-abbr">ST</span><span class="skill-tile-name">Statistics</span></div>
+          <div class="skill-tile skill-tile-text"><span class="skill-tile-abbr">LA</span><span class="skill-tile-name">Linear Algebra</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SKILLS
+     ============================================================ -->
+<section id="skills" aria-label="Skills and strengths">
+  <div class="container">
+    <span class="section-label reveal">// Strengths</span>
+    <h2 class="section-title reveal">How I think.</h2>
+
+    <!-- Strength cards -->
+    <div class="strength-cards">
+      <div class="strength-card reveal">
+        <span class="strength-card-icon">⟨/⟩</span>
+        <div class="strength-card-title">Problem Decomposer</div>
+        <p class="strength-card-body">"I break complex bugs into primitives before writing a single line."</p>
+      </div>
+      <div class="strength-card reveal">
+        <span class="strength-card-icon">🏗</span>
+        <div class="strength-card-title">Builder Mindset</div>
+        <p class="strength-card-body">"I shipped a real product to real customers. Code isn't theory for me."</p>
+      </div>
+      <div class="strength-card reveal">
+        <span class="strength-card-icon">📈</span>
+        <div class="strength-card-title">Rapid Learner</div>
+        <p class="strength-card-body">"KVL circuits, Spearman Rank, linked lists — same semester."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PROJECTS
+     ============================================================ -->
+<section id="projects" aria-label="Projects">
+  <div class="container">
+    <span class="section-label reveal">// 02 Projects</span>
+    <h2 class="section-title reveal">Things I've built.</h2>
+
+    <!-- CARD -->
+    <div class="project-coming-soon reveal">
+      <div class="coming-soon-icon">🛠️</div>
+      <h3 class="coming-soon-title">Building something meaningful.</h3>
+      <p class="coming-soon-desc">Stay tuned to learn and know about it.</p>
+      <div class="coming-soon-badge">
+        <span class="status-dot"></span>
+        In Progress
+      </div>
+    </div>
+    <!-- CARD -->
+  </div>
+</section>
+
+<!-- ============================================================
+     TIMELINE
+     ============================================================ -->
+<section id="timeline" aria-label="Journey and timeline">
+  <div class="container">
+    <span class="section-label reveal">// Journey</span>
+    <h2 class="section-title reveal">Education, brand,<br />research track.</h2>
+
+    <div class="timeline" style="max-width:720px">
+
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <span class="timeline-date">2024 – Present</span>
+          <div class="timeline-title">B.Sc. Computer Science &amp; Engineering</div>
+          <div class="timeline-org">Your University · Dhaka, Bangladesh</div>
+          <p class="timeline-desc">Relevant coursework: Data Structures &amp; Algorithms, Discrete Mathematics, Statistics &amp; Probability, Circuit Analysis, Python Programming.</p>
+          <div class="timeline-tags">
+            <span class="timeline-tag">DSA</span>
+            <span class="timeline-tag">Discrete Math</span>
+            <span class="timeline-tag">Statistics</span>
+            <span class="timeline-tag">Circuit Analysis</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <span class="timeline-date">2024 – Present</span>
+          <div class="timeline-title">Founder · [Your Brand Name]</div>
+          <div class="timeline-org">Fashion eCommerce · Bangladesh</div>
+          <p class="timeline-desc">Built from scratch — inventory management, SEO, customer operations, and gifting logistics. Real product, real customers, real revenue.</p>
+          <div class="timeline-tags">
+            <span class="timeline-tag">eCommerce</span>
+            <span class="timeline-tag">Product</span>
+            <span class="timeline-tag">Operations</span>
+            <span class="timeline-tag">SEO</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-dot" style="background:var(--text-muted)"></div>
+        <div class="timeline-card">
+          <span class="timeline-date">Ongoing</span>
+          <div class="timeline-title">Research Track · Erasmus Mundus Applicant</div>
+          <div class="timeline-org">Self-directed · Target: European Graduate Program</div>
+          <p class="timeline-desc">Focus: Causal ML applied to healthcare data. Building toward a research portfolio and Erasmus Mundus scholarship application 2026–27.</p>
+          <div class="timeline-tags">
+            <span class="timeline-tag">Causal ML</span>
+            <span class="timeline-tag">Healthcare AI</span>
+            <span class="timeline-tag">Research</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-dot" style="background:var(--border)"></div>
+        <div class="timeline-card">
+          <span class="timeline-date">Planned</span>
+          <div class="timeline-title">ML Research Portfolio</div>
+          <div class="timeline-org">In progress</div>
+          <p class="timeline-desc">Paper 1: Causal ML on healthcare data. Paper 2: Interpretability of causal models. Building in public.</p>
+          <div class="timeline-tags">
+            <span class="timeline-tag">In Progress</span>
+            <span class="timeline-tag">ML</span>
+            <span class="timeline-tag">Research Writing</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     GITHUB ACTIVITY
+     ============================================================ -->
+<section id="github" aria-label="GitHub activity">
+  <div class="container">
+    <span class="section-label reveal">// Open Source &amp; Consistency</span>
+    <h2 class="section-title reveal">Showing up every day.</h2>
+
+    <div class="github-inner">
+      <p class="github-quote reveal">"I push code, not just clone tutorials."</p>
+
+      <div class="github-stats-row reveal">
+        <div>
+          <span class="gh-stat-val" data-gh-stat="repos">—</span>
+          <span class="gh-stat-lbl">Public Repos</span>
+        </div>
+        <div>
+          <span class="gh-stat-val" data-gh-stat="followers">—</span>
+          <span class="gh-stat-lbl">Followers</span>
+        </div>
+        <div>
+          <span class="gh-stat-val">2024</span>
+          <span class="gh-stat-lbl">Active Since</span>
+        </div>
+      </div>
+
+      <!-- Replace YOUR_GITHUB with your actual GitHub username -->
+      <div class="github-embeds reveal">
+        <img
+          src="https://streak-stats.demolab.com?user=YOUR_GITHUB&theme=transparent&hide_border=true&ring=C9A84C&fire=C9A84C&currStreakLabel=C9A84C&sideLabels=8A8480&dates=3D3A37&currStreakNum=F0EDE6&sideNums=F0EDE6"
+          alt="GitHub Streak Stats"
+          loading="lazy"
+          width="700"
+        />
+        <img
+          src="https://ghchart.rshah.org/C9A84C/YOUR_GITHUB"
+          alt="GitHub Contribution Chart"
+          loading="lazy"
+          width="800"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WRITING / BLOG
+     ============================================================ -->
+<section id="writing" aria-label="Writing and blog">
+  <div class="container">
+    <span class="section-label reveal">// 03 Writing</span>
+    <h2 class="section-title reveal">Things worth saying.</h2>
+
+    <div class="writing-grid">
+
+      <article class="blog-card reveal">
+        <div class="blog-card-tags">
+          <span class="blog-tag">Reflection</span>
+          <span class="blog-tag">Business</span>
+        </div>
+        <h3 class="blog-card-title">What running a clothing brand taught me about UX</h3>
+        <p class="blog-card-summary">Real customers don't read instructions. Watching them struggle with my store checkout taught me more about UX than any tutorial.</p>
+        <div class="blog-card-meta">
+          <span>May 2025 · 5 min read</span>
+          <a href="#" class="blog-read-link">Read →</a>
+        </div>
+      </article>
+
+      <article class="blog-card reveal">
+        <div class="blog-card-tags">
+          <span class="blog-tag">CS</span>
+          <span class="blog-tag">Learning</span>
+        </div>
+        <h3 class="blog-card-title">How I debugged my first KVL circuit at 2am</h3>
+        <p class="blog-card-summary">A debugging story about Kirchhoff's Voltage Law, a miscalculated resistor, and why rubber duck debugging works even in hardware.</p>
+        <div class="blog-card-meta">
+          <span>Apr 2025 · 4 min read</span>
+          <a href="#" class="blog-read-link">Read →</a>
+        </div>
+      </article>
+
+      <article class="blog-card reveal">
+        <div class="blog-card-tags">
+          <span class="blog-tag">ML</span>
+          <span class="blog-tag">Research</span>
+        </div>
+        <h3 class="blog-card-title">Why I'm studying Causal ML before Gradient Descent</h3>
+        <p class="blog-card-summary">Most beginners start with neural nets. I started with causality. Here's why that decision changed how I think about models.</p>
+        <div class="blog-card-meta">
+          <span>Mar 2025 · 6 min read</span>
+          <a href="#" class="blog-read-link">Read →</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT
+     ============================================================ -->
+<section id="contact" aria-label="Contact">
+  <div class="container">
+    <span class="section-label reveal">// 04 Contact</span>
+
+    <div class="contact-inner reveal">
+      <h2 class="contact-heading">Got a project?<br />A role? A question?</h2>
+      <p class="contact-sub">I reply within 24 hours.</p>
+
+      <a href="mailto:salman@yourdomain.com" class="contact-email-btn">
+        <span>✉ salman@yourdomain.com →</span>
+      </a>
+
+      <div class="contact-avail">
+        <span class="status-dot" aria-hidden="true"></span>
+        Currently Available · Open to freelance &amp; full-time roles
+      </div>
+
+      <div class="contact-socials">
+        <a href="https://github.com/your-github-username" class="social-item" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a href="https://linkedin.com/in/salman" class="social-item" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://twitter.com/salman" class="social-item" target="_blank" rel="noopener" aria-label="Twitter / X">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          Twitter / X
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">S.</span>
+    <p class="footer-center">
+      Built by Salman ·
+      <a href="https://github.com/your-github-username/portfolio" target="_blank" rel="noopener">Open Source on GitHub ↗</a>
+    </p>
+    <p class="footer-right">© <span id="year"></span></p>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
