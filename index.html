@@ -3,786 +3,382 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Salman — CS Student, Developer, and Founder. I build things that work and understand why they should." />
-  <meta name="author" content="Salman" />
-  <meta property="og:title"       content="Salman | Developer · Founder" />
-  <meta property="og:description" content="I build things that work — and understand why they should." />
+  <meta name="description" content="SalmanOS — a personal operating system. Explore my work by dragging windows, opening files, and typing in the terminal." />
+  <meta name="author"      content="Salman" />
+  <meta property="og:title"       content="SalmanOS · v1.0" />
+  <meta property="og:description" content="Boot into Salman's personal OS. Drag windows. Type in the terminal. Find secrets." />
   <meta property="og:type"        content="website" />
-  <meta name="twitter:card"       content="summary_large_image" />
-  <title>Salman — Developer · Founder</title>
+  <title>SalmanOS · v1.0</title>
 
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23D97757'>S</text></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23D97757'>⌬</text></svg>" />
 
-  <!-- Fonts (preconnect first) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=IBM+Plex+Mono:wght@500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
 
-<!-- ============================================================
-     LOADER
-     ============================================================ -->
-<div id="loader" role="status" aria-label="Loading">
-  <div class="loader-monogram">S.</div>
-  <div class="loader-text">Initializing...</div>
-  <div class="loader-bar-track">
-    <div class="loader-bar-fill"></div>
-  </div>
+<!-- ════════════════════════════════════════════════════════════
+     BOOT SCREEN
+     ════════════════════════════════════════════════════════════ -->
+<div id="boot-screen" role="status" aria-label="System booting">
+  <div class="boot-logo">⌬</div>
+  <div class="boot-name">SalmanOS</div>
+  <div class="boot-version">v1.0.0 · initializing</div>
+  <pre class="boot-lines" id="boot-lines"></pre>
+  <div class="boot-bar"><div class="boot-bar-fill"></div></div>
+  <div class="boot-hint">PRESS ANY KEY TO SKIP</div>
 </div>
 
-<!-- ============================================================
-     COMMAND PALETTE
-     ============================================================ -->
-<div class="palette-overlay" role="dialog" aria-modal="true" aria-label="Command palette">
-  <div class="palette-box">
-    <div class="palette-input-wrap">
-      <span class="palette-icon">⌘</span>
-      <input class="palette-input" type="text" placeholder="Search — jump to section, download resume..." autocomplete="off" />
-      <span class="palette-hint">ESC</span>
-    </div>
-    <div class="palette-results"></div>
-  </div>
-</div>
+<!-- ════════════════════════════════════════════════════════════
+     DESKTOP
+     ════════════════════════════════════════════════════════════ -->
+<div id="desktop" aria-hidden="false">
 
-<!-- ============================================================
-     MOBILE NAV OVERLAY
-     ============================================================ -->
-<div class="nav-mobile-overlay" aria-hidden="true">
-  <a href="#about">About</a>
-  <a href="#tech-stack">Tech Stack</a>
-  <a href="#projects">Projects</a>
-  <a href="#writing">Writing</a>
-  <a href="#contact">Contact</a>
-</div>
-
-<!-- ============================================================
-     NAVBAR  ·  "Holographic Command Strip"
-     ============================================================ -->
-<nav class="navbar" role="navigation" aria-label="Main navigation">
-  <div class="nav-shell">
-
-    <!-- Left: brand identifier -->
-    <a href="#" class="nav-logo" aria-label="Back to top">
-      <span class="logo-bracket" aria-hidden="true">▸</span>
-      <span class="logo-text">S<span class="logo-period">.</span></span>
-      <span class="logo-pulse" aria-hidden="true"></span>
-    </a>
-
-    <!-- Center: section nav -->
-    <ul class="nav-links" role="list">
-      <li><a href="#about"><span class="nav-num">[01]</span><span class="nav-label">About</span></a></li>
-      <li><a href="#tech-stack"><span class="nav-num">[02]</span><span class="nav-label">Stack</span></a></li>
-      <li><a href="#projects"><span class="nav-num">[03]</span><span class="nav-label">Projects</span></a></li>
-      <li><a href="#writing"><span class="nav-num">[04]</span><span class="nav-label">Writing</span></a></li>
-      <li><a href="#contact"><span class="nav-num">[05]</span><span class="nav-label">Contact</span></a></li>
-    </ul>
-
-    <!-- Right: tools + CTA -->
-    <div class="nav-right">
-      <button class="btn-palette" data-palette aria-label="Open command palette" title="Command palette">
-        <span class="palette-glyph">⌘</span>
-        <span class="palette-k">K</span>
-      </button>
-      <button class="btn-theme" id="theme-toggle" aria-label="Toggle light/dark mode" title="Toggle theme">
-        <svg class="icon-sun"  xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      </button>
-      <a href="#contact" class="btn-hire">
-        <span class="hire-dot" aria-hidden="true"></span>
-        <span>Hire Me</span>
-        <span class="hire-arrow" aria-hidden="true">→</span>
-      </a>
-      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-
-    <!-- Scroll progress bar at the bottom edge -->
-    <div class="nav-progress" aria-hidden="true">
-      <div class="nav-progress-fill"></div>
-    </div>
-
-  </div>
-</nav>
-
-<!-- ============================================================
-     HERO  ·  "Terminal Observatory"
-     ============================================================ -->
-<section class="hero" id="home" aria-label="Introduction">
-
-  <!-- ── Generative atmosphere · multi-layer creative backdrop ── -->
-
-  <!-- Layer 1: Aurora orbs (drifting blurred gradients) -->
-  <div class="hero-aurora" aria-hidden="true">
+  <!-- Wallpaper layers -->
+  <canvas id="wallpaper" aria-hidden="true"></canvas>
+  <div class="aurora">
     <span class="aurora-orb orb-1"></span>
     <span class="aurora-orb orb-2"></span>
     <span class="aurora-orb orb-3"></span>
     <span class="aurora-orb orb-4"></span>
   </div>
+  <div class="wallpaper-grain" aria-hidden="true"></div>
 
-  <!-- Layer 2: Topographic contour art (corner SVGs) -->
-  <svg class="hero-topo topo-tl" viewBox="0 0 400 400" aria-hidden="true">
-    <g fill="none" stroke="currentColor" stroke-width="0.8">
-      <path d="M 0 80  Q 80 60, 140 100  T 280 120  T 400 90"/>
-      <path d="M 0 130 Q 90 110, 160 150 T 300 160  T 400 140"/>
-      <path d="M 0 180 Q 100 160, 180 200 T 320 210 T 400 190"/>
-      <path d="M 0 230 Q 110 210, 200 250 T 340 260 T 400 240"/>
-    </g>
-  </svg>
-  <svg class="hero-topo topo-br" viewBox="0 0 400 400" aria-hidden="true">
-    <g fill="none" stroke="currentColor" stroke-width="0.8">
-      <path d="M 400 320 Q 320 340, 260 300 T 120 280 T 0   310"/>
-      <path d="M 400 270 Q 310 290, 240 250 T 100 240 T 0   260"/>
-      <path d="M 400 220 Q 300 240, 220 200 T 80  190 T 0   210"/>
-      <path d="M 400 170 Q 290 190, 200 150 T 60  140 T 0   160"/>
-    </g>
-  </svg>
+  <!-- Floating geometric / code / language elements (populated by JS) -->
+  <div id="floating-elements" aria-hidden="true"></div>
 
-  <!-- Layer 3: Particle constellation (canvas) -->
-  <canvas class="hero-constellation" aria-hidden="true"></canvas>
-
-  <!-- Layer 4: Soft radial spotlight from center -->
-  <div class="hero-spotlight" aria-hidden="true"></div>
-
-  <!-- Layer 5: Floating math formulas (existing) -->
-  <div class="math-bg" aria-hidden="true"></div>
-
-  <!-- Layer 6: Scattered data-viz glyphs (existing) -->
-  <div class="hero-glyphs" aria-hidden="true"></div>
-
-  <!-- Layer 7: Film grain texture -->
-  <div class="hero-grain" aria-hidden="true"></div>
-
-  <div class="hero-inner">
-
-    <!-- Top terminal readout -->
-    <div class="hero-readout reveal">
-      <span class="readout-dot"></span>
-      <span>SYS<span class="readout-c">::</span>ONLINE</span>
-      <span class="readout-sep">|</span>
-      <span>LOC<span class="readout-c">::</span>DHAKA_BD</span>
-      <span class="readout-sep">|</span>
-      <span>STATUS<span class="readout-c">::</span>OPEN_TO_REMOTE</span>
+  <!-- Top bar -->
+  <div id="topbar">
+    <div class="topbar-left">
+      <button id="os-logo" class="logo-btn" aria-label="System info">⌬</button>
+      <span class="topbar-name">SalmanOS</span>
+      <span class="topbar-menu">File</span>
+      <span class="topbar-menu">View</span>
+      <span class="topbar-menu">Window</span>
+      <span class="topbar-menu">Help</span>
     </div>
-
-    <!-- Centered portrait with brackets + orbit + ring -->
-    <div class="hero-portrait reveal" aria-hidden="true">
-      <!-- 4 corner targeting brackets -->
-      <span class="corner tl"></span>
-      <span class="corner tr"></span>
-      <span class="corner bl"></span>
-      <span class="corner br"></span>
-
-      <!-- Cardinal registration marks -->
-      <span class="reg-mark rm-n"></span>
-      <span class="reg-mark rm-e"></span>
-      <span class="reg-mark rm-s"></span>
-      <span class="reg-mark rm-w"></span>
-
-      <!-- Rotating dashed outer ring -->
-      <div class="portrait-ring"></div>
-
-      <!-- Orbiting satellite dot -->
-      <div class="portrait-orbit"><span class="orbit-dot"></span></div>
-
-      <!-- The photo itself -->
-      <div class="portrait-frame">
-        <!-- Replace src with your real photo -->
-        <!-- <img src="assets/images/photo-1.jpg" alt="Salman" class="portrait-img" /> -->
-        <div class="portrait-placeholder">
-          <span class="pp-icon">S</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Name with terminal cursor -->
-    <h1 class="hero-name reveal">
-      Salman<span class="name-cursor" aria-hidden="true">▊</span>
-    </h1>
-
-    <!-- Short underline accent -->
-    <div class="hero-underline reveal" aria-hidden="true"></div>
-
-    <!-- Role tagline -->
-    <p class="hero-role reveal">
-      <span>CS STUDENT</span>
-      <span class="role-sep">|</span>
-      <span>DEVELOPER</span>
-      <span class="role-sep">|</span>
-      <span>FOUNDER</span>
-    </p>
-
-    <!-- Subtitle / pitch -->
-    <p class="hero-pitch reveal">
-      I build things that work — and understand why they should.
-    </p>
-
-    <!-- Social icon boxes -->
-    <div class="hero-socials reveal">
-      <a href="https://github.com/DeepSalman" target="_blank" rel="noopener" class="social-box" aria-label="GitHub">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
-          <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-1.92c-3.2.7-3.88-1.54-3.88-1.54-.52-1.32-1.28-1.67-1.28-1.67-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.51-1.47.11-3.06 0 0 .97-.31 3.18 1.18.92-.26 1.91-.39 2.89-.39.98 0 1.97.13 2.89.39 2.2-1.49 3.17-1.18 3.17-1.18.62 1.59.23 2.77.11 3.06.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.41-5.26 5.69.41.36.78 1.07.78 2.16v3.2c0 .31.2.66.79.55 4.57-1.52 7.85-5.83 7.85-10.91C23.5 5.65 18.35.5 12 .5z"/>
-        </svg>
-      </a>
-      <a href="https://linkedin.com/in/salman" target="_blank" rel="noopener" class="social-box" aria-label="LinkedIn">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
-          <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/>
-        </svg>
-      </a>
-      <a href="https://twitter.com/salman" target="_blank" rel="noopener" class="social-box" aria-label="X / Twitter">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
-          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-        </svg>
-      </a>
-    </div>
-
-    <!-- CTA buttons -->
-    <div class="hero-cta reveal">
-      <a href="#projects" class="cta-primary">
-        <span>View Projects</span>
-      </a>
-      <a href="assets/resume.pdf" class="cta-ghost" download>
-        Download Resume ↓
-      </a>
-    </div>
-
-    <!-- Scroll hint -->
-    <div class="hero-scroll reveal" aria-hidden="true">
-      <span class="scroll-label">SCROLL</span>
-      <span class="scroll-bar"></span>
-    </div>
-
-  </div>
-</section>
-
-<!-- ============================================================
-     ABOUT
-     ============================================================ -->
-<section id="about" aria-label="About me">
-  <div class="container">
-    <div class="about-grid">
-
-      <!-- Left: Photo + Stats -->
-      <div class="about-photo-col reveal">
-        <!-- <img src="assets/images/about-photo.jpg" alt="Salman" class="about-photo" /> -->
-        <div class="about-photo-placeholder" aria-hidden="true">👤</div>
-
-        <div class="about-stats">
-          <div class="stat-box">
-            <span class="stat-val">3+</span>
-            <span class="stat-lbl">Projects Built</span>
-          </div>
-          <div class="stat-box">
-            <span class="stat-val">1</span>
-            <span class="stat-lbl">Brand Launched</span>
-          </div>
-          <div class="stat-box">
-            <span class="stat-val">4th</span>
-            <span class="stat-lbl">Sem · CSE</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right: Text -->
-      <div class="about-text-col reveal">
-        <span class="section-label">// 01 About</span>
-        <h2 class="about-heading">Developer.<br />Founder.<br />Researcher-in-progress.</h2>
-
-        <p>
-          CSE student with a deep interest in how <strong>ML systems reason about causality</strong>.
-          Building toward applied research and an Erasmus Mundus scholarship.
-          I care about understanding systems from first principles, not just using them.
-        </p>
-        <p>
-          I also run a <strong>fashion eCommerce brand</strong> — real inventory, real customers,
-          real ops. That hands-on experience with product, logistics, and customer behaviour
-          is what makes me different from other junior devs who've only shipped side projects.
-        </p>
-        <p>
-          Early in the journey. Learning fast. Shipping faster.
-        </p>
-
-        <!-- Currently pills -->
-        <div class="currently-section">
-          <div class="currently-row">
-            <span class="currently-icon">📖</span>
-            <span class="currently-label">Learning</span>
-            <div class="currently-pills">
-              <span class="pill">FastAPI</span>
-              <span class="pill">Causal ML</span>
-              <span class="pill">Research Writing</span>
-            </div>
-          </div>
-          <div class="currently-row">
-            <span class="currently-icon">🔨</span>
-            <span class="currently-label">Building</span>
-            <div class="currently-pills">
-              <span class="pill">LifeOS</span>
-              <span class="pill">ML Portfolio</span>
-            </div>
-          </div>
-          <div class="currently-row">
-            <span class="currently-icon">🎯</span>
-            <span class="currently-label">Planning</span>
-            <div class="currently-pills">
-              <span class="pill">Erasmus Mundus 2026–27</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
+    <div class="topbar-right">
+      <span class="topbar-stat"><span class="stat-dot online"></span> ONLINE</span>
+      <span class="topbar-stat" id="topbar-uptime">UP 00:00</span>
+      <button id="theme-btn" class="topbar-btn" aria-label="Toggle theme" title="Theme">◐</button>
+      <button id="notif-btn" class="topbar-btn" aria-label="Notifications" title="Notifications">🔔</button>
+      <span class="topbar-stat" id="topbar-date">--</span>
+      <span class="topbar-stat" id="topbar-clock">--:--</span>
     </div>
   </div>
-</section>
 
-<!-- ============================================================
-     TECH STACK
-     ============================================================ -->
-<section id="tech-stack" aria-label="Tech stack">
-  <div class="container">
-    <span class="section-label reveal">// 02 Tech Stack</span>
-    <h2 class="section-title reveal">What I work with.</h2>
-
-    <div class="tech-stack-groups">
-
-      <div class="tech-group reveal">
-        <div class="tech-group-label">Languages</div>
-        <div class="skills-icon-grid">
-          <div class="skill-tile">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" alt="TypeScript" class="skill-tile-logo" />
-            <span class="skill-tile-name">TypeScript</span>
-          </div>
-          <div class="skill-tile">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" class="skill-tile-logo" />
-            <span class="skill-tile-name">JavaScript</span>
-          </div>
-          <div class="skill-tile">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" class="skill-tile-logo" />
-            <span class="skill-tile-name">Python</span>
-          </div>
-          <div class="skill-tile">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java" class="skill-tile-logo" />
-            <span class="skill-tile-name">Java</span>
-          </div>
-          <div class="skill-tile">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="C" class="skill-tile-logo" />
-            <span class="skill-tile-name">C</span>
-          </div>
-          <div class="skill-tile">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" alt="C++" class="skill-tile-logo" />
-            <span class="skill-tile-name">C++</span>
-          </div>
-        </div>
+  <!-- Desktop icons -->
+  <div id="desktop-icons">
+    <button class="d-icon" data-window="about" aria-label="Open About">
+      <div class="d-icon-art" data-emoji="📄">
+        <svg viewBox="0 0 32 40" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 2 H22 L28 8 V38 H4 Z"/><path d="M22 2 V8 H28"/><line x1="8"  y1="16" x2="24" y2="16"/><line x1="8"  y1="22" x2="24" y2="22"/><line x1="8"  y1="28" x2="20" y2="28"/></svg>
       </div>
-
-      <div class="tech-group reveal">
-        <div class="tech-group-label">Web</div>
-        <div class="skills-icon-grid">
-          <div class="skill-tile">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5" class="skill-tile-logo" />
-            <span class="skill-tile-name">HTML</span>
-          </div>
-          <div class="skill-tile">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3" class="skill-tile-logo" />
-            <span class="skill-tile-name">CSS</span>
-          </div>
-          <div class="skill-tile">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" class="skill-tile-logo" />
-            <span class="skill-tile-name">JavaScript</span>
-          </div>
-          <div class="skill-tile">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS" class="skill-tile-logo" />
-            <span class="skill-tile-name">Tailwind</span>
-          </div>
-          <div class="skill-tile">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React" class="skill-tile-logo" />
-            <span class="skill-tile-name">React</span>
-          </div>
-          <div class="skill-tile">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg" alt="Flask" class="skill-tile-logo" style="filter:invert(var(--logo-invert))" />
-            <span class="skill-tile-name">Flask</span>
-          </div>
-          <div class="skill-tile">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg" alt="FastAPI" class="skill-tile-logo" />
-            <span class="skill-tile-name">FastAPI</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="tech-group reveal">
-        <div class="tech-group-label">Data &amp; ML</div>
-        <div class="skills-icon-grid">
-          <div class="skill-tile">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" alt="NumPy" class="skill-tile-logo" />
-            <span class="skill-tile-name">NumPy</span>
-          </div>
-          <div class="skill-tile">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt="Pandas" class="skill-tile-logo" />
-            <span class="skill-tile-name">Pandas</span>
-          </div>
-          <div class="skill-tile">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" alt="Scikit-learn" class="skill-tile-logo" />
-            <span class="skill-tile-name">Scikit-learn</span>
-          </div>
-          <div class="skill-tile">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg" alt="PyTorch" class="skill-tile-logo" />
-            <span class="skill-tile-name">PyTorch</span>
-          </div>
-          <div class="skill-tile">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" class="skill-tile-logo" />
-            <span class="skill-tile-name">TensorFlow</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="tech-group reveal">
-        <div class="tech-group-label">Tools &amp; DB</div>
-        <div class="skills-icon-grid">
-          <div class="skill-tile">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git" class="skill-tile-logo" />
-            <span class="skill-tile-name">Git</span>
-          </div>
-          <div class="skill-tile">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="SQL" class="skill-tile-logo" />
-            <span class="skill-tile-name">SQL</span>
-          </div>
-          <div class="skill-tile">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" alt="VS Code" class="skill-tile-logo" />
-            <span class="skill-tile-name">VS Code</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="tech-group reveal">
-        <div class="tech-group-label">CS Concepts</div>
-        <div class="skills-icon-grid cs-concepts-grid">
-          <div class="skill-tile skill-tile-text"><span class="skill-tile-abbr">DSA</span><span class="skill-tile-name">Data Structures &amp; Algorithms</span></div>
-          <div class="skill-tile skill-tile-text"><span class="skill-tile-abbr">DM</span><span class="skill-tile-name">Discrete Math</span></div>
-          <div class="skill-tile skill-tile-text"><span class="skill-tile-abbr">ST</span><span class="skill-tile-name">Statistics</span></div>
-          <div class="skill-tile skill-tile-text"><span class="skill-tile-abbr">LA</span><span class="skill-tile-name">Linear Algebra</span></div>
-        </div>
-      </div>
-
-    </div>
+      <div class="d-icon-label">About.txt</div>
+    </button>
+    <button class="d-icon" data-window="projects" aria-label="Open Projects">
+      <div class="d-icon-art"><svg viewBox="0 0 36 30" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 6 V26 H34 V10 H18 L14 6 Z"/></svg></div>
+      <div class="d-icon-label">Projects</div>
+    </button>
+    <button class="d-icon" data-window="skills" aria-label="Open Skills">
+      <div class="d-icon-art"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4"  y="18" width="5" height="10"/><rect x="13" y="10" width="5" height="18"/><rect x="22" y="14" width="5" height="14"/></svg></div>
+      <div class="d-icon-label">Skills.exe</div>
+    </button>
+    <button class="d-icon" data-window="education" aria-label="Open Education">
+      <div class="d-icon-art"><svg viewBox="0 0 36 28" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 10 L18 3 L34 10 L18 17 Z"/><path d="M10 13 V21 Q18 25, 26 21 V13"/></svg></div>
+      <div class="d-icon-label">Education.log</div>
+    </button>
+    <button class="d-icon highlight" data-window="terminal" aria-label="Open Terminal">
+      <div class="d-icon-art mono">▸_</div>
+      <div class="d-icon-label">Terminal</div>
+    </button>
+    <button class="d-icon" data-window="contact" aria-label="Open Contact">
+      <div class="d-icon-art"><svg viewBox="0 0 32 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="3" width="28" height="18"/><polyline points="2,3 16,14 30,3"/></svg></div>
+      <div class="d-icon-label">Contact.app</div>
+    </button>
+    <button class="d-icon" data-window="nowplaying" aria-label="Open Now Playing">
+      <div class="d-icon-art"><svg viewBox="0 0 28 32" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 22 V4 L24 4 V18"/><circle cx="8"  cy="24" r="4"/><circle cx="22" cy="20" r="4"/></svg></div>
+      <div class="d-icon-label">NowPlaying</div>
+    </button>
+    <a class="d-icon" href="https://github.com/DeepSalman" target="_blank" rel="noopener" aria-label="Open GitHub link">
+      <div class="d-icon-art"><svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 2C8.27 2 2 8.27 2 16c0 6.18 4 11.42 9.56 13.27.7.13.96-.3.96-.67v-2.34c-3.9.85-4.72-1.88-4.72-1.88-.64-1.61-1.55-2.04-1.55-2.04-1.27-.87.1-.85.1-.85 1.4.1 2.13 1.44 2.13 1.44 1.25 2.14 3.27 1.52 4.07 1.16.13-.9.49-1.52.9-1.87-3.12-.36-6.4-1.56-6.4-6.92 0-1.53.55-2.78 1.44-3.76-.14-.36-.62-1.79.14-3.74 0 0 1.18-.38 3.86 1.43A13.4 13.4 0 0 1 16 7.32c1.2 0 2.4.16 3.53.47 2.68-1.81 3.86-1.43 3.86-1.43.76 1.95.28 3.38.14 3.74.9.98 1.44 2.23 1.44 3.76 0 5.37-3.28 6.55-6.41 6.91.5.43.95 1.29.95 2.6v3.86c0 .37.25.81.97.67C26 27.42 30 22.18 30 16 30 8.27 23.73 2 16 2z"/></svg></div>
+      <div class="d-icon-label">GitHub.url</div>
+    </a>
   </div>
-</section>
 
-<!-- ============================================================
-     SKILLS
-     ============================================================ -->
-<section id="skills" aria-label="Skills and strengths">
-  <div class="container">
-    <span class="section-label reveal">// Strengths</span>
-    <h2 class="section-title reveal">How I think.</h2>
+  <!-- Notifications -->
+  <div id="notifs"></div>
 
-    <!-- Strength cards -->
-    <div class="strength-cards">
-      <div class="strength-card reveal">
-        <span class="strength-card-icon">⟨/⟩</span>
-        <div class="strength-card-title">Problem Decomposer</div>
-        <p class="strength-card-body">"I break complex bugs into primitives before writing a single line."</p>
-      </div>
-      <div class="strength-card reveal">
-        <span class="strength-card-icon">🏗</span>
-        <div class="strength-card-title">Builder Mindset</div>
-        <p class="strength-card-body">"I shipped a real product to real customers. Code isn't theory for me."</p>
-      </div>
-      <div class="strength-card reveal">
-        <span class="strength-card-icon">📈</span>
-        <div class="strength-card-title">Rapid Learner</div>
-        <p class="strength-card-body">"KVL circuits, Spearman Rank, linked lists — same semester."</p>
-      </div>
-    </div>
+  <!-- Right-click menu -->
+  <div id="context-menu" aria-hidden="true">
+    <button data-action="open-terminal">▸ Open Terminal</button>
+    <button data-action="theme">◐ Toggle Theme</button>
+    <button data-action="about">ⓘ About SalmanOS</button>
+    <div class="ctx-sep"></div>
+    <button data-action="surprise">✨ Surprise Me</button>
   </div>
-</section>
 
-<!-- ============================================================
-     PROJECTS
-     ============================================================ -->
-<section id="projects" aria-label="Projects">
-  <div class="container">
-    <span class="section-label reveal">// 02 Projects</span>
-    <h2 class="section-title reveal">Things I've built.</h2>
-
-    <!-- CARD -->
-    <div class="project-coming-soon reveal">
-      <div class="coming-soon-icon">🛠️</div>
-      <h3 class="coming-soon-title">Building something meaningful.</h3>
-      <p class="coming-soon-desc">Stay tuned to learn and know about it.</p>
-      <div class="coming-soon-badge">
-        <span class="status-dot"></span>
-        In Progress
-      </div>
-    </div>
-    <!-- CARD -->
-
-    <!--
-    ┌─────────────────────────────────────────────────────────────┐
-    │  PROJECT CARD TEMPLATE                                      │
-    │  ─────────────────────────────────────────────────────────  │
-    │  HOW TO USE:                                                │
-    │  1. Remove the coming-soon card above (or keep it)          │
-    │  2. Uncomment this entire block                             │
-    │  3. Fill in the [ ] placeholders                            │
-    │  4. Duplicate the <div class="project-card"> block          │
-    │     for each additional project                             │
-    └─────────────────────────────────────────────────────────────┘
-
-    <div class="project-grid">
-
-      <div class="project-card">
-        <div class="project-card-media">
-          <img src="assets/images/[screenshot.png]" alt="[Project Name]" />
-           If no image, delete the <img> above and keep this: -->
-          <!-- <span class="project-card-media-ph">💻</span> -->
-        <!-- </div>
-        <div class="project-card-body">
-
-          <div class="project-tags">
-            <span class="project-tag">[Tag 1]</span>
-            <span class="project-tag">[Tag 2]</span>
-            <span class="project-tag">[Tag 3]</span>
-          </div>
-
-          <div class="project-card-title">[Project Title]</div>
-
-          <p class="project-card-desc">
-            [2-sentence description. What does it do and what problem does it solve?]
-          </p>
-
-          <p class="project-card-learned">
-            "[One thing I learned building this.]"
-          </p>
-
-          <div class="project-card-footer">
-            <div class="project-tags" style="margin:0">
-              <a href="[LIVE_DEMO_URL]"  class="project-link"       style="font-size:9px;padding:5px 10px" target="_blank" rel="noopener">Demo ↗</a>
-              <a href="[GITHUB_REPO_URL]" class="project-link ghost" style="font-size:9px;padding:5px 10px" target="_blank" rel="noopener">Code →</a>
-            </div>
-          </div>
-
-        </div>
-      </div> -->
-
-      <!-- Duplicate the block above for each new project -->
-
-    </div>
-
+  <!-- Dock -->
+  <div id="dock">
+    <button class="dock-item" data-window="about" title="About">
+      <svg viewBox="0 0 32 40" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 2 H22 L28 8 V38 H4 Z"/><path d="M22 2 V8 H28"/></svg>
+    </button>
+    <button class="dock-item" data-window="projects" title="Projects">
+      <svg viewBox="0 0 36 30" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 6 V26 H34 V10 H18 L14 6 Z"/></svg>
+    </button>
+    <button class="dock-item" data-window="skills" title="Skills">
+      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="18" width="5" height="10"/><rect x="13" y="10" width="5" height="18"/><rect x="22" y="14" width="5" height="14"/></svg>
+    </button>
+    <button class="dock-item" data-window="education" title="Education">
+      <svg viewBox="0 0 36 28" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 10 L18 3 L34 10 L18 17 Z"/><path d="M10 13 V21 Q18 25, 26 21 V13"/></svg>
+    </button>
+    <div class="dock-sep"></div>
+    <button class="dock-item primary" data-window="terminal" title="Terminal"><span class="dock-mono">▸_</span></button>
+    <button class="dock-item" data-window="contact" title="Contact">
+      <svg viewBox="0 0 32 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="3" width="28" height="18"/><polyline points="2,3 16,14 30,3"/></svg>
+    </button>
+    <button class="dock-item" data-window="nowplaying" title="Now Playing">
+      <svg viewBox="0 0 28 32" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 22 V4 L24 4 V18"/><circle cx="8" cy="24" r="4"/><circle cx="22" cy="20" r="4"/></svg>
+    </button>
   </div>
-</section>
 
-<!-- ============================================================
-     TIMELINE
-     ============================================================ -->
-<section id="timeline" aria-label="Journey and timeline">
-  <div class="container">
-    <span class="section-label reveal">// Journey</span>
-    <h2 class="section-title reveal">Education, brand,<br />research track.</h2>
-
-    <div class="timeline" style="max-width:720px">
-
-      <div class="timeline-item reveal">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card">
-          <span class="timeline-date">2024 – Present</span>
-          <div class="timeline-title"><a href="#" class="timeline-degree-link" onclick="return false;">B.Sc. Computer Science &amp; Engineering</a></div>
-          <div class="timeline-org">United International University · Dhaka, Bangladesh</div>
-          <p class="timeline-desc">Relevant coursework: Data Structures &amp; Algorithms, Discrete Mathematics, Statistics &amp; Probability, Circuit Analysis, OOP.</p>
-          <div class="timeline-tags">
-            <span class="timeline-tag">DSA</span>
-            <span class="timeline-tag">Discrete Math</span>
-            <span class="timeline-tag">Statistics</span>
-            <span class="timeline-tag">Circuit Analysis</span>
-          </div>
+  <!-- Window template -->
+  <template id="tpl-window">
+    <div class="window" data-id="">
+      <div class="window-titlebar">
+        <div class="window-traffic">
+          <button class="traffic close" data-action="close" aria-label="Close"></button>
+          <button class="traffic min"   data-action="min"   aria-label="Minimize"></button>
+          <button class="traffic max"   data-action="max"   aria-label="Maximize"></button>
         </div>
+        <span class="window-title"></span>
+        <span class="window-meta"></span>
       </div>
-
-      <!--
-      <div class="timeline-item reveal">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card">
-          <span class="timeline-date">2024 – Present</span>
-          <div class="timeline-title">Founder · [Your Brand Name]</div>
-          <div class="timeline-org">Fashion eCommerce · Bangladesh</div>
-          <p class="timeline-desc">Built from scratch — inventory management, SEO, customer operations, and gifting logistics. Real product, real customers, real revenue.</p>
-          <div class="timeline-tags">
-            <span class="timeline-tag">eCommerce</span>
-            <span class="timeline-tag">Product</span>
-            <span class="timeline-tag">Operations</span>
-            <span class="timeline-tag">SEO</span>
-          </div>
-        </div>
-      </div>
-      -->
-
-      <!--
-      <div class="timeline-item reveal">
-        <div class="timeline-dot" style="background:var(--text-muted)"></div>
-        <div class="timeline-card">
-          <span class="timeline-date">Ongoing</span>
-          <div class="timeline-title">Research Track · Erasmus Mundus Applicant</div>
-          <div class="timeline-org">Self-directed · Target: European Graduate Program</div>
-          <p class="timeline-desc">Focus: Causal ML applied to healthcare data. Building toward a research portfolio and Erasmus Mundus scholarship application 2026–27.</p>
-          <div class="timeline-tags">
-            <span class="timeline-tag">Causal ML</span>
-            <span class="timeline-tag">Healthcare AI</span>
-            <span class="timeline-tag">Research</span>
-          </div>
-        </div>
-      </div>
-      -->
-
-      <!--
-      <div class="timeline-item reveal">
-        <div class="timeline-dot" style="background:var(--border)"></div>
-        <div class="timeline-card">
-          <span class="timeline-date">Planned</span>
-          <div class="timeline-title">ML Research Portfolio</div>
-          <div class="timeline-org">In progress</div>
-          <p class="timeline-desc">Paper 1: Causal ML on healthcare data. Paper 2: Interpretability of causal models. Building in public.</p>
-          <div class="timeline-tags">
-            <span class="timeline-tag">In Progress</span>
-            <span class="timeline-tag">ML</span>
-            <span class="timeline-tag">Research Writing</span>
-          </div>
-        </div>
-      </div>
-      -->
-
+      <div class="window-body"></div>
     </div>
-  </div>
-</section>
+  </template>
 
-<!-- ============================================================
-     GITHUB ACTIVITY
-     ============================================================ -->
-<section id="github" aria-label="GitHub activity">
-  <div class="container">
-    <span class="section-label reveal">// Open Source &amp; Consistency</span>
-    <h2 class="section-title reveal">Showing up every day.</h2>
+  <!-- ════════════════════════════════════════════════════════════
+       WINDOW CONTENT TEMPLATES (cloned on open)
+       ════════════════════════════════════════════════════════════ -->
 
-    <!-- Replace YOUR_GITHUB with your actual GitHub username -->
-    <div class="github-heatmap reveal">
-      <img
-        src="https://ghchart.rshah.org/D97757/YOUR_GITHUB"
-        alt="GitHub Contribution Heatmap"
-        loading="lazy"
-        class="heatmap-img"
-      />
+  <template id="content-about">
+    <div class="win-about">
+      <div class="about-portrait">
+        <div class="portrait-corner tl"></div>
+        <div class="portrait-corner tr"></div>
+        <div class="portrait-corner bl"></div>
+        <div class="portrait-corner br"></div>
+        <div class="portrait-circle"><span>S</span></div>
+      </div>
+      <h2 class="about-name">Salman</h2>
+      <p class="about-sub">CS Student · Developer · Founder</p>
+      <p class="about-loc">📍 Dhaka, Bangladesh — open to remote</p>
+      <hr class="about-rule"/>
+      <div class="about-row">
+        <span class="about-key">/* currently */</span>
+        <ul>
+          <li>Studying CSE at <strong>United International University</strong> (4th sem)</li>
+          <li>Building an ML research portfolio toward Erasmus Mundus 2026–27</li>
+          <li>Running a small <strong>fashion eCommerce</strong> brand from Dhaka</li>
+        </ul>
+      </div>
+      <div class="about-row">
+        <span class="about-key">/* interests */</span>
+        <ul>
+          <li>Causal ML applied to healthcare data</li>
+          <li>The intersection of code and commerce</li>
+          <li>Writing about what I learn while I learn it</li>
+        </ul>
+      </div>
+      <blockquote class="about-quote">
+        "I build things that work — and understand why they should."
+      </blockquote>
     </div>
-  </div>
-</section>
+  </template>
 
-<!-- ============================================================
-     WRITING / BLOG
-     ============================================================ -->
-<section id="writing" aria-label="Writing and blog">
-  <div class="container">
-    <span class="section-label reveal">// 03 Writing</span>
-    <h2 class="section-title reveal">Things worth saying.</h2>
-
-    <div class="writing-grid">
-
-      <article class="blog-card reveal">
-        <div class="blog-card-tags">
-          <span class="blog-tag">Reflection</span>
-          <span class="blog-tag">Business</span>
-        </div>
-        <h3 class="blog-card-title">What running a clothing brand taught me about UX</h3>
-        <p class="blog-card-summary">Real customers don't read instructions. Watching them struggle with my store checkout taught me more about UX than any tutorial.</p>
-        <div class="blog-card-meta">
-          <span>May 2025 · 5 min read</span>
-          <a href="#" class="blog-read-link">Read →</a>
-        </div>
-      </article>
-
-      <article class="blog-card reveal">
-        <div class="blog-card-tags">
-          <span class="blog-tag">CS</span>
-          <span class="blog-tag">Learning</span>
-        </div>
-        <h3 class="blog-card-title">How I debugged my first KVL circuit at 2am</h3>
-        <p class="blog-card-summary">A debugging story about Kirchhoff's Voltage Law, a miscalculated resistor, and why rubber duck debugging works even in hardware.</p>
-        <div class="blog-card-meta">
-          <span>Apr 2025 · 4 min read</span>
-          <a href="#" class="blog-read-link">Read →</a>
-        </div>
-      </article>
-
-      <article class="blog-card reveal">
-        <div class="blog-card-tags">
-          <span class="blog-tag">ML</span>
-          <span class="blog-tag">Research</span>
-        </div>
-        <h3 class="blog-card-title">Why I'm studying Causal ML before Gradient Descent</h3>
-        <p class="blog-card-summary">Most beginners start with neural nets. I started with causality. Here's why that decision changed how I think about models.</p>
-        <div class="blog-card-meta">
-          <span>Mar 2025 · 6 min read</span>
-          <a href="#" class="blog-read-link">Read →</a>
-        </div>
-      </article>
-
+  <template id="content-projects">
+    <div class="win-projects">
+      <div class="finder-toolbar">
+        <span class="finder-path">📁 /Users/salman/Projects</span>
+        <span class="finder-count">1 item</span>
+      </div>
+      <div class="finder-grid">
+        <button class="finder-file in-progress" data-action="proj-soon">
+          <div class="finder-file-icon">🛠</div>
+          <div class="finder-file-name">coming-soon.proj</div>
+          <div class="finder-file-meta">in progress</div>
+        </button>
+      </div>
+      <div class="finder-empty">
+        <p>"<strong>Building something meaningful.</strong>"</p>
+        <p>The first real project ships soon. Drop your email in <code>Contact.app</code> to get the launch ping.</p>
+      </div>
     </div>
-  </div>
-</section>
+  </template>
 
-<!-- ============================================================
-     CONTACT
-     ============================================================ -->
-<section id="contact" aria-label="Contact">
-  <div class="container">
-    <span class="section-label reveal">// 04 Contact</span>
+  <template id="content-skills">
+    <div class="win-skills">
+      <div class="skill-group">
+        <h3 class="skill-h">Languages</h3>
+        <div class="skill-row">
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">JavaScript</span>
+          <span class="skill-pill">TypeScript</span>
+          <span class="skill-pill">Java</span>
+          <span class="skill-pill">C</span>
+          <span class="skill-pill">C++</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3 class="skill-h">Web</h3>
+        <div class="skill-row">
+          <span class="skill-pill">HTML</span>
+          <span class="skill-pill">CSS</span>
+          <span class="skill-pill">React</span>
+          <span class="skill-pill">Tailwind</span>
+          <span class="skill-pill">Node</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3 class="skill-h">Data &amp; ML</h3>
+        <div class="skill-row">
+          <span class="skill-pill">PyTorch</span>
+          <span class="skill-pill">TensorFlow</span>
+          <span class="skill-pill">NumPy</span>
+          <span class="skill-pill">Pandas</span>
+          <span class="skill-pill">SQL</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3 class="skill-h">CS Concepts</h3>
+        <div class="skill-row">
+          <span class="skill-pill">DSA</span>
+          <span class="skill-pill">Discrete Math</span>
+          <span class="skill-pill">Statistics</span>
+          <span class="skill-pill">Linear Algebra</span>
+          <span class="skill-pill">OOP</span>
+        </div>
+      </div>
+    </div>
+  </template>
 
-    <div class="contact-inner reveal">
-      <h2 class="contact-heading">Got a project?<br />A role? A question?</h2>
-      <p class="contact-sub">I reply within 24 hours.</p>
+  <template id="content-education">
+    <div class="win-edu">
+      <pre class="log-view">
+<span class="log-time">[2024-01-15 09:00]</span> <span class="log-info">INFO</span>   Enrolled · B.Sc. Computer Science &amp; Engineering
+                            United International University · Dhaka
 
-      <a href="mailto:salman@yourdomain.com" class="contact-email-btn">
-        <span>✉ salman@yourdomain.com →</span>
+<span class="log-time">[2024-09-12 14:30]</span> <span class="log-ok">PASS</span>   Course · Data Structures &amp; Algorithms
+<span class="log-time">[2025-01-10 11:00]</span> <span class="log-ok">PASS</span>   Course · Statistics &amp; Probability
+<span class="log-time">[2025-03-14 09:15]</span> <span class="log-ok">PASS</span>   Course · Discrete Mathematics
+<span class="log-time">[2025-04-22 16:00]</span> <span class="log-ok">PASS</span>   Lab    · Circuit Analysis
+<span class="log-time">[2025-05-12 --:--]</span> <span class="log-warn">RUN</span>    Semester · 4 (in progress)
+
+<span class="log-time">[2026-XX-XX ??:??]</span> <span class="log-info">PLAN</span>   Apply · Erasmus Mundus scholarship
+                            Target · European Graduate Program
+                            Focus  · Causal ML on healthcare data
+      </pre>
+    </div>
+  </template>
+
+  <template id="content-terminal">
+    <div class="win-terminal">
+      <div class="terminal-output" id="terminal-output"></div>
+      <div class="terminal-input-row">
+        <span class="terminal-prompt">salman@SalmanOS:~$</span>
+        <input class="terminal-input" id="terminal-input" type="text" autocomplete="off" spellcheck="false" autofocus />
+        <span class="terminal-caret"></span>
+      </div>
+    </div>
+  </template>
+
+  <template id="content-contact">
+    <div class="win-contact">
+      <h2 class="contact-h">Let's talk.</h2>
+      <p class="contact-sub">The fastest way to reach me — pick one.</p>
+
+      <button class="contact-card" data-action="copy-email" data-email="salman2430508@bscse.uiu.ac.bd">
+        <span class="contact-icon">✉</span>
+        <div class="contact-text">
+          <div class="contact-label">Email</div>
+          <div class="contact-val">salman2430508@bscse.uiu.ac.bd</div>
+        </div>
+        <span class="contact-action">copy</span>
+      </button>
+
+      <a class="contact-card" href="https://github.com/DeepSalman" target="_blank" rel="noopener">
+        <span class="contact-icon">⌥</span>
+        <div class="contact-text">
+          <div class="contact-label">GitHub</div>
+          <div class="contact-val">github.com/DeepSalman</div>
+        </div>
+        <span class="contact-action">open ↗</span>
       </a>
 
-      <div class="contact-avail">
-        <span class="status-dot" aria-hidden="true"></span>
-        Currently Available · Open to freelance &amp; full-time roles
-      </div>
+      <a class="contact-card" href="https://linkedin.com/in/salman" target="_blank" rel="noopener">
+        <span class="contact-icon">in</span>
+        <div class="contact-text">
+          <div class="contact-label">LinkedIn</div>
+          <div class="contact-val">linkedin.com/in/salman</div>
+        </div>
+        <span class="contact-action">open ↗</span>
+      </a>
 
-      <div class="contact-socials">
-        <a href="https://github.com/your-github-username" class="social-item" target="_blank" rel="noopener" aria-label="GitHub">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-          GitHub
-        </a>
-        <a href="https://linkedin.com/in/salman" class="social-item" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          LinkedIn
-        </a>
-        <a href="https://twitter.com/salman" class="social-item" target="_blank" rel="noopener" aria-label="Twitter / X">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          Twitter / X
-        </a>
+      <a class="contact-card" href="https://twitter.com/salman" target="_blank" rel="noopener">
+        <span class="contact-icon">𝕏</span>
+        <div class="contact-text">
+          <div class="contact-label">X / Twitter</div>
+          <div class="contact-val">@salman</div>
+        </div>
+        <span class="contact-action">open ↗</span>
+      </a>
+
+      <a class="contact-card download" href="assets/resume.pdf" download>
+        <span class="contact-icon">📜</span>
+        <div class="contact-text">
+          <div class="contact-label">Resume</div>
+          <div class="contact-val">salman-resume.pdf</div>
+        </div>
+        <span class="contact-action">download ↓</span>
+      </a>
+    </div>
+  </template>
+
+  <template id="content-nowplaying">
+    <div class="win-now">
+      <div class="now-art">
+        <div class="now-ring"></div>
+        <div class="now-art-inner">🛠</div>
+      </div>
+      <div class="now-meta">
+        <div class="now-label">NOW BUILDING</div>
+        <div class="now-track">Something meaningful</div>
+        <div class="now-artist">Salman · Solo project</div>
+        <div class="now-bar"><div class="now-bar-fill"></div></div>
+        <div class="now-times"><span>00:42</span><span>—:—</span></div>
+        <div class="now-controls">
+          <button aria-label="Previous">⏮</button>
+          <button aria-label="Pause">⏸</button>
+          <button aria-label="Next">⏭</button>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </template>
 
-<!-- ============================================================
-     FOOTER
-     ============================================================ -->
-<footer>
-  <div class="footer-inner">
-    <span class="footer-logo">S.</span>
-    <p class="footer-center">
-      Built by Salman ·
-      <a href="https://github.com/your-github-username/portfolio" target="_blank" rel="noopener">Open Source on GitHub ↗</a>
-    </p>
-    <p class="footer-right">© <span id="year"></span></p>
-  </div>
-</footer>
+  <template id="content-secret">
+    <div class="win-secret">
+      <div class="secret-icon">🎉</div>
+      <h2>You found me.</h2>
+      <p>Curiosity is one of the best traits a developer can have.<br/>If you also have the patience to read source code, we'll probably get along.</p>
+      <p class="secret-cred">— Salman</p>
+    </div>
+  </template>
+
+</div>
 
 <script src="assets/js/main.js"></script>
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
