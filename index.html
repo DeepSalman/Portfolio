@@ -17,6 +17,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- Three.js for Projects isometric cube banner -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
 </head>
 <body>
 
@@ -221,6 +223,16 @@
 
   <template id="content-projects">
     <div class="win-projects">
+
+      <!-- ── Isometric cube banner ── -->
+      <div class="proj-iso-banner">
+        <canvas class="proj-iso-canvas"></canvas>
+        <div class="proj-iso-label">
+          <span class="proj-iso-tag">projects.render()</span>
+          <span class="proj-iso-sub">Something meaningful is being built</span>
+        </div>
+      </div>
+
       <div class="finder-toolbar">
         <span class="finder-path">📁 /Users/salman/Projects</span>
         <span class="finder-count">1 item</span>
@@ -236,6 +248,7 @@
         <p>"<strong>Building something meaningful.</strong>"</p>
         <p>The first real project ships soon. Drop your email in <code>Contact.app</code> to get the launch ping.</p>
       </div>
+
     </div>
   </template>
 

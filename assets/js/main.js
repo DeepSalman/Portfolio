@@ -384,7 +384,7 @@ function openWindow(id) {
   const sizes = {
     terminal:   { w: 780, h: 500 },
     about:      { w: 640, h: 620 },
-    projects:   { w: 720, h: 540 },
+    projects:   { w: 740, h: 640 },
     skills:     { w: 620, h: 560 },
     education:  { w: 720, h: 540 },
     contact:    { w: 620, h: 620 },
@@ -501,6 +501,128 @@ function hookProjects(node) {
   node.querySelector('[data-action="proj-soon"]')?.addEventListener('click', () => {
     notify('In progress', "Salman's first real project ships soon. <em>Patience...</em>");
   });
+  const canvas = node.querySelector('.proj-iso-canvas');
+  if (canvas) {
+    // Wait one frame so the window is rendered and has real dimensions
+    requestAnimationFrame(() => initIsoCube(canvas));
+  }
+}
+
+function initIsoCube(canvas) {
+  if (!window.THREE) return;
+  const T = window.THREE;
+
+  const W = canvas.offsetWidth  || 720;
+  const H = canvas.offsetHeight || 220;
+  canvas.width  = W * (window.devicePixelRatio || 1);
+  canvas.height = H * (window.devicePixelRatio || 1);
+
+  // ── Plasma texture canvas ──────────────────────────────
+  const SL = 256;
+  const pc = document.createElement('canvas');
+  pc.width = SL * 3; pc.height = SL;
+  const pctx = pc.getContext('2d');
+  const pid  = pctx.createImageData(SL * 3, SL);
+
+  // ── Three.js scene ─────────────────────────────────────
+  const scene    = new T.Scene();
+  const renderer = new T.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  renderer.setSize(W, H);
+  renderer.setPixelRatio(window.devicePixelRatio || 1);
+
+  const frust = 380;
+  const asp   = W / H;
+  const cam   = new T.OrthographicCamera(
+    frust * asp / -2, frust * asp / 2,
+    frust / 2, frust / -2, 0.1, 1000
+  );
+  cam.position.z = 100;
+
+  // ── Fixed isometric node positions ────────────────────
+  const s = 100;
+  const nodePos = [
+    new T.Vector3( 0,          0,          0),  // 0 center
+    new T.Vector3( 0,          s * 1.15,   0),  // 1 top
+    new T.Vector3( s,          s * 0.575,  0),  // 2 top-right
+    new T.Vector3( s,         -s * 0.575,  0),  // 3 bot-right
+    new T.Vector3( 0,         -s * 1.15,   0),  // 4 bottom
+    new T.Vector3(-s,         -s * 0.575,  0),  // 5 bot-left
+    new T.Vector3(-s,          s * 0.575,  0),  // 6 top-left
+  ];
+
+  const tex = new T.CanvasTexture(pc);
+
+  // face: [corner indices], atlas column
+  const FACES = [
+    { ci: [6,1,0,2], col: 2 }, // top face
+    { ci: [6,0,5,4], col: 0 }, // left face
+    { ci: [0,2,4,3], col: 1 }, // right face
+  ];
+
+  FACES.forEach(({ ci, col }) => {
+    const geo = new T.PlaneGeometry(1, 1, 16, 16);
+    const uv  = geo.attributes.uv;
+    const origUV = [];
+    for (let i = 0; i < uv.count; i++) {
+      origUV.push(new T.Vector2(uv.getX(i), uv.getY(i)));
+      uv.setX(i, uv.getX(i) / 3 + col / 3);
+    }
+    uv.needsUpdate = true;
+
+    const mesh = new T.Mesh(
+      geo,
+      new T.MeshBasicMaterial({ map: tex, transparent: true, side: T.DoubleSide })
+    );
+
+    // warp to isometric positions (one-time)
+    const pos = geo.attributes.position;
+    const p   = ci.map(c => nodePos[c]);
+    for (let i = 0; i < pos.count; i++) {
+      const u = origUV[i].x, v = origUV[i].y;
+      const x = (1-u)*v*p[0].x + u*v*p[1].x + (1-u)*(1-v)*p[2].x + u*(1-v)*p[3].x;
+      const y = (1-u)*v*p[0].y + u*v*p[1].y + (1-u)*(1-v)*p[2].y + u*(1-v)*p[3].y;
+      pos.setXY(i, x, y);
+    }
+    pos.needsUpdate = true;
+    scene.add(mesh);
+  });
+
+  // ── Plasma texture update ──────────────────────────────
+  function drawPlasma(t) {
+    const d = pid.data;
+    let idx = 0;
+    for (let y = 0; y < SL; y++) {
+      for (let x = 0; x < SL * 3; x++) {
+        const u = (x % SL) / (SL - 1);
+        const v = 1 - y / (SL - 1);
+        let X, Y, Z;
+        if      (x < SL)     { X = -1+2*u; Y = -1+2*v; Z =  1; }
+        else if (x < SL * 2) { X =  1;     Y = -1+2*v; Z =  1-2*u; }
+        else                  { X =  1-2*v; Y =  1;     Z =  1-2*u; }
+
+        const v1 = Math.sin(X*8 + t*1.5) * Math.cos(Y*8 - t);
+        const cx = 0.6*Math.sin(t*0.5), cy = 0.6*Math.cos(t*0.6), cz = 0.6*Math.sin(t*0.7);
+        const dist = Math.sqrt((X-cx)**2 + (Y-cy)**2 + (Z-cz)**2);
+        const v2 = Math.sin(dist*18 - t*4);
+        const v3 = Math.sin((X-Y+Z)*6 + t*0.5);
+        const bw = Math.round(Math.max(0, Math.min(1, 0.5 + Math.sin((v1+v2+v3)/2*4.5)*3.5)) * 255);
+
+        d[idx++] = bw; d[idx++] = bw; d[idx++] = bw; d[idx++] = 255;
+      }
+    }
+    pctx.putImageData(pid, 0, 0);
+  }
+
+  // ── Animation loop ─────────────────────────────────────
+  const t0 = performance.now();
+  let raf;
+  (function loop() {
+    if (!canvas.isConnected) { renderer.dispose(); tex.dispose(); return; }
+    raf = requestAnimationFrame(loop);
+    drawPlasma((performance.now() - t0) / 1000);
+    tex.needsUpdate = true;
+    renderer.render(scene, cam);
+  })();
 }
 
 // ════════════════════════════════════════════════════════════════
