@@ -384,7 +384,7 @@ function openWindow(id) {
   const sizes = {
     terminal:   { w: 780, h: 500 },
     about:      { w: 640, h: 620 },
-    projects:   { w: 740, h: 640 },
+    projects:   { w: 740, h: 720 },
     skills:     { w: 620, h: 560 },
     education:  { w: 720, h: 540 },
     contact:    { w: 620, h: 620 },
@@ -503,9 +503,40 @@ function hookProjects(node) {
   });
   const canvas = node.querySelector('.proj-iso-canvas');
   if (canvas) {
-    // Wait one frame so the window is rendered and has real dimensions
     requestAnimationFrame(() => initIsoCube(canvas));
   }
+  requestAnimationFrame(() => initProjCards(node));
+}
+
+function initProjCards(node) {
+  const list = node.querySelector('.proj-cards-list');
+  if (!list) return;
+  const items = [...list.querySelectorAll('li')];
+
+  const expand = (index) => {
+    const cols = items.map((item, i) => {
+      item.dataset.active = (i === index).toString();
+      return i === index ? '10fr' : '1fr';
+    }).join(' ');
+    list.style.setProperty('grid-template-columns', cols);
+  };
+
+  const onInteract = (e) => {
+    const li = e.target.closest('li');
+    if (li && list.contains(li)) expand(items.indexOf(li));
+  };
+
+  list.addEventListener('pointermove', onInteract);
+  list.addEventListener('click', onInteract);
+  list.addEventListener('focus', onInteract, true);
+
+  // Sync --article-width so text never wraps wrong
+  const resync = () => {
+    const w = Math.max(...items.map(i => i.offsetWidth));
+    list.style.setProperty('--article-width', w);
+  };
+  window.addEventListener('resize', resync);
+  resync();
 }
 
 function initIsoCube(canvas) {
