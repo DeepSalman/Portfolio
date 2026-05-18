@@ -166,36 +166,56 @@
 
   <template id="content-about">
     <div class="win-about">
+
       <div class="about-portrait">
         <div class="portrait-corner tl"></div>
         <div class="portrait-corner tr"></div>
         <div class="portrait-corner bl"></div>
         <div class="portrait-corner br"></div>
-        <div class="portrait-circle"><span>S</span></div>
+        <img class="portrait-img" src="assets/images/IMG_0315.png" alt="Salman" />
       </div>
+
       <h2 class="about-name">Salman</h2>
-      <p class="about-sub">CS Student · Developer · Founder</p>
-      <p class="about-loc">📍 Dhaka, Bangladesh — open to remote</p>
+      <p class="about-sub">Builder · Researcher · Probably Awake at 2am</p>
+
+      <div class="about-status-bar">
+        <span class="about-status-dot"></span>
+        <span class="about-status-text">Online · Dhaka, BD · Open to remote</span>
+      </div>
+
       <hr class="about-rule"/>
-      <div class="about-row">
-        <span class="about-key">/* currently */</span>
-        <ul>
-          <li>Studying CSE at <strong>United International University</strong> (4th sem)</li>
-          <li>Building an ML research portfolio toward Erasmus Mundus 2026–27</li>
-          <li>Running a small <strong>fashion eCommerce</strong> brand from Dhaka</li>
-        </ul>
+
+      <div class="about-spec-block">
+        <div class="spec-line">
+          <span class="spec-key">kernel</span>
+          <span class="spec-val">UIU · CSE · Semester 4</span>
+        </div>
+        <div class="spec-line">
+          <span class="spec-key">target</span>
+          <span class="spec-val">Erasmus Mundus 2026 → EU research</span>
+        </div>
+        <div class="spec-line">
+          <span class="spec-key">focus</span>
+          <span class="spec-val">Causal ML × Healthcare Systems</span>
+        </div>
+        <div class="spec-line">
+          <span class="spec-key">mode</span>
+          <span class="spec-val">build → ship → learn → repeat</span>
+        </div>
       </div>
-      <div class="about-row">
-        <span class="about-key">/* interests */</span>
-        <ul>
-          <li>Causal ML applied to healthcare data</li>
-          <li>The intersection of code and commerce</li>
-          <li>Writing about what I learn while I learn it</li>
-        </ul>
+
+      <hr class="about-rule"/>
+
+      <div class="about-beliefs">
+        <p class="belief">The hospital that saves your life in 2035 will run on code written by someone like me — and that thought keeps me up at night.</p>
+        <p class="belief">I launched a company before I understood what a balance sheet was. I still shipped. Some things you learn by doing, not reading.</p>
+        <p class="belief">I read ML papers the way others read thrillers — skipping to the results section for the plot twist.</p>
       </div>
+
       <blockquote class="about-quote">
-        "I build things that work — and understand why they should."
+        "Everyone's writing history.<br/>I'm writing the runtime."
       </blockquote>
+
     </div>
   </template>
 
