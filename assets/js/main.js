@@ -384,7 +384,7 @@ function openWindow(id) {
   const sizes = {
     terminal:   { w: 780, h: 500 },
     about:      { w: 640, h: 620 },
-    projects:   { w: 740, h: 720 },
+    projects:   { w: 820, h: 800 },
     skills:     { w: 620, h: 560 },
     education:  { w: 720, h: 540 },
     contact:    { w: 620, h: 620 },
@@ -512,8 +512,11 @@ function initProjCards(node) {
   const list = node.querySelector('.proj-cards-list');
   if (!list) return;
   const items = [...list.querySelectorAll('li')];
+  let activeIdx = 0;  // track current so we skip redundant updates
 
   const expand = (index) => {
+    if (index === activeIdx) return;  // nothing changed — skip DOM write
+    activeIdx = index;
     const cols = items.map((item, i) => {
       item.dataset.active = (i === index).toString();
       return i === index ? '10fr' : '1fr';
@@ -521,16 +524,32 @@ function initProjCards(node) {
     list.style.setProperty('grid-template-columns', cols);
   };
 
-  const onInteract = (e) => {
+  // pointermove fires 60+ times/sec — guard with rAF so DOM only updates once per frame
+  let rafPending = false;
+  let pendingIdx = -1;
+  const onMove = (e) => {
     const li = e.target.closest('li');
-    if (li && list.contains(li)) expand(items.indexOf(li));
+    if (!li || !list.contains(li)) return;
+    pendingIdx = items.indexOf(li);
+    if (!rafPending) {
+      rafPending = true;
+      requestAnimationFrame(() => {
+        expand(pendingIdx);
+        rafPending = false;
+      });
+    }
   };
 
-  list.addEventListener('pointermove', onInteract);
-  list.addEventListener('click', onInteract);
-  list.addEventListener('focus', onInteract, true);
+  list.addEventListener('pointermove', onMove);
+  list.addEventListener('click', (e) => {
+    const li = e.target.closest('li');
+    if (li && list.contains(li)) expand(items.indexOf(li));
+  });
+  list.addEventListener('focus', (e) => {
+    const li = e.target.closest('li');
+    if (li && list.contains(li)) expand(items.indexOf(li));
+  }, true);
 
-  // Sync --article-width so text never wraps wrong
   const resync = () => {
     const w = Math.max(...items.map(i => i.offsetWidth));
     list.style.setProperty('--article-width', w);
