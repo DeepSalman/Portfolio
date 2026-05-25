@@ -333,12 +333,17 @@ button { background: none; border: none; color: inherit; font: inherit; cursor: 
   width: 100vw;
   height: 100vh;
   object-fit: cover;
-  object-position: center center;
+  object-position: 40% center;
+  /* Scale up to crop the natural dark/foggy edges baked into the video file */
+  transform: scale(1.25);
+  transform-origin: 40% center;
   z-index: 0;
   opacity: 0.42;
   filter: saturate(0.55) brightness(0.8);
   transition: opacity 1.2s ease;
   pointer-events: none;
+  will-change: transform;
+  background: #000;
 }
 [data-theme="light"] #wallpaper-video {
   opacity: 0.18;
