@@ -48,6 +48,7 @@ const STATE = {
 function afterBoot() {
   initTheme();
   initWallpaper();
+  initVideoFallback();
   initFloatingElements();
   initParallax();
   initClock();
@@ -144,6 +145,33 @@ function initWallpaper() {
   }, { passive: true });
   window.addEventListener('resize', () => { resize(); spawn(); });
   resize(); spawn(); step();
+}
+
+// ════════════════════════════════════════════════════════════════
+// VIDEO FALLBACK — activates motion graphic if CDN video fails
+// ════════════════════════════════════════════════════════════════
+function initVideoFallback() {
+  const vid = document.getElementById('wallpaper-video');
+  const bg  = document.getElementById('bg-motion');
+  if (!vid || !bg) return;
+
+  const activate = () => {
+    vid.style.transition = 'opacity 1.2s ease';
+    vid.style.opacity    = '0';
+    setTimeout(() => { vid.style.display = 'none'; }, 1300);
+    bg.classList.add('fallback-active');
+  };
+
+  // Hard error (404, network down)
+  vid.addEventListener('error', activate, { once: true });
+
+  // Stall: if no data after 6s, assume CDN is unreachable
+  const stallTimer = setTimeout(() => {
+    if (vid.readyState < 2) activate(); // HAVE_CURRENT_DATA not reached
+  }, 6000);
+
+  // Loaded fine — clear the stall timer
+  vid.addEventListener('canplay', () => clearTimeout(stallTimer), { once: true });
 }
 
 // ════════════════════════════════════════════════════════════════

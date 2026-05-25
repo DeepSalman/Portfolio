@@ -39,14 +39,39 @@
      ════════════════════════════════════════════════════════════ -->
 <div id="desktop" aria-hidden="false">
 
-  <!-- Wallpaper layers -->
+  <!-- Wallpaper layers (bottom → top) -->
+
+  <!-- [1] Always-on animated motion graphic fallback -->
+  <div id="bg-motion" aria-hidden="true">
+    <div class="bgm-blob bgm-b1"></div>
+    <div class="bgm-blob bgm-b2"></div>
+    <div class="bgm-blob bgm-b3"></div>
+    <div class="bgm-blob bgm-b4"></div>
+    <div class="bgm-blob bgm-b5"></div>
+    <div class="bgm-grid"></div>
+    <div class="bgm-sweep"></div>
+  </div>
+
+  <!-- [2] Cinematic video (overlays motion graphic when available) -->
+  <video id="wallpaper-video" autoplay loop muted playsinline aria-hidden="true">
+    <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260405_170732_8a9ccda6-5cff-4628-b164-059c500a2b41.mp4" type="video/mp4">
+  </video>
+
+  <!-- [3] Particle canvas -->
   <canvas id="wallpaper" aria-hidden="true"></canvas>
+
+  <!-- [4] Warm aurora glow -->
   <div class="aurora">
     <span class="aurora-orb orb-1"></span>
     <span class="aurora-orb orb-2"></span>
     <span class="aurora-orb orb-3"></span>
     <span class="aurora-orb orb-4"></span>
   </div>
+
+  <!-- [5] Cinematic vignette + depth gradient -->
+  <div class="wallpaper-grad" aria-hidden="true"></div>
+
+  <!-- [6] Film grain -->
   <div class="wallpaper-grain" aria-hidden="true"></div>
 
   <!-- Floating geometric / code / language elements (populated by JS) -->
