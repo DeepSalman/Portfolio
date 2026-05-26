@@ -595,22 +595,172 @@
   </template>
 
   <template id="content-nowplaying">
-    <div class="win-now">
-      <div class="now-art">
-        <div class="now-ring"></div>
-        <div class="now-art-inner">🛠</div>
-      </div>
-      <div class="now-meta">
-        <div class="now-label">NOW BUILDING</div>
-        <div class="now-track">Something meaningful</div>
-        <div class="now-artist">Salman · Solo project</div>
-        <div class="now-bar"><div class="now-bar-fill"></div></div>
-        <div class="now-times"><span>00:42</span><span>—:—</span></div>
-        <div class="now-controls">
-          <button aria-label="Previous">⏮</button>
-          <button aria-label="Pause">⏸</button>
-          <button aria-label="Next">⏭</button>
+    <div class="spotify-view">
+
+      <!-- Header -->
+      <div class="spotify-header">
+        <div class="spotify-cover">
+          <svg viewBox="0 0 24 24" fill="white"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
         </div>
+        <div class="spotify-header-info">
+          <span class="spotify-type">PUBLIC PLAYLIST</span>
+          <h1 class="spotify-title">Liked Songs</h1>
+          <div class="spotify-meta">
+            <span class="spotify-owner">Salman</span>
+            <span class="spotify-dot">•</span>
+            <span>7 songs,</span>
+            <span class="spotify-time-total">35 min</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action bar -->
+      <div class="spotify-actions">
+        <button class="spotify-play-big" aria-label="Play">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+        <button class="spotify-icon-btn" title="Shuffle" aria-label="Shuffle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M4 20L21 3"/><path d="M21 16v5h-5"/><path d="M15 15l6 6"/><path d="M4 4l5 5"/></svg>
+        </button>
+        <button class="spotify-icon-btn" title="More" aria-label="More">
+          <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+        </button>
+      </div>
+
+      <!-- Table header -->
+      <div class="spotify-table-head">
+        <span class="col-num">#</span>
+        <span class="col-title">Title</span>
+        <span class="col-album">Album</span>
+        <span class="col-date">Date added</span>
+        <span class="col-time">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        </span>
+      </div>
+
+      <!-- Song list -->
+      <div class="spotify-list">
+
+        <div class="spotify-row playing">
+          <div class="col-num">
+            <span class="num-text">1</span>
+            <span class="num-play">▶</span>
+            <span class="num-eq"><i></i><i></i><i></i><i></i></span>
+          </div>
+          <div class="col-title">
+            <div class="row-cover cover-slow-rush"></div>
+            <div class="row-titles">
+              <div class="row-track">Taxi's Here</div>
+              <div class="row-artist">Tame Impala</div>
+            </div>
+          </div>
+          <span class="col-album">The Slow Rush</span>
+          <span class="col-date">2 days ago</span>
+          <span class="col-time">5:00</span>
+        </div>
+
+        <div class="spotify-row">
+          <div class="col-num">
+            <span class="num-text">2</span>
+            <span class="num-play">▶</span>
+          </div>
+          <div class="col-title">
+            <div class="row-cover cover-currents"></div>
+            <div class="row-titles">
+              <div class="row-track">The Less I Know The Better</div>
+              <div class="row-artist">Tame Impala</div>
+            </div>
+          </div>
+          <span class="col-album">Currents</span>
+          <span class="col-date">1 week ago</span>
+          <span class="col-time">3:36</span>
+        </div>
+
+        <div class="spotify-row">
+          <div class="col-num">
+            <span class="num-text">3</span>
+            <span class="num-play">▶</span>
+          </div>
+          <div class="col-title">
+            <div class="row-cover cover-slow-rush"></div>
+            <div class="row-titles">
+              <div class="row-track">Borderline</div>
+              <div class="row-artist">Tame Impala</div>
+            </div>
+          </div>
+          <span class="col-album">The Slow Rush</span>
+          <span class="col-date">2 weeks ago</span>
+          <span class="col-time">3:57</span>
+        </div>
+
+        <div class="spotify-row">
+          <div class="col-num">
+            <span class="num-text">4</span>
+            <span class="num-play">▶</span>
+          </div>
+          <div class="col-title">
+            <div class="row-cover cover-slow-rush"></div>
+            <div class="row-titles">
+              <div class="row-track">Lost in Yesterday</div>
+              <div class="row-artist">Tame Impala</div>
+            </div>
+          </div>
+          <span class="col-album">The Slow Rush</span>
+          <span class="col-date">2 weeks ago</span>
+          <span class="col-time">4:09</span>
+        </div>
+
+        <div class="spotify-row">
+          <div class="col-num">
+            <span class="num-text">5</span>
+            <span class="num-play">▶</span>
+          </div>
+          <div class="col-title">
+            <div class="row-cover cover-currents"></div>
+            <div class="row-titles">
+              <div class="row-track">Let It Happen</div>
+              <div class="row-artist">Tame Impala</div>
+            </div>
+          </div>
+          <span class="col-album">Currents</span>
+          <span class="col-date">1 month ago</span>
+          <span class="col-time">7:48</span>
+        </div>
+
+        <div class="spotify-row">
+          <div class="col-num">
+            <span class="num-text">6</span>
+            <span class="num-play">▶</span>
+          </div>
+          <div class="col-title">
+            <div class="row-cover cover-lonerism"></div>
+            <div class="row-titles">
+              <div class="row-track">Apocalypse Dreams</div>
+              <div class="row-artist">Tame Impala</div>
+            </div>
+          </div>
+          <span class="col-album">Lonerism</span>
+          <span class="col-date">1 month ago</span>
+          <span class="col-time">7:11</span>
+        </div>
+
+        <div class="spotify-row">
+          <div class="col-num">
+            <span class="num-text">7</span>
+            <span class="num-play">▶</span>
+          </div>
+          <div class="col-title">
+            <div class="row-cover cover-currents"></div>
+            <div class="row-titles">
+              <div class="row-track">Eventually</div>
+              <div class="row-artist">Tame Impala</div>
+            </div>
+          </div>
+          <span class="col-album">Currents</span>
+          <span class="col-date">2 months ago</span>
+          <span class="col-time">5:21</span>
+        </div>
+
       </div>
     </div>
   </template>

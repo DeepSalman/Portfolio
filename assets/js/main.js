@@ -417,7 +417,7 @@ function openWindow(id) {
     skills:     { w: 700, h: 720 },
     education:  { w: 720, h: 540 },
     contact:    { w: 620, h: 620 },
-    nowplaying: { w: 580, h: 280 },
+    nowplaying: { w: 820, h: 700 },
     secret:     { w: 520, h: 420 },
   };
   const sz = sizes[id] || { w: 640, h: 560 };
