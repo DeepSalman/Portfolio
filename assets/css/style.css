@@ -561,6 +561,7 @@ button { background: none; border: none; color: inherit; font: inherit; cursor: 
   letter-spacing: -0.02em;
   color: var(--text);
 }
+.topbar-menu-wrap { position: relative; }
 .topbar-menu {
   cursor: pointer;
   padding: 4px 10px;
@@ -570,8 +571,87 @@ button { background: none; border: none; color: inherit; font: inherit; cursor: 
   font-weight: 500;
   font-size: 13.5px;
   letter-spacing: -0.005em;
+  background: none;
+  border: none;
+  font-family: inherit;
 }
 .topbar-menu:hover { background: var(--glass-3); color: var(--text); }
+.topbar-menu-wrap.open .topbar-menu {
+  background: var(--glass-4);
+  color: var(--text);
+}
+
+/* Dropdown panel */
+.topbar-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 240px;
+  background: var(--glass-3);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 0.5px solid var(--stroke);
+  border-radius: var(--r-md);
+  padding: 6px;
+  box-shadow:
+    inset 0 1px 0 var(--edge-top),
+    0 12px 36px rgba(0,0,0,0.45),
+    0 4px 12px rgba(0,0,0,0.35);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px) scale(0.98);
+  transition:
+    opacity 0.16s var(--ease-out),
+    transform 0.16s var(--ease-out),
+    visibility 0.16s;
+  pointer-events: none;
+  z-index: 9000;
+}
+.topbar-menu-wrap.open .topbar-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+.topbar-dropdown button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-sec);
+  border-radius: var(--r-xs);
+  text-align: left;
+  transition: background 0.12s, color 0.12s;
+  cursor: pointer;
+}
+.topbar-dropdown button:hover {
+  background: var(--glass-4);
+  color: var(--text);
+}
+.topbar-dropdown .kbd {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--text-quat);
+  letter-spacing: 0.04em;
+  font-weight: 500;
+}
+.topbar-dropdown button:hover .kbd { color: var(--text-tert); }
+.dropdown-sep {
+  height: 0.5px;
+  background: var(--hairline);
+  margin: 4px 6px;
+}
+.dropdown-empty {
+  padding: 14px 12px;
+  font-size: 12.5px;
+  color: var(--text-quat);
+  text-align: center;
+  font-style: italic;
+}
 .topbar-stat {
   font-family: var(--font-mono);
   color: var(--text-tert);

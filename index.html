@@ -82,10 +82,54 @@
     <div class="topbar-left">
       <button id="os-logo" class="logo-btn" aria-label="System info">⌬</button>
       <span class="topbar-name">SalmanOS</span>
-      <span class="topbar-menu">File</span>
-      <span class="topbar-menu">View</span>
-      <span class="topbar-menu">Window</span>
-      <span class="topbar-menu">Help</span>
+
+      <!-- File menu -->
+      <div class="topbar-menu-wrap" data-menu="file">
+        <button class="topbar-menu" type="button">File</button>
+        <div class="topbar-dropdown">
+          <button data-menu-action="open" data-window="about">📄 Open About<span class="kbd">⌘1</span></button>
+          <button data-menu-action="open" data-window="projects">📁 Open Projects<span class="kbd">⌘2</span></button>
+          <button data-menu-action="open" data-window="skills">⚙ Open Skills<span class="kbd">⌘3</span></button>
+          <button data-menu-action="open" data-window="education">🎓 Open Education<span class="kbd">⌘4</span></button>
+          <button data-menu-action="open" data-window="contact">✉ Open Contact<span class="kbd">⌘5</span></button>
+          <div class="dropdown-sep"></div>
+          <button data-menu-action="open" data-window="terminal">▸ Open Terminal<span class="kbd">⌘K</span></button>
+          <div class="dropdown-sep"></div>
+          <button data-menu-action="close-all">⊗ Close All Windows<span class="kbd">⌘W</span></button>
+        </div>
+      </div>
+
+      <!-- View menu -->
+      <div class="topbar-menu-wrap" data-menu="view">
+        <button class="topbar-menu" type="button">View</button>
+        <div class="topbar-dropdown">
+          <button data-menu-action="theme">◐ Toggle Theme<span class="kbd">⌘T</span></button>
+          <button data-menu-action="fullscreen">⛶ Toggle Fullscreen<span class="kbd">F11</span></button>
+          <div class="dropdown-sep"></div>
+          <button data-menu-action="reload-particles">✦ Refresh Particles</button>
+          <button data-menu-action="reload-floats">✧ Refresh Floating Symbols</button>
+        </div>
+      </div>
+
+      <!-- Window menu -->
+      <div class="topbar-menu-wrap" data-menu="window">
+        <button class="topbar-menu" type="button">Window</button>
+        <div class="topbar-dropdown" id="window-menu-dropdown">
+          <div class="dropdown-empty">No windows open</div>
+        </div>
+      </div>
+
+      <!-- Help menu -->
+      <div class="topbar-menu-wrap" data-menu="help">
+        <button class="topbar-menu" type="button">Help</button>
+        <div class="topbar-dropdown">
+          <button data-menu-action="shortcuts">⌨ Keyboard Shortcuts</button>
+          <button data-menu-action="open" data-window="about">ⓘ About SalmanOS</button>
+          <div class="dropdown-sep"></div>
+          <button data-menu-action="github">⌬ View Source on GitHub</button>
+          <button data-menu-action="easter">✨ Surprise Me</button>
+        </div>
+      </div>
     </div>
     <div class="topbar-right">
       <span class="topbar-stat"><span class="stat-dot online"></span> ONLINE</span>

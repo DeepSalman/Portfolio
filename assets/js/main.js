@@ -54,6 +54,7 @@ function afterBoot() {
   initClock();
   initDesktop();
   initDock();
+  initTopbarMenus();
   initContextMenu();
   initLogoEgg();
   initKonami();
@@ -882,6 +883,152 @@ function initContextMenu() {
       if (a === 'surprise')      { confetti(140); notify('Surprise!', 'You triggered <strong>chaos.exe</strong> 🎉'); }
     });
   });
+}
+
+// ════════════════════════════════════════════════════════════════
+// TOPBAR MENUS — File / View / Window / Help dropdowns
+// ════════════════════════════════════════════════════════════════
+function initTopbarMenus() {
+  const wraps = document.querySelectorAll('.topbar-menu-wrap');
+  if (!wraps.length) return;
+
+  // Close all dropdowns
+  const closeAll = () => wraps.forEach(w => w.classList.remove('open'));
+
+  // Toggle on menu-button click
+  wraps.forEach(wrap => {
+    const btn = wrap.querySelector('.topbar-menu');
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const wasOpen = wrap.classList.contains('open');
+      closeAll();
+      if (!wasOpen) {
+        wrap.classList.add('open');
+        if (wrap.dataset.menu === 'window') refreshWindowMenu();
+      }
+    });
+
+    // Hover-to-switch: if any menu is already open, hovering another opens it
+    btn.addEventListener('mouseenter', () => {
+      const anyOpen = [...wraps].some(w => w.classList.contains('open'));
+      if (anyOpen && !wrap.classList.contains('open')) {
+        closeAll();
+        wrap.classList.add('open');
+        if (wrap.dataset.menu === 'window') refreshWindowMenu();
+      }
+    });
+  });
+
+  // Click anywhere else closes all
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.topbar-menu-wrap')) closeAll();
+  });
+
+  // ESC closes
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeAll();
+  });
+
+  // Delegate menu-item clicks
+  document.querySelectorAll('.topbar-dropdown button').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const action = btn.dataset.menuAction;
+      const win    = btn.dataset.window;
+
+      if (action === 'open' && win)        openWindow(win);
+      else if (action === 'close-all')     closeAllWindows();
+      else if (action === 'theme')         toggleTheme();
+      else if (action === 'fullscreen')    toggleFullscreen();
+      else if (action === 'reload-particles') reloadParticles();
+      else if (action === 'reload-floats') reloadFloats();
+      else if (action === 'shortcuts')     showShortcuts();
+      else if (action === 'github')        window.open('https://github.com/DeepSalman/Portfolio', '_blank');
+      else if (action === 'easter')        { confetti(140); notify('Surprise!', 'You triggered <strong>chaos.exe</strong> 🎉'); }
+      else if (action === 'focus-window')  focusWindow(win);
+
+      closeAll();
+    });
+  });
+}
+
+function refreshWindowMenu() {
+  const dropdown = document.getElementById('window-menu-dropdown');
+  if (!dropdown) return;
+  const open = [...STATE.windows.entries()];
+  if (!open.length) {
+    dropdown.innerHTML = '<div class="dropdown-empty">No windows open</div>';
+    return;
+  }
+  dropdown.innerHTML = open.map(([id]) => {
+    const label = titleFor(id);
+    return `<button data-menu-action="focus-window" data-window="${id}">▦ ${label}</button>`;
+  }).join('') + `
+    <div class="dropdown-sep"></div>
+    <button data-menu-action="close-all">⊗ Close All Windows</button>
+  `;
+  // Re-bind freshly rendered buttons
+  dropdown.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const a = btn.dataset.menuAction;
+      const w = btn.dataset.window;
+      if (a === 'focus-window' && w) focusWindow(w);
+      if (a === 'close-all')         closeAllWindows();
+      document.querySelectorAll('.topbar-menu-wrap').forEach(x => x.classList.remove('open'));
+    });
+  });
+}
+
+function focusWindow(id) {
+  const entry = STATE.windows.get(id);
+  if (entry) bringToFront(entry.el);
+  else openWindow(id);
+}
+
+function closeAllWindows() {
+  [...STATE.windows.values()].forEach(({ el }) => {
+    el.classList.add('closing');
+    setTimeout(() => el.remove(), 180);
+  });
+  STATE.windows.clear();
+  updateDockActive();
+  notify('Windows closed', 'All windows have been dismissed.');
+}
+
+function toggleFullscreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen?.().catch(() => {
+      notify('Fullscreen blocked', 'Your browser blocked the fullscreen request.');
+    });
+  } else {
+    document.exitFullscreen?.();
+  }
+}
+
+function reloadParticles() {
+  const canvas = document.getElementById('wallpaper');
+  if (!canvas) return;
+  notify('Particles refreshed', 'Wallpaper constellation reinitialized.');
+  // The init function attaches its own resize listener; trigger a resize event
+  // to make particles respawn.
+  window.dispatchEvent(new Event('resize'));
+}
+
+function reloadFloats() {
+  const container = document.getElementById('floating-elements');
+  if (!container) return;
+  container.innerHTML = '';
+  initFloatingElements();
+  notify('Floating symbols refreshed', 'New random arrangement loaded.');
+}
+
+function showShortcuts() {
+  notify('Keyboard shortcuts',
+    `<strong>⌘K</strong> Open Terminal · ` +
+    `<strong>ESC</strong> Close window · ` +
+    `<strong>⌘T</strong> Toggle theme · ` +
+    `Right-click for menu`, 8000);
 }
 
 // ════════════════════════════════════════════════════════════════
