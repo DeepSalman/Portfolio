@@ -414,7 +414,7 @@ function openWindow(id) {
     terminal:   { w: 780, h: 500 },
     about:      { w: 640, h: 620 },
     projects:   { w: 820, h: 800 },
-    skills:     { w: 620, h: 560 },
+    skills:     { w: 700, h: 720 },
     education:  { w: 720, h: 540 },
     contact:    { w: 620, h: 620 },
     nowplaying: { w: 580, h: 280 },
