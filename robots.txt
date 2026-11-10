@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://deepsalman.github.io/Portfolio/sitemap.xml

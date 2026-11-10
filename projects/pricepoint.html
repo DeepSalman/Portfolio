@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="../assets/js/theme.js"></script>
+  <meta name="theme-color" content="#151513" />
+  <meta name="description" content="Estimating laptop resale value from hardware, age, and condition, using data from Bangladesh’s secondhand market." />
+  <meta name="author" content="Salman" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="PricePoint — Salman" />
+  <meta property="og:description" content="Estimating laptop resale value from hardware, age, and condition, using data from Bangladesh’s secondhand market." />
+  <meta property="og:url" content="https://deepsalman.github.io/Portfolio/projects/pricepoint.html" />
+  <meta property="og:site_name" content="Salman · Selected Work" />
+  <meta property="og:image" content="https://deepsalman.github.io/Portfolio/assets/images/social-preview.png" />
+  <meta property="og:image:alt" content="Salman — selected work in machine learning, AI, and full stack development." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://deepsalman.github.io/Portfolio/assets/images/social-preview.png" />
+  <link rel="canonical" href="https://deepsalman.github.io/Portfolio/projects/pricepoint.html" />
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml" />
+  <link rel="preload" href="../assets/fonts/manrope-variable.ttf" as="font" type="font/ttf" crossorigin />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/case-study.css" />
+  <script src="../assets/js/main.js" type="module"></script>
+  <title>PricePoint — Salman</title>
+</head>
+<body class="case-page case-page--pricepoint">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="case-header">
+    <div class="case-container case-header-inner">
+      <a class="case-brand" href="../index.html" aria-label="Salman — home"><span class="case-monogram" aria-hidden="true">s</span>Salman.</a>
+      <a class="case-back" href="../index.html#work">← Back to selected work</a>
+    </div>
+  </header>
+
+  <main id="main" class="case-container">
+    <div class="case-hero">
+      <p class="case-eyebrow">Machine learning · Local market data</p>
+      <h1 class="case-title">PricePoint<span>.</span></h1>
+      <p class="case-intro">What is a used laptop worth? A machine learning project that connects hardware specifications and condition to resale value in Bangladesh’s secondhand market.</p>
+      <div class="case-actions">
+        <a class="case-button case-button-primary" href="https://github.com/DeepSalman/PricePoint" target="_blank" rel="noopener noreferrer">View source <span aria-hidden="true">↗</span></a>
+      </div>
+      <ul class="case-tags" aria-label="Technology stack"><li>Python</li><li>scikit-learn</li><li>pandas</li><li>NumPy</li><li>Matplotlib</li></ul>
+    </div>
+
+    <figure class="case-figure">
+      <div class="case-figure-top"><span class="case-figure-label">PricePoint / How it fits together</span><span class="case-figure-mark" aria-hidden="true">✳</span></div>
+      <div class="case-diagram">
+          <div class="case-diagram-card">
+            <span class="case-step-label">01 / The inputs</span>
+            <h2 class="case-diagram-title">A laptop’s details</h2>
+            <ul class="case-feature-list"><li>Brand</li><li>Processor</li><li>RAM</li><li>Storage</li><li>GPU</li><li>Screen size</li><li>Age</li><li>Condition</li></ul>
+          </div>
+          <span class="case-diagram-arrow" aria-hidden="true">→</span>
+          <div class="case-diagram-card">
+            <span class="case-step-label">02 / Model comparison</span>
+            <ul class="case-models"><li>Linear<br>Regression</li><li>Decision<br>Tree</li><li>Random<br>Forest</li><li>Support Vector<br>Regression</li></ul>
+          </div>
+          <span class="case-diagram-arrow" aria-hidden="true">→</span>
+          <div class="case-diagram-card is-accent">
+            <span class="case-step-label">03 / The estimate</span>
+            <div class="case-estimate" aria-hidden="true"><span>৳</span><i></i><i></i><i></i><i></i></div>
+            <h2 class="case-diagram-title">Resale value</h2>
+            <p>Evaluated against listed prices.</p>
+          </div>
+      </div>
+      <figcaption class="case-figure-caption">Conceptual model pipeline · laptop features → regression models → resale estimate.</figcaption>
+    </figure>
+
+    <ul class="case-highlights" aria-label="Project highlights">
+        <li><strong>Local context</strong><span>A custom dataset built from Bangladesh marketplace listings.</span></li>
+        <li><strong>Four approaches</strong><span>Linear Regression, Decision Tree, Random Forest, and SVR.</span></li>
+        <li><strong>Three evaluation metrics</strong><span>Model comparison using MAE, RMSE, and R².</span></li>
+    </ul>
+
+      <section class="case-section" aria-labelledby="section-1">
+        <h2 class="case-section-title" id="section-1"><span class="case-section-number">01 / CONTEXT</span>The question behind the model.</h2>
+        <div class="case-copy"><p>Secondhand laptop prices depend on a combination of specifications and physical condition. A brand name or a processor alone cannot describe the whole machine. PricePoint brings those details together to estimate resale value.</p>
+              <p>The project uses a custom dataset collected from local marketplace listings in Bangladesh. That gives the work a specific context: the prices and machines people encounter in this market. The prediction target is resale price, with brand, processor, RAM, storage, GPU, screen size, age, and condition as inputs.</p></div>
+      </section>
+
+      <section class="case-section" aria-labelledby="section-2">
+        <h2 class="case-section-title" id="section-2"><span class="case-section-number">02 / IMPLEMENTATION</span>One problem. Four approaches.</h2>
+        <div class="case-copy"><h3>Represent the machine</h3>
+              <p>Python, pandas, and NumPy support working with the laptop records. The feature set spans hardware and usage: specifications describe capability, while age and condition add information about the particular device being sold.</p>
+              <h3>Compare different kinds of regression</h3>
+              <p>The project compares Linear Regression, Decision Tree, Random Forest, and Support Vector Regression using scikit-learn. Each offers a different way to map a laptop’s attributes to a continuous price estimate.</p>
+              <h3>Make evaluation part of the work</h3>
+              <p>MAE, RMSE, and R² provide complementary views of prediction quality. MAE describes average absolute error, RMSE gives greater weight to larger errors, and R² measures how much price variation the model accounts for. Matplotlib supports the analysis and visualization.</p></div>
+      </section>
+
+      <section class="case-section" aria-labelledby="section-3">
+        <h2 class="case-section-title" id="section-3"><span class="case-section-number">03 / TAKEAWAY</span>What the project demonstrates.</h2>
+        <div class="case-copy"><p>PricePoint connects a familiar local problem with a complete regression workflow: collecting a relevant dataset, selecting features, comparing several algorithms, and evaluating their predictions.</p>
+              <p>A useful estimate depends on the data behind it. Marketplace listing prices describe what sellers ask; they do not necessarily record the final transaction. The model’s context therefore matters when interpreting an estimated value.</p>
+              <p class="case-note">Explore the feature set, regression models, and analysis in the <a href="https://github.com/DeepSalman/PricePoint" target="_blank" rel="noopener noreferrer">PricePoint source repository</a>.</p></div>
+      </section>
+
+    <nav aria-label="More selected work">
+      <a class="case-next" href="routegpt.html" aria-label="Next project: RouteGPT — Natural language, real city journeys">
+        <span><span class="case-next-label">Next project / Natural language, real city journeys</span><span class="case-next-title">RouteGPT</span></span>
+        <span class="case-next-arrow" aria-hidden="true">↗</span>
+      </a>
+    </nav>
+  </main>
+
+  <footer class="case-footer">
+    <div class="case-container case-footer-inner">
+      <span>Salman · Dhaka, Bangladesh</span>
+      <a href="mailto:salman2330508@bscse.uiu.ac.bd">salman2330508@bscse.uiu.ac.bd ↗</a>
+    </div>
+  </footer>
+</body>
+</html>

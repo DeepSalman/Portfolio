@@ -2,780 +2,121 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="SalmanOS — a personal operating system. Explore my work by dragging windows, opening files, and typing in the terminal." />
-  <meta name="author"      content="Salman" />
-  <meta property="og:title"       content="SalmanOS · v1.0" />
-  <meta property="og:description" content="Boot into Salman's personal OS. Drag windows. Type in the terminal. Find secrets." />
-  <meta property="og:type"        content="website" />
-  <title>SalmanOS · v1.0</title>
-
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23D97757'>⌬</text></svg>" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#151513" />
+  <meta name="description" content="Salman is a Data Science undergraduate and developer in Dhaka, building machine learning pipelines and useful web applications. Explore PricePoint, RouteGPT, and MicroTeach." />
+  <meta name="author" content="Salman" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Salman — Data, code & curiosity" />
+  <meta property="og:description" content="Machine learning, thoughtful software, and a little curiosity. Selected work by Salman, a Data Science undergraduate in Dhaka." />
+  <meta property="og:url" content="https://deepsalman.github.io/Portfolio/" />
+  <meta property="og:image" content="https://deepsalman.github.io/Portfolio/assets/images/social-preview.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://deepsalman.github.io/Portfolio/" />
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
+  <link rel="preload" href="assets/fonts/manrope-variable.ttf" as="font" type="font/ttf" crossorigin />
   <link rel="stylesheet" href="assets/css/style.css" />
-  <!-- Three.js for Projects isometric cube banner -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+  <script src="assets/js/theme.js"></script>
+  <script type="module" src="assets/js/main.js"></script>
+  <title>Salman — Data, code & curiosity</title>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","mainEntity":{"@type":"Person","name":"Salman","url":"https://deepsalman.github.io/Portfolio/","image":"https://deepsalman.github.io/Portfolio/assets/images/salman-portrait.webp","description":"Computer Science and Engineering undergraduate majoring in Data Science at United International University, Dhaka.","sameAs":["https://github.com/DeepSalman","https://www.linkedin.com/in/deepsalman/"]}}</script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="./" aria-label="Salman, home"><span class="brand-mark">s<span>.</span></span><span class="brand-name">salman<span>DATA, CODE & CURIOSITY</span></span></a>
+      <div class="nav-actions">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme" title="Switch theme"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4 19 5"/></svg></button>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open navigation"><span></span><span></span></button>
+      </div>
+      <div class="nav-links" id="nav-links">
+        <a class="nav-link" href="#work">Work</a><a class="nav-link" href="#about">About</a><a class="nav-link" href="#toolkit">Toolkit</a>
+        <a class="nav-contact" href="#contact">Let’s talk <span aria-hidden="true">↗</span></a>
+      </div>
+    </nav>
+  </header>
 
-<!-- ════════════════════════════════════════════════════════════
-     BOOT SCREEN
-     ════════════════════════════════════════════════════════════ -->
-<div id="boot-screen" role="status" aria-label="System booting">
-  <div class="boot-logo">⌬</div>
-  <div class="boot-name">SalmanOS</div>
-  <div class="boot-version">v1.0.0 · initializing</div>
-  <pre class="boot-lines" id="boot-lines"></pre>
-  <div class="boot-bar"><div class="boot-bar-fill"></div></div>
-  <div class="boot-hint">PRESS ANY KEY TO SKIP</div>
-</div>
+  <main id="main">
+    <section class="hero container" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="availability"><span class="status-dot"></span> OPEN TO MACHINE LEARNING INTERNSHIPS</div>
+        <p class="hero-intro">Hello, I’m Salman.</p>
+        <h1 id="hero-title">Turning data<br>into <em>decisions.</em></h1>
+        <p class="hero-description">A Data Science undergraduate and developer in Dhaka. I build machine learning pipelines and thoughtful software for everyday problems.</p>
+        <div class="hero-actions"><a class="button button-primary" href="#work">Explore my work <span aria-hidden="true">↗</span></a><a class="button button-secondary" href="assets/images/Salman_CV.pdf" download="Salman-Resume.pdf">Download résumé <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M5 16v4h14v-4"/></svg></a></div>
+        <div class="hero-footnote"><span class="mini-cross" aria-hidden="true">✳</span><span>Curiosity is the starting point.<br><strong>Building is how I figure things out.</strong></span></div>
+      </div>
+      <div class="portrait-stage">
+        <div class="portrait-grid" aria-hidden="true"></div>
+        <span class="portrait-index" aria-hidden="true">01 — THE PERSON BEHIND THE CODE</span>
+        <div class="portrait-orbit orbit-one" aria-hidden="true"></div><div class="portrait-orbit orbit-two" aria-hidden="true"></div>
+        <span class="portrait-spark" aria-hidden="true">✳</span>
+        <img class="hero-portrait" src="assets/images/salman-portrait.webp" width="900" height="1200" fetchpriority="high" alt="Salman wearing a dark suit and glasses" />
+        <div class="portrait-caption"><span><span class="status-dot"></span> DHAKA, BANGLADESH</span><span data-dhaka-time>UTC +06:00</span></div>
+        <div class="portrait-note"><span class="note-icon" aria-hidden="true">⌘</span><span>Always learning.<br><strong>Always building.</strong></span></div>
+      </div>
+    </section>
 
-<!-- ════════════════════════════════════════════════════════════
-     DESKTOP
-     ════════════════════════════════════════════════════════════ -->
-<div id="desktop" aria-hidden="false">
+    <div class="intro-strip container"><span>DATA SCIENCE STUDENT. SOFTWARE BUILDER. CURIOUS HUMAN.</span><a href="#work">A few things I’ve built <span aria-hidden="true">↓</span></a></div>
 
-  <!-- Wallpaper layers (bottom → top) -->
+    <section class="section container" id="work" aria-labelledby="work-title">
+      <div class="section-heading" data-reveal><div><p class="eyebrow"><span>01</span> SELECTED WORK</p><h2 id="work-title">Small questions.<br><em>Real-world projects.</em></h2></div><p>A laptop’s fair price. A better commute.<br>A little help with a hard topic.<br>Each project starts with something useful.</p></div>
+      <!-- PROJECTS:START -->
+      <div class="project-grid" id="project-grid">
+        <a class="project-card featured" href="projects/pricepoint.html" aria-label="Read the PricePoint case study" data-reveal>
+          <div class="project-copy"><span class="project-index">01 / MACHINE LEARNING · LOCAL MARKET DATA</span><h3>PricePoint</h3><p>Estimating laptop resale value from hardware, age, and condition, using data from Bangladesh’s secondhand market.</p><div class="project-tags"><span>Python</span><span>scikit-learn</span><span>pandas</span><span>NumPy</span><span>Matplotlib</span></div><span class="project-cta">Explore the case study <span class="arrow-circle" aria-hidden="true">↗</span></span></div>
+          <div class="project-art art-pricepoint" aria-hidden="true"><div class="model-window"><div class="model-window-top"><i></i><i></i><i></i><span>pricepoint / model_comparison.py</span></div><div class="model-window-title">From specifications to value <span>REGRESSION</span></div><svg class="model-chart" viewBox="0 0 300 105" fill="none"><path d="M8 15H295M8 45H295M8 75H295M8 103H295" stroke="#ffffff10"/><path d="M10 95 290 10" stroke="#e7ac83" stroke-width="1.7"/><g fill="#b7c9a0"><circle cx="25" cy="81" r="3"/><circle cx="43" cy="89" r="3"/><circle cx="59" cy="69" r="3"/><circle cx="74" cy="80" r="3"/><circle cx="95" cy="57" r="3"/><circle cx="112" cy="70" r="3"/><circle cx="134" cy="46" r="3"/><circle cx="152" cy="59" r="3"/><circle cx="177" cy="36" r="3"/><circle cx="190" cy="52" r="3"/><circle cx="211" cy="27" r="3"/><circle cx="231" cy="35" r="3"/><circle cx="252" cy="17" r="3"/><circle cx="273" cy="24" r="3"/></g></svg><div class="model-footer"><span>4 MODELS</span><span>MAE · RMSE · R²</span><span>LOCAL DATA</span></div></div><div class="art-caption"><span>REGRESSION / CONCEPT ILLUSTRATION</span><span>01</span></div></div>
+        </a>
+        <a class="project-card" href="projects/routegpt.html" aria-label="Read the RouteGPT case study" data-reveal>
+          <div class="project-copy"><span class="project-index">02 / CONVERSATIONAL SYSTEMS · URBAN MOBILITY</span><h3>RouteGPT</h3><p>A conversational assistant for Dhaka transport routes, transfer points, and fares, backed by a relational database.</p><div class="project-tags"><span>Python</span><span>NLP</span><span>MySQL</span></div><span class="project-cta">Explore the case study <span class="arrow-circle" aria-hidden="true">↗</span></span></div>
+          <div class="project-art art-routegpt" aria-hidden="true"><svg class="route-diagram" viewBox="0 0 460 230" fill="none"><path d="M0 180H460M0 100H460M80 0V230M210 0V230M350 0V230" stroke="#7a8d6f" stroke-opacity=".25" stroke-width="18"/><path d="M70 185H190Q210 185 210 165V125Q210 105 230 105H330Q350 105 350 85V40" stroke="#365139" stroke-width="4" stroke-linecap="round"/><path d="M210 165V225" stroke="#718663" stroke-width="2" stroke-dasharray="5 5"/><circle cx="70" cy="185" r="9" fill="#f0f0e4" stroke="#365139" stroke-width="3"/><circle cx="210" cy="125" r="9" fill="#365139" stroke="#e2e7d7" stroke-width="4"/><circle cx="350" cy="40" r="9" fill="#365139" stroke="#e2e7d7" stroke-width="4"/><g fill="#354832" font-family="monospace" font-size="9"><text x="49" y="212">ORIGIN</text><text x="232" y="145">TRANSFER</text><text x="370" y="43">ARRIVAL</text></g></svg><div class="route-callout"><span>ASK ROUTEGPT</span>Find a way through the city. ↗</div><div class="art-caption"><span>JOURNEY / CONCEPT ILLUSTRATION</span><span>02</span></div></div>
+        </a>
+        <a class="project-card" href="projects/microteach.html" aria-label="Read the MicroTeach case study" data-reveal>
+          <div class="project-copy"><span class="project-index">03 / FULL STACK DEVELOPMENT · PEER LEARNING</span><h3>MicroTeach</h3><p>A peer teaching platform where students post specific learning needs and peers offer to teach them for a fee.</p><div class="project-tags"><span>React</span><span>Node.js</span><span>Express</span><span>MySQL</span></div><span class="project-cta">Explore the case study <span class="arrow-circle" aria-hidden="true">↗</span></span></div>
+          <div class="project-art art-microteach" aria-hidden="true"><div class="teach-board"><div class="teach-card"><span>ONE TOPIC. A LITTLE HELP.</span><strong>Let’s untangle algorithms.</strong><small>A student asks. A peer steps in.</small><div class="teach-avatars"><i>S</i><i>A</i></div></div><div class="teach-card second"><span>LEARN TOGETHER</span><strong>“Let’s work through it.”</strong><small>Find your topic. Find your people. ↗</small></div></div><div class="art-caption"><span>PEER LEARNING / CONCEPT ILLUSTRATION</span><span>03</span></div></div>
+        </a>
+      </div>
+      <!-- PROJECTS:END -->
+      <div class="work-footer"><span>Built with a lot of questions and a little persistence.</span><a class="text-link" href="https://github.com/DeepSalman" target="_blank" rel="noopener noreferrer">More on GitHub <span aria-hidden="true">↗</span></a></div>
+    </section>
 
-  <!-- [1] Always-on animated motion graphic fallback -->
-  <div id="bg-motion" aria-hidden="true">
-    <div class="bgm-blob bgm-b1"></div>
-    <div class="bgm-blob bgm-b2"></div>
-    <div class="bgm-blob bgm-b3"></div>
-    <div class="bgm-blob bgm-b4"></div>
-    <div class="bgm-blob bgm-b5"></div>
-    <div class="bgm-grid"></div>
-    <div class="bgm-sweep"></div>
-  </div>
-
-  <!-- [2] Cinematic video (overlays motion graphic when available) -->
-  <video id="wallpaper-video" autoplay loop muted playsinline aria-hidden="true">
-    <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260405_170732_8a9ccda6-5cff-4628-b164-059c500a2b41.mp4" type="video/mp4">
-  </video>
-
-  <!-- [3] Particle canvas -->
-  <canvas id="wallpaper" aria-hidden="true"></canvas>
-
-  <!-- [4] Warm aurora glow -->
-  <div class="aurora">
-    <span class="aurora-orb orb-1"></span>
-    <span class="aurora-orb orb-2"></span>
-    <span class="aurora-orb orb-3"></span>
-    <span class="aurora-orb orb-4"></span>
-  </div>
-
-  <!-- [5] Cinematic vignette + depth gradient -->
-  <div class="wallpaper-grad" aria-hidden="true"></div>
-
-  <!-- [6] Film grain -->
-  <div class="wallpaper-grain" aria-hidden="true"></div>
-
-  <!-- Floating geometric / code / language elements (populated by JS) -->
-  <div id="floating-elements" aria-hidden="true"></div>
-
-  <!-- Top bar -->
-  <div id="topbar">
-    <div class="topbar-left">
-      <button id="os-logo" class="logo-btn" aria-label="System info">⌬</button>
-      <span class="topbar-name">SalmanOS</span>
-
-      <!-- File menu -->
-      <div class="topbar-menu-wrap" data-menu="file">
-        <button class="topbar-menu" type="button">File</button>
-        <div class="topbar-dropdown">
-          <button data-menu-action="open" data-window="about">📄 Open About<span class="kbd">⌘1</span></button>
-          <button data-menu-action="open" data-window="projects">📁 Open Projects<span class="kbd">⌘2</span></button>
-          <button data-menu-action="open" data-window="skills">⚙ Open Skills<span class="kbd">⌘3</span></button>
-          <button data-menu-action="open" data-window="education">🎓 Open Education<span class="kbd">⌘4</span></button>
-          <button data-menu-action="open" data-window="contact">✉ Open Contact<span class="kbd">⌘5</span></button>
-          <div class="dropdown-sep"></div>
-          <button data-menu-action="open" data-window="terminal">▸ Open Terminal<span class="kbd">⌘K</span></button>
-          <div class="dropdown-sep"></div>
-          <button data-menu-action="close-all">⊗ Close All Windows<span class="kbd">⌘W</span></button>
+    <section class="about-section" id="about" aria-labelledby="about-title">
+      <div class="container about-grid">
+        <div class="about-heading" data-reveal><p class="eyebrow"><span>02</span> A LITTLE ABOUT ME</p><h2 id="about-title">I like knowing<br><em>how things work.</em></h2><p class="about-lead">And then seeing if I can build them myself.</p><a class="text-link" href="assets/images/Salman_CV.pdf" target="_blank" rel="noopener">Read the full résumé <span aria-hidden="true">↗</span></a></div>
+        <div class="about-content" data-reveal><p>I’m studying Computer Science & Engineering, majoring in Data Science, at United International University. My work moves between machine learning, relational databases, and the interfaces that make them useful.</p><p>I’m especially interested in the whole journey: finding relevant data, building a model, evaluating it carefully, and turning it into something people can use.</p><p>Beyond the code, I help run the IT wing at the UIU Data Science Club and teach programming and algorithms to peers. Explaining an idea is often how I understand it better.</p>
+          <div class="about-facts"><div><strong>Top 10<span>%</span></strong><span>Departmental merit scholarship<br>every trimester</span></div><div><strong>25<span>+</span></strong><span>IT wing members<br>coordinated each trimester</span></div></div>
         </div>
       </div>
-
-      <!-- View menu -->
-      <div class="topbar-menu-wrap" data-menu="view">
-        <button class="topbar-menu" type="button">View</button>
-        <div class="topbar-dropdown">
-          <button data-menu-action="theme">◐ Toggle Theme<span class="kbd">⌘T</span></button>
-          <button data-menu-action="fullscreen">⛶ Toggle Fullscreen<span class="kbd">F11</span></button>
-          <div class="dropdown-sep"></div>
-          <button data-menu-action="reload-particles">✦ Refresh Particles</button>
-          <button data-menu-action="reload-floats">✧ Refresh Floating Symbols</button>
+      <div class="container journey" data-reveal>
+        <div class="journey-label">LEARNING, BUILDING<br>& GIVING BACK</div>
+        <div class="journey-items">
+          <article class="journey-item"><span class="journey-date">2024 — EXPECTED 2028</span><div><h3>B.Sc. in Computer Science & Engineering</h3><p>Data Science major · United International University</p></div><span class="journey-type">EDUCATION</span></article>
+          <article class="journey-item"><span class="journey-date">PRESENT</span><div><h3>Executive, IT Wing</h3><p>UIU Data Science Club · Web development, design & team coordination</p></div><span class="journey-type">LEADERSHIP</span></article>
+          <article class="journey-item"><span class="journey-date">PRESENT</span><div><h3>Peer Tutor</h3><p>Programming, algorithms & database concepts</p></div><span class="journey-type">COMMUNITY</span></article>
         </div>
       </div>
+    </section>
 
-      <!-- Window menu -->
-      <div class="topbar-menu-wrap" data-menu="window">
-        <button class="topbar-menu" type="button">Window</button>
-        <div class="topbar-dropdown" id="window-menu-dropdown">
-          <div class="dropdown-empty">No windows open</div>
-        </div>
+    <section class="section container" id="toolkit" aria-labelledby="toolkit-title">
+      <div class="section-heading" data-reveal><div><p class="eyebrow"><span>03</span> THE TOOLKIT</p><h2 id="toolkit-title">Ideas, meet <em>implementation.</em></h2></div><p>The tools I use to move<br>from a question to a working answer.</p></div>
+      <div class="capability-grid" data-reveal>
+        <article class="capability"><div class="capability-icon" aria-hidden="true">∑</div><span class="capability-number">01 / UNDERSTAND</span><h3>Machine learning & data</h3><p>Preparing datasets, comparing regression models, and evaluating what the numbers actually mean.</p><div class="tags"><span>Python</span><span>scikit-learn</span><span>pandas</span><span>NumPy</span><span>Keras</span><span>Matplotlib</span></div><a href="projects/pricepoint.html">Put to work in PricePoint <span aria-hidden="true">↗</span></a></article>
+        <article class="capability"><div class="capability-icon code-icon" aria-hidden="true">&lt;/&gt;</div><span class="capability-number">02 / BUILD</span><h3>Full-stack development</h3><p>Connecting a thoughtful interface to the APIs, data models, and workflows behind it.</p><div class="tags"><span>React</span><span>Next.js</span><span>TypeScript</span><span>Node.js</span><span>Express</span><span>SQL</span></div><a href="projects/microteach.html">Put to work in MicroTeach <span aria-hidden="true">↗</span></a></article>
+        <article class="capability"><div class="capability-icon" aria-hidden="true">⌘</div><span class="capability-number">03 / CONNECT</span><h3>Systems & problem solving</h3><p>Structuring information and breaking complex problems into steps that make sense.</p><div class="tags"><span>MySQL</span><span>PostgreSQL</span><span>Data structures</span><span>Algorithms</span><span>Git</span></div><a href="projects/routegpt.html">Put to work in RouteGPT <span aria-hidden="true">↗</span></a></article>
       </div>
-
-      <!-- Help menu -->
-      <div class="topbar-menu-wrap" data-menu="help">
-        <button class="topbar-menu" type="button">Help</button>
-        <div class="topbar-dropdown">
-          <button data-menu-action="shortcuts">⌨ Keyboard Shortcuts</button>
-          <button data-menu-action="open" data-window="about">ⓘ About SalmanOS</button>
-          <div class="dropdown-sep"></div>
-          <button data-menu-action="github">⌬ View Source on GitHub</button>
-          <button data-menu-action="easter">✨ Surprise Me</button>
-        </div>
-      </div>
-    </div>
-    <div class="topbar-right">
-      <span class="topbar-stat"><span class="stat-dot online"></span> ONLINE</span>
-      <span class="topbar-stat" id="topbar-uptime">UP 00:00</span>
-      <button id="theme-btn" class="topbar-btn" aria-label="Toggle theme" title="Theme">◐</button>
-      <button id="notif-btn" class="topbar-btn" aria-label="Notifications" title="Notifications">🔔</button>
-      <span class="topbar-stat" id="topbar-date">--</span>
-      <span class="topbar-stat" id="topbar-clock">--:--</span>
-    </div>
-  </div>
-
-  <!-- Desktop icons -->
-  <div id="desktop-icons">
-    <button class="d-icon" data-window="about" aria-label="Open About">
-      <div class="d-icon-art" data-emoji="📄">
-        <svg viewBox="0 0 32 40" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 2 H22 L28 8 V38 H4 Z"/><path d="M22 2 V8 H28"/><line x1="8"  y1="16" x2="24" y2="16"/><line x1="8"  y1="22" x2="24" y2="22"/><line x1="8"  y1="28" x2="20" y2="28"/></svg>
-      </div>
-      <div class="d-icon-label">About.txt</div>
-    </button>
-    <button class="d-icon" data-window="projects" aria-label="Open Projects">
-      <div class="d-icon-art"><svg viewBox="0 0 36 30" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 6 V26 H34 V10 H18 L14 6 Z"/></svg></div>
-      <div class="d-icon-label">Projects</div>
-    </button>
-    <button class="d-icon" data-window="skills" aria-label="Open Skills">
-      <div class="d-icon-art"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4"  y="18" width="5" height="10"/><rect x="13" y="10" width="5" height="18"/><rect x="22" y="14" width="5" height="14"/></svg></div>
-      <div class="d-icon-label">Skills.exe</div>
-    </button>
-    <button class="d-icon" data-window="education" aria-label="Open Education">
-      <div class="d-icon-art"><svg viewBox="0 0 36 28" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 10 L18 3 L34 10 L18 17 Z"/><path d="M10 13 V21 Q18 25, 26 21 V13"/></svg></div>
-      <div class="d-icon-label">Education.log</div>
-    </button>
-    <button class="d-icon highlight" data-window="terminal" aria-label="Open Terminal">
-      <div class="d-icon-art mono">▸_</div>
-      <div class="d-icon-label">Terminal</div>
-    </button>
-    <button class="d-icon" data-window="contact" aria-label="Open Contact">
-      <div class="d-icon-art"><svg viewBox="0 0 32 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="3" width="28" height="18"/><polyline points="2,3 16,14 30,3"/></svg></div>
-      <div class="d-icon-label">Contact.app</div>
-    </button>
-    <button class="d-icon" data-window="nowplaying" aria-label="Open Now Playing">
-      <div class="d-icon-art"><svg viewBox="0 0 28 32" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 22 V4 L24 4 V18"/><circle cx="8"  cy="24" r="4"/><circle cx="22" cy="20" r="4"/></svg></div>
-      <div class="d-icon-label">NowPlaying</div>
-    </button>
-    <a class="d-icon" href="https://github.com/DeepSalman" target="_blank" rel="noopener" aria-label="Open GitHub link">
-      <div class="d-icon-art"><svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 2C8.27 2 2 8.27 2 16c0 6.18 4 11.42 9.56 13.27.7.13.96-.3.96-.67v-2.34c-3.9.85-4.72-1.88-4.72-1.88-.64-1.61-1.55-2.04-1.55-2.04-1.27-.87.1-.85.1-.85 1.4.1 2.13 1.44 2.13 1.44 1.25 2.14 3.27 1.52 4.07 1.16.13-.9.49-1.52.9-1.87-3.12-.36-6.4-1.56-6.4-6.92 0-1.53.55-2.78 1.44-3.76-.14-.36-.62-1.79.14-3.74 0 0 1.18-.38 3.86 1.43A13.4 13.4 0 0 1 16 7.32c1.2 0 2.4.16 3.53.47 2.68-1.81 3.86-1.43 3.86-1.43.76 1.95.28 3.38.14 3.74.9.98 1.44 2.23 1.44 3.76 0 5.37-3.28 6.55-6.41 6.91.5.43.95 1.29.95 2.6v3.86c0 .37.25.81.97.67C26 27.42 30 22.18 30 16 30 8.27 23.73 2 16 2z"/></svg></div>
-      <div class="d-icon-label">GitHub.url</div>
-    </a>
-  </div>
-
-  <!-- Notifications -->
-  <div id="notifs"></div>
-
-  <!-- Right-click menu -->
-  <div id="context-menu" aria-hidden="true">
-    <button data-action="open-terminal">▸ Open Terminal</button>
-    <button data-action="theme">◐ Toggle Theme</button>
-    <button data-action="about">ⓘ About SalmanOS</button>
-    <div class="ctx-sep"></div>
-    <button data-action="surprise">✨ Surprise Me</button>
-  </div>
-
-  <!-- Dock -->
-  <div id="dock">
-    <button class="dock-item" data-window="about" title="About">
-      <svg viewBox="0 0 32 40" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 2 H22 L28 8 V38 H4 Z"/><path d="M22 2 V8 H28"/></svg>
-    </button>
-    <button class="dock-item" data-window="projects" title="Projects">
-      <svg viewBox="0 0 36 30" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 6 V26 H34 V10 H18 L14 6 Z"/></svg>
-    </button>
-    <button class="dock-item" data-window="skills" title="Skills">
-      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="18" width="5" height="10"/><rect x="13" y="10" width="5" height="18"/><rect x="22" y="14" width="5" height="14"/></svg>
-    </button>
-    <button class="dock-item" data-window="education" title="Education">
-      <svg viewBox="0 0 36 28" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 10 L18 3 L34 10 L18 17 Z"/><path d="M10 13 V21 Q18 25, 26 21 V13"/></svg>
-    </button>
-    <div class="dock-sep"></div>
-    <button class="dock-item primary" data-window="terminal" title="Terminal"><span class="dock-mono">▸_</span></button>
-    <button class="dock-item" data-window="contact" title="Contact">
-      <svg viewBox="0 0 32 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="3" width="28" height="18"/><polyline points="2,3 16,14 30,3"/></svg>
-    </button>
-    <button class="dock-item" data-window="nowplaying" title="Now Playing">
-      <svg viewBox="0 0 28 32" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 22 V4 L24 4 V18"/><circle cx="8" cy="24" r="4"/><circle cx="22" cy="20" r="4"/></svg>
-    </button>
-  </div>
-
-  <!-- Window template -->
-  <template id="tpl-window">
-    <div class="window" data-id="">
-      <div class="window-titlebar">
-        <div class="window-traffic">
-          <button class="traffic close" data-action="close" aria-label="Close"></button>
-          <button class="traffic min"   data-action="min"   aria-label="Minimize"></button>
-          <button class="traffic max"   data-action="max"   aria-label="Maximize"></button>
-        </div>
-        <span class="window-title"></span>
-        <span class="window-meta"></span>
-      </div>
-      <div class="window-body"></div>
-    </div>
-  </template>
-
-  <!-- ════════════════════════════════════════════════════════════
-       WINDOW CONTENT TEMPLATES (cloned on open)
-       ════════════════════════════════════════════════════════════ -->
-
-  <template id="content-about">
-    <div class="win-about">
-
-      <div class="about-portrait">
-        <div class="portrait-corner tl"></div>
-        <div class="portrait-corner tr"></div>
-        <div class="portrait-corner bl"></div>
-        <div class="portrait-corner br"></div>
-        <img class="portrait-img" src="assets/images/IMG_0315.png" alt="Salman" />
-      </div>
-
-      <h2 class="about-name">Salman</h2>
-      <p class="about-sub">Builder · Researcher · Probably Awake at 2am</p>
-
-      <div class="about-status-bar">
-        <span class="about-status-dot"></span>
-        <span class="about-status-text">Online · Dhaka, BD · Open to remote</span>
-      </div>
-
-      <hr class="about-rule"/>
-
-      <div class="about-spec-block">
-        <div class="spec-line">
-          <span class="spec-key">kernel</span>
-          <span class="spec-val">UIU · CSE · Semester 5</span>
-        </div>
-        <div class="spec-line">
-          <span class="spec-key">target</span>
-          <span class="spec-val">Erasmus Mundus 2026 → EU research</span>
-        </div>
-        <div class="spec-line">
-          <span class="spec-key">focus</span>
-          <span class="spec-val">Causal ML × Healthcare Systems</span>
-        </div>
-        <div class="spec-line">
-          <span class="spec-key">mode</span>
-          <span class="spec-val">build → ship → learn → repeat</span>
-        </div>
-      </div>
-
-      <hr class="about-rule"/>
-
-      <div class="about-beliefs">
-        <p class="belief">The hospital that saves your life in 2035 will run on code written by someone like me — and that thought keeps me up at night.</p>
-        <p class="belief">I launched a company before I understood what a balance sheet was. I still shipped. Some things you learn by doing, not reading.</p>
-        <p class="belief">I read ML papers the way others read thrillers — skipping to the results section for the plot twist.</p>
-      </div>
-
-      <blockquote class="about-quote">
-        "Everyone's writing history.<br/>I'm writing the runtime."
-      </blockquote>
-
-    </div>
-  </template>
-
-  <template id="content-projects">
-    <div class="win-projects">
-
-      <!-- ── Isometric cube banner ── -->
-      <div class="proj-iso-banner">
-        <canvas class="proj-iso-canvas"></canvas>
-        <div class="proj-iso-label">
-          <span class="proj-iso-tag">projects.render()</span>
-          <span class="proj-iso-sub">Something meaningful is being built</span>
-        </div>
-      </div>
-
-      <div class="finder-toolbar">
-        <span class="finder-path">📁 /Users/salman/Projects</span>
-        <span class="finder-count">7 items</span>
-      </div>
-
-      <!-- ── Project Showcase Accordion ── -->
-      <div class="proj-cards-section">
-        <div class="proj-cards-header">
-          <span class="proj-cards-label">// project showcase</span>
-          <span class="proj-cards-sub">hover to explore</span>
-        </div>
-        <ul class="proj-cards-list">
-
-          <li data-active="true">
-            <article>
-              <h3>SalmanOS</h3>
-              <p>This portfolio itself — a fake OS shell with draggable windows, live terminal, and a boot sequence. Pure HTML + CSS + JS.</p>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-              <a href="https://github.com/DeepSalman" target="_blank"><span>View on GitHub</span></a>
-              <img src="https://picsum.photos/720/720?random=12" alt="" />
-            </article>
-          </li>
-
-          <li>
-            <article>
-              <h3>ML Research</h3>
-              <p>Causal inference applied to healthcare data. Exploring do-calculus and counterfactual reasoning on clinical datasets.</p>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/></svg>
-              <a href="#"><span>In progress</span></a>
-              <img src="https://picsum.photos/720/720?random=17" alt="" />
-            </article>
-          </li>
-
-          <li>
-            <article>
-              <h3>Data Pipelines</h3>
-              <p>End-to-end ETL and analysis workflows with NumPy, Pandas, and PyTorch. Built for real messy datasets.</p>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-              <a href="#"><span>Explore</span></a>
-              <img src="https://picsum.photos/720/720?random=19" alt="" />
-            </article>
-          </li>
-
-          <li>
-            <article>
-              <h3>Web Craft</h3>
-              <p>A series of UI experiments — scroll animations, glass morphism, canvas toys. Learning by building weird things.</p>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-              <a href="#"><span>See demos</span></a>
-              <img src="https://picsum.photos/720/720?random=42" alt="" />
-            </article>
-          </li>
-
-          <li>
-            <article>
-              <h3>Algorithms</h3>
-              <p>DSA practice, competitive programming, and hand-rolled implementations. Because you can't just call <code>.sort()</code>.</p>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg>
-              <a href="#"><span>Browse</span></a>
-              <img src="https://picsum.photos/720/720?random=128" alt="" />
-            </article>
-          </li>
-
-          <li>
-            <article>
-              <h3>Open Source</h3>
-              <p>Contributions to projects I use and love. Small fixes, docs, and the occasional feature PR.</p>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
-              <a href="https://github.com/DeepSalman" target="_blank"><span>GitHub</span></a>
-              <img src="https://picsum.photos/720/720?random=56" alt="" />
-            </article>
-          </li>
-
-          <li>
-            <article>
-              <h3>Next Build</h3>
-              <p>The next project is already in my head. It involves agents, healthcare, and a little bit of madness.</p>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 22h14"/><path d="M5 2h14"/><path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22"/><path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"/></svg>
-              <a href="#"><span>Stay tuned</span></a>
-              <img src="https://picsum.photos/720/720?random=39" alt="" />
-            </article>
-          </li>
-
-        </ul>
-      </div>
-
-    </div>
-  </template>
-
-  <template id="content-skills">
-    <div class="win-skills">
-
-      <div class="skill-group">
-        <h3 class="skill-h">Languages</h3>
-        <div class="skill-row">
-          <span class="skill-pill">Python</span>
-          <span class="skill-pill">JavaScript</span>
-          <span class="skill-pill">TypeScript</span>
-          <span class="skill-pill">Java</span>
-          <span class="skill-pill">C</span>
-          <span class="skill-pill">C++</span>
-          <span class="skill-pill">SQL</span>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <h3 class="skill-h">Frontend</h3>
-        <div class="skill-row">
-          <span class="skill-pill">HTML</span>
-          <span class="skill-pill">CSS</span>
-          <span class="skill-pill">React</span>
-          <span class="skill-pill">Next.js</span>
-          <span class="skill-pill">Tailwind</span>
-          <span class="skill-pill">ShadCN/UI</span>
-          <span class="skill-pill">TanStack Query</span>
-          <span class="skill-pill">TanStack Table</span>
-          <span class="skill-pill">TanStack Form</span>
-          <span class="skill-pill">Axios</span>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <h3 class="skill-h">Backend</h3>
-        <div class="skill-row">
-          <span class="skill-pill">Node.js</span>
-          <span class="skill-pill">Express</span>
-          <span class="skill-pill">REST APIs</span>
-          <span class="skill-pill">JWT</span>
-          <span class="skill-pill">Better Auth</span>
-          <span class="skill-pill">Bcrypt</span>
-          <span class="skill-pill">Zod</span>
-          <span class="skill-pill">Multer</span>
-          <span class="skill-pill">Nodemailer</span>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <h3 class="skill-h">Databases &amp; ORM</h3>
-        <div class="skill-row">
-          <span class="skill-pill">PostgreSQL</span>
-          <span class="skill-pill">MongoDB</span>
-          <span class="skill-pill">Prisma</span>
-          <span class="skill-pill">pgvector</span>
-          <span class="skill-pill">Neon</span>
-          <span class="skill-pill">PgAdmin</span>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <h3 class="skill-h">DevOps &amp; Cloud</h3>
-        <div class="skill-row">
-          <span class="skill-pill">Docker</span>
-          <span class="skill-pill">Docker Compose</span>
-          <span class="skill-pill">Nginx</span>
-          <span class="skill-pill">AWS S3</span>
-          <span class="skill-pill">AWS IAM</span>
-          <span class="skill-pill">AWS EC2</span>
-          <span class="skill-pill">GitHub Actions</span>
-          <span class="skill-pill">CI/CD</span>
-          <span class="skill-pill">Linux</span>
-          <span class="skill-pill">Makefile</span>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <h3 class="skill-h">AI &amp; LLM</h3>
-        <div class="skill-row">
-          <span class="skill-pill">LangChain</span>
-          <span class="skill-pill">OpenAI API</span>
-          <span class="skill-pill">RAG Systems</span>
-          <span class="skill-pill">Embeddings</span>
-          <span class="skill-pill">Prompt Engineering</span>
-          <span class="skill-pill">LoRA / QLoRA</span>
-          <span class="skill-pill">Fine-tuning</span>
-          <span class="skill-pill">n8n</span>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <h3 class="skill-h">Data &amp; ML</h3>
-        <div class="skill-row">
-          <span class="skill-pill">PyTorch</span>
-          <span class="skill-pill">TensorFlow</span>
-          <span class="skill-pill">NumPy</span>
-          <span class="skill-pill">Pandas</span>
-          <span class="skill-pill">Causal ML</span>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <h3 class="skill-h">Testing &amp; Tooling</h3>
-        <div class="skill-row">
-          <span class="skill-pill">Vitest</span>
-          <span class="skill-pill">Supertest</span>
-          <span class="skill-pill">Stripe</span>
-          <span class="skill-pill">Cloudinary</span>
-          <span class="skill-pill">Git</span>
-          <span class="skill-pill">VS Code</span>
-          <span class="skill-pill">Beekeeper Studio</span>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <h3 class="skill-h">CS Concepts</h3>
-        <div class="skill-row">
-          <span class="skill-pill">DSA</span>
-          <span class="skill-pill">OOP</span>
-          <span class="skill-pill">Database Design</span>
-          <span class="skill-pill">ER Modeling</span>
-          <span class="skill-pill">Normalization</span>
-          <span class="skill-pill">Discrete Math</span>
-          <span class="skill-pill">Statistics</span>
-          <span class="skill-pill">Linear Algebra</span>
-        </div>
-      </div>
-
-    </div>
-  </template>
-
-  <template id="content-education">
-    <div class="win-edu">
-      <pre class="log-view">
-<span class="log-time">[2024-01-15 09:00]</span> <span class="log-info">INFO</span>   Enrolled · B.Sc. Computer Science &amp; Engineering
-                            United International University · Dhaka
-
-<span class="log-time">[2024-09-12 14:30]</span> <span class="log-ok">PASS</span>   Course · Data Structures &amp; Algorithms
-<span class="log-time">[2025-01-10 11:00]</span> <span class="log-ok">PASS</span>   Course · Statistics &amp; Probability
-<span class="log-time">[2025-03-14 09:15]</span> <span class="log-ok">PASS</span>   Course · Discrete Mathematics
-<span class="log-time">[2025-04-22 16:00]</span> <span class="log-ok">PASS</span>   Lab    · Circuit Analysis
-<span class="log-time">[2026-05-12 --:--]</span> <span class="log-warn">RUN</span>    Semester · 5 (in progress)
-
-<span class="log-time">[2026-XX-XX ??:??]</span> <span class="log-info">PLAN</span>   Apply · Erasmus Mundus scholarship
-                            Target · European Graduate Program
-                            Focus  · Causal ML on healthcare data
-      </pre>
-    </div>
-  </template>
-
-  <template id="content-terminal">
-    <div class="win-terminal">
-      <div class="terminal-output" id="terminal-output"></div>
-      <div class="terminal-input-row">
-        <span class="terminal-prompt">salman@SalmanOS:~$</span>
-        <input class="terminal-input" id="terminal-input" type="text" autocomplete="off" spellcheck="false" autofocus />
-        <span class="terminal-caret"></span>
-      </div>
-    </div>
-  </template>
-
-  <template id="content-contact">
-    <div class="win-contact">
-      <h2 class="contact-h">Let's talk.</h2>
-      <p class="contact-sub">The fastest way to reach me — pick one.</p>
-
-      <button class="contact-card" data-action="copy-email" data-email="salman2430508@bscse.uiu.ac.bd">
-        <span class="contact-icon">✉</span>
-        <div class="contact-text">
-          <div class="contact-label">Email</div>
-          <div class="contact-val">salman2430508@bscse.uiu.ac.bd</div>
-        </div>
-        <span class="contact-action">copy</span>
-      </button>
-
-      <a class="contact-card" href="https://github.com/DeepSalman" target="_blank" rel="noopener">
-        <span class="contact-icon">⌥</span>
-        <div class="contact-text">
-          <div class="contact-label">GitHub</div>
-          <div class="contact-val">github.com/DeepSalman</div>
-        </div>
-        <span class="contact-action">open ↗</span>
-      </a>
-
-      <a class="contact-card" href="https://www.linkedin.com/in/deepsalman/" target="_blank" rel="noopener">
-        <span class="contact-icon">in</span>
-        <div class="contact-text">
-          <div class="contact-label">LinkedIn</div>
-          <div class="contact-val">linkedin.com/in/deepsalman</div>
-        </div>
-        <span class="contact-action">open ↗</span>
-      </a>
-
-      <a class="contact-card download" href="assets/resume.pdf" download>
-        <span class="contact-icon">📜</span>
-        <div class="contact-text">
-          <div class="contact-label">Resume</div>
-          <div class="contact-val">salman-resume.pdf</div>
-        </div>
-        <span class="contact-action">download ↓</span>
-      </a>
-    </div>
-  </template>
-
-  <template id="content-nowplaying">
-    <div class="spotify-view">
-
-      <!-- Header -->
-      <div class="spotify-header">
-        <div class="spotify-cover">
-          <svg viewBox="0 0 24 24" fill="white"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-        </div>
-        <div class="spotify-header-info">
-          <span class="spotify-type">PUBLIC PLAYLIST</span>
-          <h1 class="spotify-title">Liked Songs</h1>
-          <div class="spotify-meta">
-            <span class="spotify-owner">Salman</span>
-            <span class="spotify-dot">•</span>
-            <span>7 songs,</span>
-            <span class="spotify-time-total">35 min</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Action bar -->
-      <div class="spotify-actions">
-        <button class="spotify-play-big" aria-label="Play">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-        </button>
-        <button class="spotify-icon-btn" title="Shuffle" aria-label="Shuffle">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M4 20L21 3"/><path d="M21 16v5h-5"/><path d="M15 15l6 6"/><path d="M4 4l5 5"/></svg>
-        </button>
-        <button class="spotify-icon-btn" title="More" aria-label="More">
-          <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
-        </button>
-      </div>
-
-      <!-- Table header -->
-      <div class="spotify-table-head">
-        <span class="col-num">#</span>
-        <span class="col-title">Title</span>
-        <span class="col-album">Album</span>
-        <span class="col-date">Date added</span>
-        <span class="col-time">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-        </span>
-      </div>
-
-      <!-- Song list -->
-      <div class="spotify-list">
-
-        <div class="spotify-row playing">
-          <div class="col-num">
-            <span class="num-text">1</span>
-            <span class="num-play">▶</span>
-            <span class="num-eq"><i></i><i></i><i></i><i></i></span>
-          </div>
-          <div class="col-title">
-            <div class="row-cover cover-slow-rush"></div>
-            <div class="row-titles">
-              <div class="row-track">Taxi's Here</div>
-              <div class="row-artist">Tame Impala</div>
-            </div>
-          </div>
-          <span class="col-album">The Slow Rush</span>
-          <span class="col-date">2 days ago</span>
-          <span class="col-time">5:00</span>
-        </div>
-
-        <div class="spotify-row">
-          <div class="col-num">
-            <span class="num-text">2</span>
-            <span class="num-play">▶</span>
-          </div>
-          <div class="col-title">
-            <div class="row-cover cover-currents"></div>
-            <div class="row-titles">
-              <div class="row-track">The Less I Know The Better</div>
-              <div class="row-artist">Tame Impala</div>
-            </div>
-          </div>
-          <span class="col-album">Currents</span>
-          <span class="col-date">1 week ago</span>
-          <span class="col-time">3:36</span>
-        </div>
-
-        <div class="spotify-row">
-          <div class="col-num">
-            <span class="num-text">3</span>
-            <span class="num-play">▶</span>
-          </div>
-          <div class="col-title">
-            <div class="row-cover cover-slow-rush"></div>
-            <div class="row-titles">
-              <div class="row-track">Borderline</div>
-              <div class="row-artist">Tame Impala</div>
-            </div>
-          </div>
-          <span class="col-album">The Slow Rush</span>
-          <span class="col-date">2 weeks ago</span>
-          <span class="col-time">3:57</span>
-        </div>
-
-        <div class="spotify-row">
-          <div class="col-num">
-            <span class="num-text">4</span>
-            <span class="num-play">▶</span>
-          </div>
-          <div class="col-title">
-            <div class="row-cover cover-slow-rush"></div>
-            <div class="row-titles">
-              <div class="row-track">Lost in Yesterday</div>
-              <div class="row-artist">Tame Impala</div>
-            </div>
-          </div>
-          <span class="col-album">The Slow Rush</span>
-          <span class="col-date">2 weeks ago</span>
-          <span class="col-time">4:09</span>
-        </div>
-
-        <div class="spotify-row">
-          <div class="col-num">
-            <span class="num-text">5</span>
-            <span class="num-play">▶</span>
-          </div>
-          <div class="col-title">
-            <div class="row-cover cover-currents"></div>
-            <div class="row-titles">
-              <div class="row-track">Let It Happen</div>
-              <div class="row-artist">Tame Impala</div>
-            </div>
-          </div>
-          <span class="col-album">Currents</span>
-          <span class="col-date">1 month ago</span>
-          <span class="col-time">7:48</span>
-        </div>
-
-        <div class="spotify-row">
-          <div class="col-num">
-            <span class="num-text">6</span>
-            <span class="num-play">▶</span>
-          </div>
-          <div class="col-title">
-            <div class="row-cover cover-lonerism"></div>
-            <div class="row-titles">
-              <div class="row-track">Apocalypse Dreams</div>
-              <div class="row-artist">Tame Impala</div>
-            </div>
-          </div>
-          <span class="col-album">Lonerism</span>
-          <span class="col-date">1 month ago</span>
-          <span class="col-time">7:11</span>
-        </div>
-
-        <div class="spotify-row">
-          <div class="col-num">
-            <span class="num-text">7</span>
-            <span class="num-play">▶</span>
-          </div>
-          <div class="col-title">
-            <div class="row-cover cover-currents"></div>
-            <div class="row-titles">
-              <div class="row-track">Eventually</div>
-              <div class="row-artist">Tame Impala</div>
-            </div>
-          </div>
-          <span class="col-album">Currents</span>
-          <span class="col-date">2 months ago</span>
-          <span class="col-time">5:21</span>
-        </div>
-
-      </div>
-    </div>
-  </template>
-
-  <template id="content-secret">
-    <div class="win-secret">
-      <div class="secret-icon">🎉</div>
-      <h2>You found me.</h2>
-      <p>Curiosity is one of the best traits a developer can have.<br/>If you also have the patience to read source code, we'll probably get along.</p>
-      <p class="secret-cred">— Salman</p>
-    </div>
-  </template>
-
-</div>
-
-<script src="assets/js/main.js"></script>
+      <div class="currently" data-reveal><div><span class="status-dot"></span><p class="eyebrow">CURRENTLY CURIOUS ABOUT</p></div><p>Better model evaluation. Messy, local datasets.<br>Making useful things with machine learning.</p><span class="currently-symbol" aria-hidden="true">↗</span></div>
+    </section>
+
+    <section class="os-invite container" aria-labelledby="os-invite-title" data-reveal><div class="os-preview" aria-hidden="true"><div class="os-preview-bar"><i></i><i></i><i></i><span>salman@portfolio:~</span></div><div class="os-preview-body"><span>~ $</span> curiosity --explore<br><span class="os-preview-result">↳ something a little different_</span></div></div><div class="os-invite-copy"><p class="eyebrow">A LITTLE SIDE QUEST</p><h2 id="os-invite-title">There’s a whole desktop in here.</h2><p>The original SalmanOS lives on. Open a window, type a command, follow your curiosity.</p></div><button class="button button-secondary" data-open-os type="button">Launch SalmanOS <span aria-hidden="true">↗</span></button></section>
+
+    <section class="contact-section container" id="contact" aria-labelledby="contact-title">
+      <div data-reveal><p class="eyebrow"><span>04</span> WHAT’S NEXT?</p><h2 id="contact-title">Let’s build something<br><em>that matters.</em></h2><p>I’m looking for a machine learning internship where I can contribute, learn, and turn good questions into useful work. Have something in mind?</p><a class="contact-email" href="mailto:salman2330508@bscse.uiu.ac.bd">Say hello <span aria-hidden="true">↗</span></a></div>
+      <div class="contact-details"><span class="contact-small-label">OR REACH ME DIRECTLY</span><div class="email-row"><a href="mailto:salman2330508@bscse.uiu.ac.bd">salman2330508@bscse.uiu.ac.bd</a><button type="button" class="copy-button" data-copy-email aria-label="Copy email address" title="Copy email address"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></svg></button></div><div class="social-links"><a href="https://github.com/DeepSalman" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/deepsalman/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="assets/images/Salman_CV.pdf" download="Salman-Resume.pdf">Résumé ↓</a></div></div>
+    </section>
+  </main>
+
+  <footer class="site-footer container"><a class="footer-brand" href="#main">salman<span>.</span></a><span>Made with intention. Built with curiosity.</span><span>© <span data-year>2026</span> Salman</span><a href="#main" class="back-top" aria-label="Back to top">↑</a></footer>
+  <div class="toast" role="status" aria-live="polite" id="toast"></div>
 </body>
 </html>

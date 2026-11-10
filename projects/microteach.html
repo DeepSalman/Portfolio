@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="../assets/js/theme.js"></script>
+  <meta name="theme-color" content="#151513" />
+  <meta name="description" content="A peer teaching platform where students post specific learning needs and peers offer to teach them for a fee." />
+  <meta name="author" content="Salman" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="MicroTeach — Salman" />
+  <meta property="og:description" content="A peer teaching platform where students post specific learning needs and peers offer to teach them for a fee." />
+  <meta property="og:url" content="https://deepsalman.github.io/Portfolio/projects/microteach.html" />
+  <meta property="og:site_name" content="Salman · Selected Work" />
+  <meta property="og:image" content="https://deepsalman.github.io/Portfolio/assets/images/social-preview.png" />
+  <meta property="og:image:alt" content="Salman — selected work in machine learning, AI, and full stack development." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://deepsalman.github.io/Portfolio/assets/images/social-preview.png" />
+  <link rel="canonical" href="https://deepsalman.github.io/Portfolio/projects/microteach.html" />
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml" />
+  <link rel="preload" href="../assets/fonts/manrope-variable.ttf" as="font" type="font/ttf" crossorigin />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/case-study.css" />
+  <script src="../assets/js/main.js" type="module"></script>
+  <title>MicroTeach — Salman</title>
+</head>
+<body class="case-page case-page--microteach">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="case-header">
+    <div class="case-container case-header-inner">
+      <a class="case-brand" href="../index.html" aria-label="Salman — home"><span class="case-monogram" aria-hidden="true">s</span>Salman.</a>
+      <a class="case-back" href="../index.html#work">← Back to selected work</a>
+    </div>
+  </header>
+
+  <main id="main" class="case-container">
+    <div class="case-hero">
+      <p class="case-eyebrow">Full stack development · Peer learning</p>
+      <h1 class="case-title">MicroTeach<span>.</span></h1>
+      <p class="case-intro">Sometimes the right help starts with one specific topic. MicroTeach connects students who want to learn with peers who can teach them for a fee.</p>
+      <div class="case-actions">
+        <a class="case-button case-button-primary" href="https://microteach-six.vercel.app" target="_blank" rel="noopener noreferrer">Open live project <span aria-hidden="true">↗</span></a>
+          <a class="case-button" href="https://github.com/DeepSalman/MicroTeach" target="_blank" rel="noopener noreferrer">View source <span aria-hidden="true">↗</span></a>
+      </div>
+      <ul class="case-tags" aria-label="Technology stack"><li>React</li><li>Node.js</li><li>Express</li><li>MySQL</li></ul>
+    </div>
+
+    <figure class="case-figure">
+      <div class="case-figure-top"><span class="case-figure-label">MicroTeach / How it fits together</span><span class="case-figure-mark" aria-hidden="true">✳</span></div>
+      <div class="case-diagram">
+          <div class="case-diagram-card">
+            <span class="case-step-label">01 / A learning need</span>
+            <h2 class="case-diagram-title">Post a topic</h2>
+            <p>A student describes the specific subject they want help with.</p>
+          </div>
+          <span class="case-diagram-arrow" aria-hidden="true">→</span>
+          <div class="case-diagram-card">
+            <span class="case-step-label">02 / A peer connection</span>
+            <h2 class="case-diagram-title">Offer to teach</h2>
+            <p>Peers apply to help for a fee.</p>
+            <ul class="case-feature-list"><li>Profiles</li><li>Applications</li><li>Reviews</li></ul>
+          </div>
+          <span class="case-diagram-arrow" aria-hidden="true">→</span>
+          <div class="case-diagram-card is-accent">
+            <span class="case-step-label">03 / A conversation</span>
+            <div class="case-message">A question about the topic</div>
+            <div class="case-message reply">A peer’s explanation</div>
+            <p>Messages, photos, and videos.</p>
+          </div>
+      </div>
+      <figcaption class="case-figure-caption">Conceptual product flow · topic request → teaching application → direct conversation.</figcaption>
+    </figure>
+
+    <ul class="case-highlights" aria-label="Project highlights">
+        <li><strong>Focused requests</strong><span>Students post a specific topic and peers offer to teach it.</span></li>
+        <li><strong>Direct conversation</strong><span>Real-time one-to-one messaging with photo and video sharing.</span></li>
+        <li><strong>Community workflows</strong><span>Profiles, applications, reviews, reports, and administration.</span></li>
+    </ul>
+
+      <section class="case-section" aria-labelledby="section-1">
+        <h2 class="case-section-title" id="section-1"><span class="case-section-number">01 / CONTEXT</span>Start with the topic someone needs.</h2>
+        <div class="case-copy"><p>MicroTeach organizes peer learning around a specific request. A student posts the topic they want to understand, and another student can offer to teach it for a fee. The learning need becomes the starting point for a connection.</p>
+              <p>That simple exchange needs more than a post. People need profiles, a way to apply, a place to talk, and ways to share feedback or report a problem. The project brings those workflows together in a full stack application built with React, Node.js, Express, and MySQL.</p></div>
+      </section>
+
+      <section class="case-section" aria-labelledby="section-2">
+        <h2 class="case-section-title" id="section-2"><span class="case-section-number">02 / IMPLEMENTATION</span>Build around the whole exchange.</h2>
+        <div class="case-copy"><h3>Give each side a clear place to begin</h3>
+              <p>Student and teacher profiles support the two sides of the platform. Topic posts describe a learning need, while applications let peers express interest in teaching. These are the core records connecting a request to a potential teacher.</p>
+              <h3>Keep the conversation close</h3>
+              <p>Real-time one-to-one messaging lets participants communicate directly. Photo and video sharing extend that conversation beyond text, giving them a way to exchange visual material when discussing a topic.</p>
+              <h3>Support feedback and administration</h3>
+              <p>Reviews, reports, and an admin system are part of the project’s scope. Reviews provide a channel for feedback, reports create a route for raising concerns, and administrative features support the operation of the platform.</p>
+              <h3>Connect the interface to persistent data</h3>
+              <p>React provides the user interface, with Node.js and Express on the server and MySQL for relational data. The stack spans the visible experience and the records behind profiles, posts, applications, and community features.</p></div>
+      </section>
+
+      <section class="case-section" aria-labelledby="section-3">
+        <h2 class="case-section-title" id="section-3"><span class="case-section-number">03 / TAKEAWAY</span>More than the first interaction.</h2>
+        <div class="case-copy"><p>MicroTeach demonstrates product work across several connected user journeys. Posting a request is one step; applying, communicating, reviewing, and administering the platform give the exchange its surrounding structure.</p>
+              <p>The project also shows the breadth of a full stack application: frontend views, server behavior, relational data, and real-time communication all contribute to the same experience.</p>
+              <p class="case-note">Explore the <a href="https://microteach-six.vercel.app" target="_blank" rel="noopener noreferrer">public project</a>, or look through the frontend and backend in the <a href="https://github.com/DeepSalman/MicroTeach" target="_blank" rel="noopener noreferrer">MicroTeach source repository</a>.</p></div>
+      </section>
+
+    <nav aria-label="More selected work">
+      <a class="case-next" href="pricepoint.html" aria-label="Next project: PricePoint — Finding a price in the data">
+        <span><span class="case-next-label">Next project / Finding a price in the data</span><span class="case-next-title">PricePoint</span></span>
+        <span class="case-next-arrow" aria-hidden="true">↗</span>
+      </a>
+    </nav>
+  </main>
+
+  <footer class="case-footer">
+    <div class="case-container case-footer-inner">
+      <span>Salman · Dhaka, Bangladesh</span>
+      <a href="mailto:salman2330508@bscse.uiu.ac.bd">salman2330508@bscse.uiu.ac.bd ↗</a>
+    </div>
+  </footer>
+</body>
+</html>

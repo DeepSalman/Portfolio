@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="../assets/js/theme.js"></script>
+  <meta name="theme-color" content="#151513" />
+  <meta name="description" content="A conversational assistant for Dhaka transport routes, transfer points, and fares, backed by a relational database." />
+  <meta name="author" content="Salman" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="RouteGPT — Salman" />
+  <meta property="og:description" content="A conversational assistant for Dhaka transport routes, transfer points, and fares, backed by a relational database." />
+  <meta property="og:url" content="https://deepsalman.github.io/Portfolio/projects/routegpt.html" />
+  <meta property="og:site_name" content="Salman · Selected Work" />
+  <meta property="og:image" content="https://deepsalman.github.io/Portfolio/assets/images/social-preview.png" />
+  <meta property="og:image:alt" content="Salman — selected work in machine learning, AI, and full stack development." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://deepsalman.github.io/Portfolio/assets/images/social-preview.png" />
+  <link rel="canonical" href="https://deepsalman.github.io/Portfolio/projects/routegpt.html" />
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml" />
+  <link rel="preload" href="../assets/fonts/manrope-variable.ttf" as="font" type="font/ttf" crossorigin />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/case-study.css" />
+  <script src="../assets/js/main.js" type="module"></script>
+  <title>RouteGPT — Salman</title>
+</head>
+<body class="case-page case-page--routegpt">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="case-header">
+    <div class="case-container case-header-inner">
+      <a class="case-brand" href="../index.html" aria-label="Salman — home"><span class="case-monogram" aria-hidden="true">s</span>Salman.</a>
+      <a class="case-back" href="../index.html#work">← Back to selected work</a>
+    </div>
+  </header>
+
+  <main id="main" class="case-container">
+    <div class="case-hero">
+      <p class="case-eyebrow">Conversational systems · Urban mobility</p>
+      <h1 class="case-title">RouteGPT<span>.</span></h1>
+      <p class="case-intro">Getting across Dhaka starts with a question. RouteGPT turns natural language transport questions into guidance on routes, transfers, and fares.</p>
+      <div class="case-actions">
+        <a class="case-button case-button-primary" href="https://github.com/DeepSalman/RouteGPT" target="_blank" rel="noopener noreferrer">View source <span aria-hidden="true">↗</span></a>
+      </div>
+      <ul class="case-tags" aria-label="Technology stack"><li>Python</li><li>NLP</li><li>MySQL</li></ul>
+    </div>
+
+    <figure class="case-figure">
+      <div class="case-figure-top"><span class="case-figure-label">RouteGPT / How it fits together</span><span class="case-figure-mark" aria-hidden="true">✳</span></div>
+      <div class="case-diagram">
+          <div class="case-diagram-card">
+            <span class="case-step-label">01 / A question</span>
+            <h2 class="case-diagram-title">Where to next?</h2>
+            <p>Natural language questions about Dhaka’s transport routes and fares.</p>
+          </div>
+          <span class="case-diagram-arrow" aria-hidden="true">→</span>
+          <div class="case-diagram-card">
+            <span class="case-step-label">02 / Connected data</span>
+            <h2 class="case-diagram-title">Routes + stops + fares</h2>
+            <ul class="case-feature-list"><li>Python</li><li>NLP</li><li>MySQL</li><li>Discount categories</li></ul>
+          </div>
+          <span class="case-diagram-arrow" aria-hidden="true">→</span>
+          <div class="case-diagram-card is-accent">
+            <span class="case-step-label">03 / A journey</span>
+            <div class="case-route" aria-hidden="true"><i></i><b></b><i></i><b></b><i></i></div>
+            <h2 class="case-diagram-title">Start. Transfer. Arrive.</h2>
+            <p>Multi-leg guidance and fare information.</p>
+          </div>
+      </div>
+      <figcaption class="case-figure-caption">Conceptual system diagram · natural language → structured transport data → journey guidance.</figcaption>
+    </figure>
+
+    <ul class="case-highlights" aria-label="Project highlights">
+        <li><strong>Conversational input</strong><span>Ask about transport routes and fares in natural language.</span></li>
+        <li><strong>Connected journeys</strong><span>Support for multiple legs and the transfer points between them.</span></li>
+        <li><strong>Structured knowledge</strong><span>A relational database for routes, stops, fares, and discount categories.</span></li>
+    </ul>
+
+      <section class="case-section" aria-labelledby="section-1">
+        <h2 class="case-section-title" id="section-1"><span class="case-section-number">01 / CONTEXT</span>A city question, in everyday words.</h2>
+        <div class="case-copy"><p>A transport question often contains more than a destination. A passenger may need to know which route to take, where to change, or how much the journey costs. RouteGPT focuses on those practical questions in the context of Dhaka.</p>
+              <p>The project is a conversational assistant built with Python, natural language processing, and MySQL. Its interface accepts natural language questions, while the transport information lives in a relational database. This connects the way a person asks for help with the structured records needed to describe a journey.</p></div>
+      </section>
+
+      <section class="case-section" aria-labelledby="section-2">
+        <h2 class="case-section-title" id="section-2"><span class="case-section-number">02 / IMPLEMENTATION</span>Connect the route to the answer.</h2>
+        <div class="case-copy"><h3>Keep transport information structured</h3>
+              <p>The database contains routes, stops, fares, and discount categories. These are related parts of the same journey: a route connects stops, and its fare information helps explain the cost. MySQL provides the relational foundation for that information.</p>
+              <h3>Account for the transfer</h3>
+              <p>RouteGPT handles multi-leg journeys and identifies transfer points. That extends its scope beyond a single direct route. The answer can describe the connection between segments so a passenger can understand how the pieces of a trip fit together.</p>
+              <h3>Include a short-distance alternative</h3>
+              <p>The assistant also includes a rickshaw fare alternative for short distances. This reflects the practical question behind the route request: how to cover the trip, including journeys where a short local ride is relevant.</p></div>
+      </section>
+
+      <section class="case-section" aria-labelledby="section-3">
+        <h2 class="case-section-title" id="section-3"><span class="case-section-number">03 / TAKEAWAY</span>A conversation grounded in data.</h2>
+        <div class="case-copy"><p>The project demonstrates the connection between language processing and database design. A useful conversational answer needs both: an understanding of the question and organized information about the transport system it describes.</p>
+              <p>RouteGPT brings several related concerns into one assistant: route lookup, transfer points, fare questions, and short-distance alternatives. The database gives these features a common foundation rather than treating every question as an isolated response.</p>
+              <p class="case-note">See how language processing and structured transport data come together in the <a href="https://github.com/DeepSalman/RouteGPT" target="_blank" rel="noopener noreferrer">RouteGPT source repository</a>.</p></div>
+      </section>
+
+    <nav aria-label="More selected work">
+      <a class="case-next" href="microteach.html" aria-label="Next project: MicroTeach — A small topic. A useful connection.">
+        <span><span class="case-next-label">Next project / A small topic. A useful connection.</span><span class="case-next-title">MicroTeach</span></span>
+        <span class="case-next-arrow" aria-hidden="true">↗</span>
+      </a>
+    </nav>
+  </main>
+
+  <footer class="case-footer">
+    <div class="case-container case-footer-inner">
+      <span>Salman · Dhaka, Bangladesh</span>
+      <a href="mailto:salman2330508@bscse.uiu.ac.bd">salman2330508@bscse.uiu.ac.bd ↗</a>
+    </div>
+  </footer>
+</body>
+</html>
