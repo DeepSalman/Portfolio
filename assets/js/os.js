@@ -36,7 +36,7 @@ function loadStyles() {
     stylesheet = new Promise((resolve, reject) => {
       const node = document.createElement('link');
       node.rel = 'stylesheet';
-      node.href = asset('../css/os.css');
+      node.href = `${asset('../css/os.css')}?v=nav-contrast`;
       node.onload = resolve;
       node.onerror = () => { node.remove(); stylesheet = null; reject(new Error('Could not load SalmanOS styles.')); };
       document.head.append(node);
