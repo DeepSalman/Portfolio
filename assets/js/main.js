@@ -2,6 +2,43 @@ const root = document.documentElement;
 root.classList.add('js');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
+function initBoot() {
+  const screen = document.querySelector('#boot-screen');
+  if (!screen) return;
+  const skip = screen.querySelector('#boot-skip');
+  const started = performance.now();
+  const listeners = new AbortController();
+  let finished = false;
+  let readyTimer;
+  let fallbackTimer;
+  function finish() {
+    if (finished) return;
+    finished = true;
+    clearTimeout(readyTimer);
+    clearTimeout(fallbackTimer);
+    listeners.abort();
+    screen.classList.add('is-done');
+    const hadFocus = screen.contains(document.activeElement);
+    if (hadFocus) {
+      const heading = document.querySelector('#hero-title');
+      heading?.focus({ preventScroll: true });
+    }
+    setTimeout(() => screen.remove(), reducedMotion.matches ? 0 : 450);
+  }
+  skip?.addEventListener('click', finish, { signal: listeners.signal });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') finish();
+  }, { signal: listeners.signal });
+  if (reducedMotion.matches) { finish(); return; }
+  function onReady() {
+    readyTimer = setTimeout(finish, Math.max(0, 1250 - (performance.now() - started)));
+  }
+  if (document.readyState === 'complete') onReady();
+  else window.addEventListener('load', onReady, { once: true, signal: listeners.signal });
+  fallbackTimer = setTimeout(finish, 2400);
+}
+initBoot();
+
 function syncThemeButtons() {
   const next = root.dataset.theme === 'light' ? 'dark' : 'light';
   document.querySelectorAll('[data-theme-toggle]').forEach(button => {
