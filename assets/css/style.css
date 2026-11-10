@@ -546,3 +546,7 @@ em{color:#765137}
 @media(max-width:760px){.tags{min-height:0;gap:8px}.tags .tool-chip{font-size:10px}}
 @media(prefers-reduced-motion:reduce){.tags .tool-chip{transition:none!important}}
 @media(max-width:760px){.social-links{gap:8px;font-size:initial}}
+.social-icon-facebook{color:#6e9cd4}
+.social-icon-instagram{color:#d890a1}
+.social-icon-instagram svg{fill:none}
+.social-icon-instagram .icon-dot{fill:currentColor;stroke:none}
