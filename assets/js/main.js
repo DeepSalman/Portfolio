@@ -129,7 +129,7 @@ let osModule;
 async function launchOS(trigger) {
   trigger?.setAttribute('aria-busy', 'true');
   try {
-    osModule ||= import('./os.js').catch(error => { osModule = undefined; throw error; });
+    osModule ||= import('./os.js?v=hero-cse').catch(error => { osModule = undefined; throw error; });
     const { openOS } = await osModule;
     await openOS(trigger);
   } catch {

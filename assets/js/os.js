@@ -206,7 +206,7 @@ function runCommand(raw) {
       break;
     case 'about':
     case 'whoami':
-      printLine('Salman · CSE / Data Science undergraduate\nUnited International University · 2024–2028 (expected)\nDhaka, Bangladesh\nSeeking a machine learning internship.');
+      printLine('Salman · CSE undergraduate exploring data science\nUnited International University · 2024–2028 (expected)\nDhaka, Bangladesh\nSeeking a machine learning internship.');
       break;
     case 'projects':
     case 'ls':
