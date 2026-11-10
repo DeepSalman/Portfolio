@@ -45,7 +45,7 @@ function syncThemeButtons() {
     button.setAttribute('aria-label', `Switch to ${next} theme`);
     button.title = `Switch to ${next} theme`;
   });
-  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', root.dataset.theme === 'dark' ? '#151513' : '#ff3b0a');
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', root.dataset.theme === 'dark' ? '#151513' : '#c04727');
 }
 syncThemeButtons();
 document.querySelectorAll('[data-theme-toggle]').forEach(button => {
