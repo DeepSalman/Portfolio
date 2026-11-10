@@ -45,13 +45,13 @@ function syncThemeButtons() {
     button.setAttribute('aria-label', `Switch to ${next} theme`);
     button.title = `Switch to ${next} theme`;
   });
-  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', next === 'dark' ? '#f4f1e9' : '#151513');
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', root.dataset.theme === 'dark' ? '#151513' : '#ff3b0a');
 }
 syncThemeButtons();
 document.querySelectorAll('[data-theme-toggle]').forEach(button => {
   button.addEventListener('click', () => {
     root.dataset.theme = root.dataset.theme === 'light' ? 'dark' : 'light';
-    try { localStorage.setItem('salman-theme', root.dataset.theme); } catch { /* Optional persistence. */ }
+    try { localStorage.setItem('salman-theme-v2', root.dataset.theme); } catch { /* Optional persistence. */ }
     syncThemeButtons();
   });
 });
