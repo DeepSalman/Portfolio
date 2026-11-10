@@ -573,3 +573,32 @@ em{color:#765137}
 .sticky-name-bar .sticky-name:hover{color:#fff}
 .sticky-name-bar.is-past-hero{background:var(--bg);color:var(--nav-orange);border-bottom-color:var(--line)}
 .sticky-name-bar.is-past-hero .sticky-name:hover{color:var(--accent)}
+
+/* Editorial hero panel inspired by the supplied reference, with Salman centered. */
+.hero{padding-top:32px}
+.hero-scene{position:relative;width:100%;height:clamp(360px,41vw,500px);margin-bottom:40px;overflow:hidden;background:#11110f;isolation:isolate}
+.hero-scene-grid{position:absolute;inset:7% 5% 7% 0;background-color:var(--bg);background-image:linear-gradient(color-mix(in srgb,var(--text) 16%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--text) 16%,transparent) 1px,transparent 1px);background-size:clamp(32px,4.8vw,56px) clamp(32px,4.8vw,56px);border-radius:0 45% 45% 0 / 0 50% 50% 0}
+.hero-scene .portrait-stage{position:absolute;z-index:2;left:50%;bottom:0;width:min(44%,470px);height:100%;margin:0;overflow:visible;border:0;border-radius:0;background:transparent;transform:translateX(-50%);animation:arrive .85s .1s var(--ease) both}
+.hero-scene .portrait-photo{position:absolute;inset:0;overflow:visible;border:0;border-radius:0;background:transparent;box-shadow:none}
+.hero-scene .hero-portrait{width:100%;height:100%;object-fit:contain;object-position:center bottom;filter:grayscale(1) contrast(1.06);transform:none}
+.hero-scene .portrait-orbit,.hero-scene .portrait-spark{display:none}
+.hero-sticker{position:absolute;z-index:3;display:block;padding:11px 14px;background:var(--nav-orange);color:#fffaf7;font:700 10px/1.35 var(--font-sans);letter-spacing:.035em;box-shadow:0 8px 20px #0002}
+.hero-sticker strong{font-weight:800}
+.hero-sticker small{font:600 8px/1.4 var(--font-mono);opacity:.88}
+.sticker-degree{top:9%;left:13%;display:grid;place-content:center;width:104px;height:104px;padding:10px;border-radius:50%;text-align:center;font-size:13px;transform:rotate(-7deg)}
+.sticker-data{left:4%;top:51%;transform:rotate(-5deg)}
+.sticker-build{right:19%;top:21%;background:#171715;transform:rotate(4deg)}
+.sticker-uiu{right:4%;bottom:12%;background:var(--surface-raised);color:var(--text);transform:rotate(-6deg)}
+.hero-copy{margin-top:0}
+@media(max-width:760px){
+  .hero{padding-top:22px;padding-bottom:42px}
+  .hero-scene{height:clamp(340px,112vw,430px);margin-bottom:34px}
+  .hero-scene-grid{inset:6% 3% 6% 0;background-size:38px 38px}
+  .hero-scene .portrait-stage{width:78%;height:100%}
+  .hero-sticker{padding:8px 9px;font-size:8px}
+  .hero-sticker small{font-size:7px}
+  .sticker-degree{top:7%;left:4%;width:76px;height:76px;padding:7px;font-size:10px}
+  .sticker-data{left:3%;top:54%;}
+  .sticker-build{right:3%;top:19%;max-width:118px}
+  .sticker-uiu{right:2%;bottom:8%;max-width:120px}
+}
