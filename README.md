@@ -35,6 +35,7 @@ The committed HTML includes the complete portfolio and works without JavaScript.
 - `assets/js/main.js`: navigation, theme controls, one-time reveals, local time, and clipboard.
 - `assets/js/os.js` / `assets/css/os.css`: loaded only when SalmanOS opens.
 - `assets/fonts/`: locally hosted Manrope variable font and its OFL license.
+- `assets/icons/`: local SVG marks for the tools shown in the Toolkit section.
 
 All animation respects reduced motion. The intro can be skipped and starts fading out within 2.4 seconds of JavaScript starting. There are no background videos, continuous canvas/WebGL loops, third-party scripts, or runtime API requests. The local clock pauses while the tab is hidden. SalmanOS reuses its DOM and terminal state; it does not attach handlers each time it opens.
 

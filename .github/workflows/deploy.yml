@@ -33,7 +33,7 @@ jobs:
           mkdir -p _site/assets/images
           cp index.html robots.txt sitemap.xml _site/
           cp -R projects _site/
-          cp -R assets/css assets/js assets/fonts _site/assets/
+          cp -R assets/css assets/js assets/fonts assets/icons _site/assets/
           cp assets/images/salman-portrait.webp assets/images/Salman_CV.pdf assets/images/favicon.svg assets/images/social-preview.png _site/assets/images/
           touch _site/.nojekyll
 
