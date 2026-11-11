@@ -15,7 +15,7 @@
   <link rel="canonical" href="https://deepsalman.github.io/Portfolio/" />
   <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
   <link rel="preload" href="assets/fonts/manrope-variable.ttf" as="font" type="font/ttf" crossorigin />
-  <link rel="stylesheet" href="assets/css/style.css?v=neural-loader" />
+  <link rel="stylesheet" href="assets/css/style.css?v=neural-loader-simple" />
   <script src="assets/js/theme.js?v=mono-paper"></script>
   <script type="module" src="assets/js/main.js?v=sticky-theme-shift"></script>
   <title>Salman — Data, code & curiosity</title>
@@ -23,22 +23,22 @@
 </head>
 <body>
   <div class="boot-screen" id="boot-screen" role="status" aria-live="polite" aria-label="Loading SalmanOS">
-    <div class="boot-grid" aria-hidden="true"></div>
-    <div class="boot-topline" aria-hidden="true"><span>S<span class="boot-accent">.</span> / PERSONAL EDITION</span><span>WELCOME TO MY CORNER OF THE INTERNET</span></div>
     <div class="boot-center">
       <div class="boot-art" aria-hidden="true">
-        <div class="boot-ring boot-ring-outer"></div><div class="boot-ring boot-ring-inner"></div>
-        <svg class="boot-network" viewBox="0 0 320 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <g class="network-links"><path d="M44 55 115 42 160 84 235 48 278 92M44 55 77 120 115 42M115 42 110 190 160 84 203 184 235 48M77 120 160 84 278 92 203 184 110 190M44 55 110 190M77 120 235 48M160 84 160 220M235 48 203 184M278 92 160 220"/></g>
-          <g class="network-pulses"><circle cx="44" cy="55" r="4"/><circle cx="115" cy="42" r="4"/><circle cx="160" cy="84" r="5"/><circle cx="235" cy="48" r="4"/><circle cx="278" cy="92" r="4"/><circle cx="77" cy="120" r="4"/><circle cx="203" cy="184" r="4"/><circle cx="110" cy="190" r="4"/><circle cx="160" cy="220" r="4"/></g>
-          <g class="network-nodes"><circle cx="44" cy="55" r="7"/><circle cx="115" cy="42" r="7"/><circle cx="160" cy="84" r="9"/><circle cx="235" cy="48" r="7"/><circle cx="278" cy="92" r="7"/><circle cx="77" cy="120" r="7"/><circle cx="203" cy="184" r="7"/><circle cx="110" cy="190" r="7"/><circle cx="160" cy="220" r="7"/></g>
+        <svg class="boot-network" viewBox="0 0 320 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g class="network-connections">
+            <path d="M42 40 148 25M42 40 148 70M42 40 148 115M42 40 148 160M42 100 148 25M42 100 148 70M42 100 148 115M42 100 148 160M42 160 148 25M42 160 148 70M42 160 148 115M42 160 148 160M172 25 278 70M172 25 278 145M172 70 278 70M172 70 278 145M172 115 278 70M172 115 278 145M172 160 278 70M172 160 278 145"/>
+          </g>
+          <g class="network-signal"><path d="M42 100 148 70 172 70 278 70"/></g>
+          <g class="network-nodes network-input"><circle cx="42" cy="40" r="8"/><circle cx="42" cy="100" r="8"/><circle cx="42" cy="160" r="8"/></g>
+          <g class="network-nodes network-hidden"><circle cx="160" cy="25" r="8"/><circle cx="160" cy="70" r="8"/><circle cx="160" cy="115" r="8"/><circle cx="160" cy="160" r="8"/></g>
+          <g class="network-nodes network-output"><circle cx="278" cy="70" r="8"/><circle cx="278" cy="145" r="8"/></g>
         </svg>
       </div>
-      <div class="boot-copy"><p>INITIALIZING CURIOSITY</p><h2>Loading <em>SalmanOS</em><span class="boot-dots" aria-hidden="true">...</span></h2><span class="boot-description">Connecting ideas, one layer at a time.</span></div>
+      <div class="boot-copy"><h2>Loading <em>SalmanOS</em></h2></div>
       <div class="boot-progress" aria-hidden="true"><span></span></div>
-      <div class="boot-bottomline"><span>BUILT TO EXPLORE</span><button class="boot-skip" id="boot-skip" type="button">Skip intro <span aria-hidden="true">↗</span></button></div>
     </div>
-    <div class="boot-corner" aria-hidden="true">DHAKA, BANGLADESH <span>✳</span> EST. 2026</div>
+    <button class="boot-skip" id="boot-skip" type="button">Skip</button>
   </div>
   <a class="skip-link" href="#main">Skip to content</a>
   <div class="sticky-name-bar"><a class="footer-brand sticky-name" href="#main">Salman</a></div>
