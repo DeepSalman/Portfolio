@@ -6,36 +6,58 @@ function initBoot() {
   const screen = document.querySelector('#boot-screen');
   if (!screen) return;
   const skip = screen.querySelector('#boot-skip');
+  const cube = screen.querySelector('.boot-cube');
   const started = performance.now();
   const listeners = new AbortController();
   let finished = false;
+  let revealing = false;
   let readyTimer;
   let fallbackTimer;
-  function finish() {
+  let revealTimer;
+  function finish(immediate = false) {
     if (finished) return;
     finished = true;
     clearTimeout(readyTimer);
     clearTimeout(fallbackTimer);
+    clearTimeout(revealTimer);
     listeners.abort();
-    screen.classList.add('is-done');
     const hadFocus = screen.contains(document.activeElement);
     if (hadFocus) {
       const heading = document.querySelector('#hero-title');
       heading?.focus({ preventScroll: true });
     }
-    setTimeout(() => screen.remove(), reducedMotion.matches ? 0 : 450);
+    if (immediate) {
+      screen.remove();
+      return;
+    }
+    screen.classList.add('is-done');
+    setTimeout(() => screen.remove(), 380);
   }
-  skip?.addEventListener('click', finish, { signal: listeners.signal });
+  function reveal() {
+    if (finished || revealing) return;
+    revealing = true;
+    const bounds = cube?.getBoundingClientRect();
+    if (bounds) {
+      screen.style.setProperty('--wipe-x', `${bounds.left + bounds.width / 2}px`);
+      screen.style.setProperty('--wipe-y', `${bounds.top + bounds.height / 2}px`);
+    }
+    screen.classList.add('is-revealing');
+    revealTimer = setTimeout(finish, 900);
+  }
+  skip?.addEventListener('click', () => finish(true), { signal: listeners.signal });
   document.addEventListener('keydown', event => {
-    if (event.key === 'Escape') finish();
+    if (event.key === 'Escape') finish(true);
   }, { signal: listeners.signal });
-  if (reducedMotion.matches) { finish(); return; }
+  reducedMotion.addEventListener?.('change', event => {
+    if (event.matches) finish(true);
+  }, { signal: listeners.signal });
+  if (reducedMotion.matches) { finish(true); return; }
   function onReady() {
-    readyTimer = setTimeout(finish, Math.max(0, 1250 - (performance.now() - started)));
+    readyTimer = setTimeout(reveal, Math.max(0, 2550 - (performance.now() - started)));
   }
   if (document.readyState === 'complete') onReady();
   else window.addEventListener('load', onReady, { once: true, signal: listeners.signal });
-  fallbackTimer = setTimeout(finish, 2400);
+  fallbackTimer = setTimeout(reveal, 3100);
 }
 initBoot();
 
