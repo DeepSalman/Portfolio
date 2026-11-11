@@ -404,12 +404,11 @@ em{color:#765137}
 .boot-center{width:min(480px,calc(100% - 40px));display:flex;align-items:center;flex-direction:column;text-align:center;transform:translateY(-8px)}
 .boot-symbol{position:relative;width:300px;max-width:90%;margin-bottom:18px}
 .boot-symbol>svg{display:block;width:100%;height:auto}
-.boot-bird{position:absolute;right:-6px;top:-38px;width:82px;height:62px;animation:boot-bird-float .8s ease-in-out infinite alternate}
-.boot-bird svg{display:block;width:100%;height:100%;overflow:visible;animation:boot-bird-appear .35s .12s both}
-.boot-bird-body,.boot-bird-tail,.boot-bird-head{fill:var(--text)}
-.boot-bird-beak,.boot-bird-wing{fill:var(--boot-accent)}
-.boot-bird-wing{transform-box:view-box;transform-origin:35px 38px;animation:boot-bird-flap .27s ease-in-out infinite alternate}
-.boot-bird-eye{fill:var(--bg)}
+.boot-cube{position:absolute;right:-2px;top:-48px;width:76px;height:76px;filter:drop-shadow(0 8px 7px color-mix(in srgb,var(--text) 18%,transparent));animation:boot-cube-float .85s ease-in-out infinite alternate}
+.boot-cube svg{display:block;width:100%;height:100%;stroke:var(--text);stroke-width:1.6;stroke-linejoin:round;animation:boot-cube-appear .35s .2s both}
+.boot-cube-top{fill:color-mix(in srgb,var(--boot-accent) 65%,var(--bg))}
+.boot-cube-left{fill:var(--bg)}
+.boot-cube-right{fill:var(--boot-accent)}
 .boot-track{stroke:color-mix(in srgb,var(--text) 17%,transparent);stroke-width:1.5}
 .boot-track-active{stroke:var(--boot-accent);stroke-width:2;stroke-dasharray:170;stroke-dashoffset:170;animation:boot-compile 1.05s .12s ease-out forwards}
 .boot-input{fill:var(--text)}
@@ -431,11 +430,10 @@ em{color:#765137}
 @keyframes boot-column-in{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
 @keyframes boot-result-in{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:scale(1)}}
 @keyframes boot-word-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-@keyframes boot-bird-appear{from{opacity:0}to{opacity:1}}
-@keyframes boot-bird-float{from{transform:translate3d(-5px,7px,0)}to{transform:translate3d(5px,-10px,0)}}
-@keyframes boot-bird-flap{from{transform:rotate(-17deg) scaleY(1)}to{transform:rotate(20deg) scaleY(.62)}}
+@keyframes boot-cube-appear{from{opacity:0;transform:scale(.65)}to{opacity:1;transform:scale(1)}}
+@keyframes boot-cube-float{from{transform:translate3d(-3px,7px,0) rotate(-5deg)}to{transform:translate3d(3px,-9px,0) rotate(5deg)}}
 @keyframes boot-progress{to{transform:scaleX(1)}}
-@media(max-width:600px){.boot-symbol{width:min(300px,84vw)}.boot-bird{right:-3px;top:-33px;width:72px;height:54px}.boot-copy h2{font-size:clamp(57px,16vw,76px)}.boot-copy p{font-size:12px}.boot-skip{right:16px;bottom:14px}}
+@media(max-width:600px){.boot-symbol{width:min(300px,84vw)}.boot-cube{right:0;top:-42px;width:66px;height:66px}.boot-copy h2{font-size:clamp(57px,16vw,76px)}.boot-copy p{font-size:12px}.boot-skip{right:16px;bottom:14px}}
 @media(max-height:460px){.boot-symbol{width:220px;margin-bottom:6px}.boot-copy h2{font-size:52px}.boot-copy p{margin-top:7px}.boot-progress{margin-top:16px}.boot-skip{bottom:8px}}
 @media(prefers-reduced-motion:reduce){.boot-screen *, .boot-screen *::before,.boot-screen *::after{animation:none!important;transition:none!important}.js .boot-screen{transition:none}}
 @media print{.js .boot-screen{display:none!important}}
