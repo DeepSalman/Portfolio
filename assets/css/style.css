@@ -557,14 +557,18 @@ em{color:#765137}
 .sticky-name-bar{--header-cube-top:#fffaf7;--header-cube-left:#612918;--header-cube-right:#f4b79e;--header-cube-stroke:#542417;position:sticky;top:0;z-index:30;display:grid;place-items:center;min-height:36px;background:var(--nav-orange);color:#fffaf7;border-bottom:1px solid #ffffff48;transition:background-color .28s ease,color .28s ease,border-color .28s ease}
 .sticky-name-bar .sticky-name{position:relative;display:inline-block;margin:0;color:inherit;font-size:16px;line-height:1;letter-spacing:-.06em;font-weight:700}
 .sticky-name-bar .sticky-name:hover{color:#fff}
-.sticky-cube-wrap{position:absolute;left:calc(100% + 8px);top:50%;width:21px;height:21px;transform:translateY(-50%)}
-.sticky-cube-wrap svg{display:block;width:100%;height:100%;overflow:visible;stroke:var(--header-cube-stroke);stroke-width:2;stroke-linejoin:round;animation:sticky-cube-float 1.25s ease-in-out infinite alternate}
+.sticky-name-bar .sticky-name-text{display:block;color:inherit;transition:opacity .3s ease,transform .35s var(--ease)}
+.sticky-cube-wrap{position:absolute;left:50%;top:50%;width:22px;height:22px;opacity:0;transform:translate(-50%,-50%) scale(.65);transition:opacity .32s ease,transform .36s var(--ease)}
+.sticky-cube-wrap svg{display:block;width:100%;height:100%;overflow:visible;stroke:var(--header-cube-stroke);stroke-width:2;stroke-linejoin:round;animation:sticky-cube-float 1.25s ease-in-out infinite alternate;animation-play-state:paused}
 .sticky-cube-wrap path{transition:fill .28s ease,stroke .28s ease}
 .sticky-cube-top{fill:var(--header-cube-top)}.sticky-cube-left{fill:var(--header-cube-left)}.sticky-cube-right{fill:var(--header-cube-right)}
 .sticky-name-bar.is-past-hero{--header-cube-top:color-mix(in srgb,var(--nav-orange) 65%,var(--bg));--header-cube-left:var(--bg);--header-cube-right:var(--nav-orange);--header-cube-stroke:var(--text);background:var(--bg);color:var(--nav-orange);border-bottom-color:var(--line)}
+.sticky-name-bar.is-past-hero .sticky-name-text{opacity:0;transform:translateY(-6px) scale(.92)}
+.sticky-name-bar.is-past-hero .sticky-cube-wrap{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.sticky-name-bar.is-past-hero .sticky-cube-wrap svg{animation-play-state:running}
 .sticky-name-bar.is-past-hero .sticky-name:hover{color:var(--accent)}
 @keyframes sticky-cube-float{from{transform:translateY(2px) rotate(-4deg)}to{transform:translateY(-3px) rotate(4deg)}}
-@media(prefers-reduced-motion:reduce){.sticky-cube-wrap svg{animation:none}}
+@media(prefers-reduced-motion:reduce){.sticky-name-bar,.sticky-name-text,.sticky-cube-wrap,.sticky-cube-wrap path{transition:none!important}.sticky-cube-wrap svg{animation:none}}
 
 /* Editorial hero panel inspired by the supplied reference, with Salman centered. */
 .hero{padding-top:32px}
