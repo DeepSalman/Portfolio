@@ -39,10 +39,10 @@ function initBoot() {
     const bounds = cube?.getBoundingClientRect();
     if (bounds) {
       screen.style.setProperty('--wipe-x', `${bounds.left + bounds.width / 2}px`);
-      screen.style.setProperty('--wipe-y', `${bounds.top + bounds.height / 2}px`);
+      screen.style.setProperty('--wipe-y', `${bounds.top + bounds.height / 2 - 9}px`);
     }
     screen.classList.add('is-revealing');
-    revealTimer = setTimeout(finish, 900);
+    revealTimer = setTimeout(finish, 1020);
   }
   skip?.addEventListener('click', () => finish(true), { signal: listeners.signal });
   document.addEventListener('keydown', event => {
@@ -53,11 +53,11 @@ function initBoot() {
   }, { signal: listeners.signal });
   if (reducedMotion.matches) { finish(true); return; }
   function onReady() {
-    readyTimer = setTimeout(reveal, Math.max(0, 2550 - (performance.now() - started)));
+    readyTimer = setTimeout(reveal, Math.max(0, 2450 - (performance.now() - started)));
   }
   if (document.readyState === 'complete') onReady();
   else window.addEventListener('load', onReady, { once: true, signal: listeners.signal });
-  fallbackTimer = setTimeout(reveal, 3100);
+  fallbackTimer = setTimeout(reveal, 3000);
 }
 initBoot();
 
