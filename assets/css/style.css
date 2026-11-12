@@ -59,8 +59,6 @@ h1 em{letter-spacing:-.065em}
 .button-secondary{background:transparent;color:var(--text)}
 .button-secondary:hover{background:var(--surface);border-color:var(--muted)}
 .button span[aria-hidden]{font-size:19px;line-height:1}
-.hero-footnote{display:flex;gap:14px;align-items:center;margin-top:38px;font-size:10px;color:var(--muted);line-height:1.7}
-.hero-footnote strong{font-weight:400;color:var(--text)}
 .mini-cross{font-size:29px;color:var(--accent)}
 .portrait-stage{height:515px;position:relative;border:1px solid #7d7767;border-radius:5px;background:#b7ad98;overflow:hidden;isolation:isolate;animation:arrive .85s .1s var(--ease) both}
 .portrait-grid{position:absolute;inset:0;background-image:linear-gradient(#3b39230e 1px,transparent 1px),linear-gradient(90deg,#3b39230e 1px,transparent 1px);background-size:38px 38px}
@@ -130,18 +128,6 @@ h2{font-size:clamp(32px,3.5vw,47px);line-height:1.18;letter-spacing:-.05em}
 .work-footer{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:24px;font-size:10px;color:var(--muted)}
 .text-link{display:inline-flex;gap:20px;align-items:center;font-size:11px;transition:color .2s}
 .text-link span{font-size:17px}
-
-.about-section{padding-block:clamp(56px,7vw,82px);background:var(--surface);border-block:1px solid var(--line)}
-.about-compact{max-width:1120px;display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);align-items:center;gap:clamp(36px,7vw,100px)}
-.about-intro h2{font-size:clamp(34px,4vw,52px);line-height:1.1}
-.about-intro>p{max-width:420px;margin-top:17px;font-size:13px;line-height:1.75}
-.about-intro .text-link{margin-top:19px;gap:10px;color:var(--accent)}
-.about-highlights{list-style:none;margin:0;padding:0}
-.about-highlights li{display:grid;grid-template-columns:74px minmax(0,1fr);align-items:center;gap:18px;padding:17px 0;border-top:1px solid var(--line)}
-.about-highlights li:last-child{border-bottom:1px solid var(--line)}
-.about-tag{justify-self:start;display:inline-flex;align-items:center;justify-content:center;min-width:60px;padding:6px 10px;border:1px solid color-mix(in srgb,var(--accent) 35%,var(--line));border-radius:99px;background:color-mix(in srgb,var(--accent) 8%,var(--surface));color:var(--accent);font:700 9px/1 var(--font-sans);letter-spacing:.04em;text-transform:uppercase}
-.about-highlights strong{display:block;color:var(--text);font-size:13px;line-height:1.4;font-weight:650}
-.about-highlights li>div>span{display:block;margin-top:4px;color:var(--muted);font-size:11px;line-height:1.5}
 
 .capability-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:6px;overflow:hidden}
 .capability{padding:32px;display:flex;flex-direction:column;position:relative}
@@ -258,7 +244,6 @@ h1{font-size:clamp(59px,11.8vw,85px);line-height:1.04}
 .hero-description{max-width:480px;line-height:1.8;margin-top:22px}
 .hero-actions{margin-top:26px;gap:10px}
 .hero-actions .button{font-size:11px;min-height:47px;padding:11px 16px;gap:17px}
-.hero-footnote{margin-top:27px;font-size:9px}
 .mini-cross{font-size:24px}
 .portrait-stage{height:440px;width:100%;max-width:560px;justify-self:center}
 .hero-portrait{object-fit:contain;width:100%;height:126%;object-position:center top;transform:translateY(9px)}
@@ -348,8 +333,8 @@ h1{font-size:56px}
 @media print{body{background:#fff;color:#111}
 .site-header,.os-invite,.theme-toggle,.copy-button,.back-top,.toast,.portrait-stage{display:none}
 .container{width:100%;max-width:none}
-.hero,.about-compact,.contact-section{display:block;padding:20px 0}
-.section,.about-section{padding:25px 0;background:none}
+.hero,.contact-section{display:block;padding:20px 0}
+.section{padding:25px 0;background:none}
 .project-card,.capability{break-inside:avoid;background:#fff}
 .project-art{display:none}
 .project-card.featured{display:block}
@@ -460,8 +445,11 @@ em{color:#765137}
 .hero h1{font-size:clamp(54px,7vw,88px);line-height:1.02;letter-spacing:-.065em}
 .hero-description{max-width:560px;margin:22px auto 0;font-size:14px;line-height:1.85}
 .hero-actions{justify-content:center;margin-top:25px}
-.hero-footnote{justify-content:center;margin-top:25px;text-align:left}
-@media(max-width:760px){.hero{padding-top:43px;padding-bottom:46px}.portrait-stage{width:220px;height:220px;margin-bottom:30px}.hero-intro{font-size:15px}.hero h1{font-size:clamp(48px,11vw,68px)}.hero-description{font-size:13px;margin-top:18px}.hero-actions{margin-top:22px}.hero-footnote{margin-top:22px}}
+.hero-highlights{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;max-width:800px;list-style:none;margin:25px auto 0;padding:0}
+.hero-highlights li{display:inline-flex;align-items:center;gap:9px;max-width:100%;padding:8px 13px;border:1px solid var(--line);border-radius:999px;background:var(--surface);text-align:left}
+.hero-highlights li span{flex:none;color:var(--accent);font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.hero-highlights li strong{color:var(--text);font-size:11px;font-weight:650;line-height:1.35}
+@media(max-width:760px){.hero{padding-top:43px;padding-bottom:46px}.portrait-stage{width:220px;height:220px;margin-bottom:30px}.hero-intro{font-size:15px}.hero h1{font-size:clamp(48px,11vw,68px)}.hero-description{font-size:13px;margin-top:18px}.hero-actions{margin-top:22px}.hero-highlights{margin-top:20px;gap:7px}.hero-highlights li{padding:7px 11px}.hero-highlights li strong{font-size:10px}}
 @media(max-width:380px){.portrait-stage{width:190px;height:190px;margin-bottom:26px}.hero{padding-top:35px}.hero h1{font-size:46px}}
 @media(prefers-reduced-motion:reduce){.portrait-stage,.hero-copy{animation:none!important}}
 .work-heading{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:17px;text-align:center}
@@ -470,10 +458,6 @@ em{color:#765137}
 .work-heading h2{font-size:clamp(34px,5vw,50px)}
 .work-heading>p{max-width:600px;margin:0 auto;font-size:12px;line-height:1.85}
 @media(max-width:760px){.work-heading{gap:15px;margin-bottom:30px}.work-heading .eyebrow{margin-bottom:12px}.work-heading>p br{display:none}}
-
-/* Keep the about summary and its tagged details in one quick scan. */
-@media(max-width:760px){.about-section{padding-block:58px}.about-compact{grid-template-columns:1fr;gap:28px}.about-intro h2{font-size:clamp(36px,8vw,46px)}.about-intro>p{max-width:540px}.about-highlights li{padding-block:14px}}
-@media(max-width:480px){.about-section{padding-block:48px}.about-compact{gap:24px}.about-intro h2{font-size:clamp(33px,9vw,40px)}.about-intro>p{font-size:12px;margin-top:14px}.about-intro .text-link{margin-top:15px}.about-highlights li{grid-template-columns:64px minmax(0,1fr);gap:12px;padding-block:13px}.about-tag{min-width:55px;padding:6px 8px;font-size:8px}.about-highlights strong{font-size:12px}.about-highlights li>div>span{font-size:10px}}
 
 /* Tool marks make each stack easy to scan. */
 .capability-icon{width:52px;height:52px;margin-bottom:25px;border-radius:14px;background:var(--surface);box-shadow:0 8px 18px #00000010}

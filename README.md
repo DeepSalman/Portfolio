@@ -1,6 +1,6 @@
 # Salman · Portfolio
 
-A static, responsive portfolio for Salman, a CSE undergraduate majoring in Data Science at United International University. Includes a short animated SalmanOS intro, project case studies, a downloadable résumé, dark/light themes, and an optional SalmanOS desktop.
+A static, responsive portfolio for Salman, a Computer Science and Engineering undergraduate at United International University. Includes a short animated intro, project case studies, a downloadable résumé, dark/light themes, and an optional SalmanOS desktop.
 
 ## Run locally
 
@@ -12,7 +12,7 @@ Open http://localhost:4173. No package installation is needed. Serve over HTTP r
 
 ## Update content
 
-- `index.html`: introduction, about, education, leadership, skills, and contact.
+- `index.html`: introduction with education and leadership highlights, toolkit, projects, and contact.
 - `data/projects.json`: featured project summaries, tags, and links.
 - `projects/*.html`: detailed project case studies.
 - `assets/images/Salman_CV.pdf`: current résumé.
@@ -37,7 +37,7 @@ The committed HTML includes the complete portfolio and works without JavaScript.
 - `assets/fonts/`: locally hosted Manrope variable font and its OFL license.
 - `assets/icons/`: local SVG marks for the tools shown in the Toolkit section.
 
-All animation respects reduced motion. The intro can be skipped and starts fading out within 2.4 seconds of JavaScript starting. There are no background videos, continuous canvas/WebGL loops, third-party scripts, or runtime API requests. The local clock pauses while the tab is hidden. SalmanOS reuses its DOM and terminal state; it does not attach handlers each time it opens.
+All animation respects reduced motion. The intro can be skipped and normally reveals the page in about four seconds. There are no background videos, continuous canvas/WebGL loops, third-party scripts, or runtime API requests. The local clock pauses while the tab is hidden. SalmanOS reuses its DOM and terminal state; it does not attach handlers each time it opens.
 
 ## Deploy
 
