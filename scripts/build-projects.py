@@ -7,26 +7,29 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 START, END = '<!-- PROJECTS:START -->', '<!-- PROJECTS:END -->'
-ART = {
-    'pricepoint': '''<div class="project-art art-pricepoint" aria-hidden="true"><div class="model-window"><div class="model-window-top"><i></i><i></i><i></i><span>pricepoint / model_comparison.py</span></div><div class="model-window-title">From specifications to value <span>REGRESSION</span></div><svg class="model-chart" viewBox="0 0 300 105" fill="none"><path d="M8 15H295M8 45H295M8 75H295M8 103H295" stroke="#ffffff10"/><path d="M10 95 290 10" stroke="#e7ac83" stroke-width="1.7"/><g fill="#b7c9a0"><circle cx="25" cy="81" r="3"/><circle cx="43" cy="89" r="3"/><circle cx="59" cy="69" r="3"/><circle cx="74" cy="80" r="3"/><circle cx="95" cy="57" r="3"/><circle cx="112" cy="70" r="3"/><circle cx="134" cy="46" r="3"/><circle cx="152" cy="59" r="3"/><circle cx="177" cy="36" r="3"/><circle cx="190" cy="52" r="3"/><circle cx="211" cy="27" r="3"/><circle cx="231" cy="35" r="3"/><circle cx="252" cy="17" r="3"/><circle cx="273" cy="24" r="3"/></g></svg><div class="model-footer"><span>4 MODELS</span><span>MAE · RMSE · R²</span><span>LOCAL DATA</span></div></div><div class="art-caption"><span>REGRESSION / CONCEPT ILLUSTRATION</span><span>01</span></div></div>''',
-    'routegpt': '''<div class="project-art art-routegpt" aria-hidden="true"><svg class="route-diagram" viewBox="0 0 460 230" fill="none"><path d="M0 180H460M0 100H460M80 0V230M210 0V230M350 0V230" stroke="#7a8d6f" stroke-opacity=".25" stroke-width="18"/><path d="M70 185H190Q210 185 210 165V125Q210 105 230 105H330Q350 105 350 85V40" stroke="#365139" stroke-width="4" stroke-linecap="round"/><path d="M210 165V225" stroke="#718663" stroke-width="2" stroke-dasharray="5 5"/><circle cx="70" cy="185" r="9" fill="#f0f0e4" stroke="#365139" stroke-width="3"/><circle cx="210" cy="125" r="9" fill="#365139" stroke="#e2e7d7" stroke-width="4"/><circle cx="350" cy="40" r="9" fill="#365139" stroke="#e2e7d7" stroke-width="4"/><g fill="#354832" font-family="monospace" font-size="9"><text x="49" y="212">ORIGIN</text><text x="232" y="145">TRANSFER</text><text x="370" y="43">ARRIVAL</text></g></svg><div class="route-callout"><span>ASK ROUTEGPT</span>Find a way through the city. ↗</div><div class="art-caption"><span>JOURNEY / CONCEPT ILLUSTRATION</span><span>02</span></div></div>''',
-    'microteach': '''<div class="project-art art-microteach" aria-hidden="true"><div class="teach-board"><div class="teach-card"><span>ONE TOPIC. A LITTLE HELP.</span><strong>Let’s untangle algorithms.</strong><small>A student asks. A peer steps in.</small><div class="teach-avatars"><i>S</i><i>A</i></div></div><div class="teach-card second"><span>LEARN TOGETHER</span><strong>“Let’s work through it.”</strong><small>Find your topic. Find your people. ↗</small></div></div><div class="art-caption"><span>PEER LEARNING / CONCEPT ILLUSTRATION</span><span>03</span></div></div>'''
+ICONS = {
+    'pricepoint': '<rect x="3" y="4" width="18" height="13" rx="2"/><path d="M1 21h22M7 13l3-3 3 2 4-5"/>',
+    'routegpt': '<circle cx="5" cy="18" r="3"/><circle cx="19" cy="6" r="3"/><path d="M8 18h6a4 4 0 0 0 0-8h-4a4 4 0 0 1 0-8h4"/>',
+    'microteach': '<path d="m2 8 10-5 10 5-10 5-10-5Zm4 3v6c4 3 8 3 12 0v-6m4-3v9"/>'
 }
 
 def render():
     projects = json.loads((ROOT / 'data/projects.json').read_text())
     cards = []
-    for index, project in enumerate(projects, 1):
+    for project in projects:
         if not project.get('featured'):
             continue
         esc = html.escape
-        tags = ''.join(f'<span>{esc(tag)}</span>' for tag in project['tags'])
-        featured = ' featured' if not cards else ''
-        cards.append(f'''        <a class="project-card{featured}" href="{esc(project['caseStudy'], quote=True)}" aria-label="Read the {esc(project['title'])} case study" data-reveal>
-          <div class="project-copy"><span class="project-index">{index:02d} / {esc(project['category']).upper()}</span><h3>{esc(project['title'])}</h3><p>{esc(project['description'])}</p><div class="project-tags">{tags}</div><span class="project-cta">Explore the case study <span class="arrow-circle" aria-hidden="true">↗</span></span></div>
-          {ART[project['slug']]}
-        </a>''')
-    return '\n      <div class="project-grid" id="project-grid">\n' + '\n'.join(cards) + '\n      </div>\n      '
+        tags = ''.join(f'<li>{esc(tag)}</li>' for tag in project['cardTags'])
+        cards.append(f'''        <li class="work-item" data-reveal>
+          <a class="work-project" href="{esc(project['caseStudy'], quote=True)}" aria-label="View {esc(project['title'])}: {esc(project['cardLabel'])}">
+            <span class="work-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">{ICONS[project['slug']]}</svg></span>
+            <div class="work-name"><h3>{esc(project['title'])}</h3><span>{esc(project['cardLabel'])}</span></div>
+            <div class="work-summary"><p>{esc(project['cardSummary'])}</p><ul class="work-tech" aria-label="Key technologies">{tags}</ul></div>
+            <span class="work-link">View project <span aria-hidden="true">↗</span></span>
+          </a>
+        </li>''')
+    return '\n      <ul class="work-list" id="project-grid" aria-label="Selected projects">\n' + '\n'.join(cards) + '\n      </ul>\n      '
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--check', action='store_true', help='Fail if committed project cards are stale')

@@ -20,6 +20,13 @@
       "Four regression algorithms compared",
       "Local marketplace dataset",
       "MAE, RMSE, and R² evaluation"
+    ],
+    "cardLabel": "Laptop price prediction",
+    "cardSummary": "Estimates a used laptop’s resale price from its age, condition, and specifications, using local market data.",
+    "cardTags": [
+      "Python",
+      "scikit-learn",
+      "pandas"
     ]
   },
   {
@@ -41,6 +48,13 @@
       "Natural language transport questions",
       "Multi-leg routes and transfer points",
       "Routes, stops, and fares in MySQL"
+    ],
+    "cardLabel": "Dhaka travel assistant",
+    "cardSummary": "Helps people find routes, transfer points, and fares in Dhaka by asking questions in everyday language.",
+    "cardTags": [
+      "Python",
+      "NLP",
+      "MySQL"
     ]
   },
   {
@@ -63,6 +77,13 @@
       "Topic posts and teaching applications",
       "Real-time one-to-one messaging",
       "Profiles, reviews, reports, and administration"
+    ],
+    "cardLabel": "Peer tutoring platform",
+    "cardSummary": "Connects students with paid peer tutors, with topic requests, direct messaging, and reviews.",
+    "cardTags": [
+      "React",
+      "Node.js",
+      "MySQL"
     ]
   }
 ]
