@@ -1,33 +1,62 @@
 [
   {
-    "id": "pricepoint",
-    "slug": "pricepoint",
-    "title": "PricePoint",
-    "category": "Machine learning · Local market data",
-    "description": "Estimating laptop resale value from hardware, age, and condition, using data from Bangladesh’s secondhand market.",
+    "id": "banglalens",
+    "slug": "banglalens",
+    "title": "BanglaLense",
+    "category": "Bangla language · Web application",
+    "description": "A Bangla focused web project, designed to make language tools easier to access.",
+    "tags": [],
+    "github": "",
+    "live": "https://banglalens.vercel.app/",
+    "url": "https://banglalens.vercel.app/",
+    "featured": true,
+    "cardLabel": "Bangla language web app",
+    "cardSummary": "A web project focused on Bangla language and digital access.",
+    "cardTags": []
+  },
+  {
+    "id": "microteach",
+    "slug": "microteach",
+    "title": "MicroTeach",
+    "category": "Full stack development · Peer learning",
+    "description": "A peer teaching platform where students post specific learning needs and peers offer to teach them for a fee.",
     "tags": [
-      "Python",
-      "scikit-learn",
-      "pandas",
-      "NumPy",
-      "Matplotlib"
+      "React",
+      "Node.js",
+      "Express",
+      "MySQL"
     ],
-    "github": "https://github.com/DeepSalman/PricePoint",
-    "live": null,
-    "caseStudy": "projects/pricepoint.html",
+    "github": "https://github.com/DeepSalman/MicroTeach",
+    "live": "https://microteach-six.vercel.app",
+    "caseStudy": "projects/microteach.html",
     "featured": true,
     "highlights": [
-      "Four regression algorithms compared",
-      "Local marketplace dataset",
-      "MAE, RMSE, and R² evaluation"
+      "Topic posts and teaching applications",
+      "Real-time one-to-one messaging",
+      "Profiles, reviews, reports, and administration"
     ],
-    "cardLabel": "Laptop price prediction",
-    "cardSummary": "Estimates a used laptop’s resale price from its age, condition, and specifications, using local market data.",
+    "cardLabel": "Peer tutoring platform",
+    "cardSummary": "Connects students with paid peer tutors, with topic requests, direct messaging, and reviews.",
     "cardTags": [
-      "Python",
-      "scikit-learn",
-      "pandas"
+      "React",
+      "Node.js",
+      "MySQL"
     ]
+  },
+  {
+    "id": "uiu-lost-and-found",
+    "slug": "uiu-lost-and-found",
+    "title": "UIU Lost & Found",
+    "category": "Campus utility · Lost and found",
+    "description": "A campus platform for reporting lost and found belongings and helping students reconnect items with their owners.",
+    "tags": [],
+    "github": "",
+    "live": "https://uiu-lost-and-found.vercel.app/",
+    "url": "https://uiu-lost-and-found.vercel.app/",
+    "featured": true,
+    "cardLabel": "Campus lost and found",
+    "cardSummary": "Helps the UIU community report missing items, browse found belongings, and reconnect items with their owners.",
+    "cardTags": []
   },
   {
     "id": "routegpt",
@@ -58,32 +87,33 @@
     ]
   },
   {
-    "id": "microteach",
-    "slug": "microteach",
-    "title": "MicroTeach",
-    "category": "Full stack development · Peer learning",
-    "description": "A peer teaching platform where students post specific learning needs and peers offer to teach them for a fee.",
+    "id": "pricepoint",
+    "slug": "pricepoint",
+    "title": "PricePoint",
+    "category": "Machine learning · Local market data",
+    "description": "Estimating laptop resale value from hardware, age, and condition, using data from Bangladesh’s secondhand market.",
     "tags": [
-      "React",
-      "Node.js",
-      "Express",
-      "MySQL"
+      "Python",
+      "scikit-learn",
+      "pandas",
+      "NumPy",
+      "Matplotlib"
     ],
-    "github": "https://github.com/DeepSalman/MicroTeach",
-    "live": "https://microteach-six.vercel.app",
-    "caseStudy": "projects/microteach.html",
+    "github": "https://github.com/DeepSalman/PricePoint",
+    "live": null,
+    "caseStudy": "projects/pricepoint.html",
     "featured": true,
     "highlights": [
-      "Topic posts and teaching applications",
-      "Real-time one-to-one messaging",
-      "Profiles, reviews, reports, and administration"
+      "Four regression algorithms compared",
+      "Local marketplace dataset",
+      "MAE, RMSE, and R² evaluation"
     ],
-    "cardLabel": "Peer tutoring platform",
-    "cardSummary": "Connects students with paid peer tutors, with topic requests, direct messaging, and reviews.",
+    "cardLabel": "Laptop price prediction",
+    "cardSummary": "Estimates a used laptop’s resale price from its age, condition, and specifications, using local market data.",
     "cardTags": [
-      "React",
-      "Node.js",
-      "MySQL"
+      "Python",
+      "scikit-learn",
+      "pandas"
     ]
   }
 ]
