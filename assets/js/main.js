@@ -141,8 +141,33 @@ if ('IntersectionObserver' in window && !reducedMotion.matches) {
   }, { threshold: 0.08 });
   document.querySelectorAll('[data-reveal]').forEach(element => observer.observe(element));
   reducedMotion.addEventListener('change', event => {
-    if (event.matches) { observer.disconnect(); document.getAnimations().forEach(animation => animation.finish()); }
+    if (event.matches) { observer.disconnect(); document.getAnimations().forEach(animation => {
+      if (animation.effect?.getComputedTiming().iterations !== Infinity) animation.finish();
+    }); }
   }, { once: true });
+}
+
+// Keep the little robot on its own runway and pause it outside the viewport.
+const robotRunway = document.querySelector('[data-robot-runway]');
+const toolkitRobot = robotRunway?.querySelector('.toolkit-robot');
+if (robotRunway && toolkitRobot) {
+  let robotVisible = false;
+  let greetingTimer;
+  const syncRobot = () => robotRunway.classList.toggle('is-active', robotVisible && !document.hidden && !reducedMotion.matches);
+  if ('IntersectionObserver' in window) {
+    const robotObserver = new IntersectionObserver(entries => {
+      robotVisible = entries[0].isIntersecting;
+      syncRobot();
+    });
+    robotObserver.observe(robotRunway);
+  } else { robotVisible = true; syncRobot(); }
+  document.addEventListener('visibilitychange', syncRobot);
+  reducedMotion.addEventListener('change', syncRobot);
+  toolkitRobot.addEventListener('click', () => {
+    clearTimeout(greetingTimer);
+    toolkitRobot.classList.add('is-greeting');
+    greetingTimer = setTimeout(() => toolkitRobot.classList.remove('is-greeting'), 1800);
+  });
 }
 
 const clock = document.querySelector('[data-dhaka-time]');

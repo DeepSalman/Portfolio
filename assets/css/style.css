@@ -127,8 +127,27 @@ h2{font-size:clamp(32px,3.5vw,47px);line-height:1.18;letter-spacing:-.05em}
 
 .section#toolkit{padding-top:64px;padding-bottom:64px}
 .toolkit-heading{text-align:center;margin-bottom:30px}
-.toolkit-symbol{display:flex;align-items:center;justify-content:center;gap:11px;width:76px;height:48px;margin:0 auto 20px;color:var(--muted);font:300 29px var(--font-mono)}
-.toolkit-symbol i{display:block;width:13px;height:13px;border-radius:3px;background:var(--nav-orange);transform:rotate(-12deg);box-shadow:3px 3px 0 var(--line)}
+.robot-runway{--robot-travel:min(220px,calc(100vw - 120px));position:relative;width:calc(var(--robot-travel) + 56px);height:72px;margin:0 auto 20px}
+.robot-runway::after{content:'';position:absolute;left:0;right:0;bottom:4px;height:1px;background:linear-gradient(90deg,transparent,var(--line) 15%,var(--line) 85%,transparent)}
+.toolkit-robot{position:absolute;z-index:1;left:0;bottom:4px;width:56px;height:64px;padding:0;border:0;border-radius:12px;background:transparent;color:var(--text);cursor:pointer;animation:robot-crossing 10s linear infinite}
+.toolkit-robot svg{display:block;width:100%;height:100%;overflow:visible}
+.robot-character{animation:robot-bounce .35s ease-in-out infinite}
+.robot-wave{transform-origin:43px 41px;animation:robot-wave 10s ease-in-out infinite}
+.robot-leg{transform-box:fill-box;transform-origin:top center;animation:robot-step .35s ease-in-out infinite alternate}
+.robot-leg-right{animation-direction:alternate-reverse}
+.robot-runway .toolkit-robot,.robot-runway .toolkit-robot *{animation-play-state:paused}
+.robot-runway.is-active .toolkit-robot,.robot-runway.is-active .toolkit-robot *{animation-play-state:running}
+.robot-runway.is-active:has(.toolkit-robot:hover,.toolkit-robot:focus-visible,.toolkit-robot.is-greeting) .toolkit-robot,
+.robot-runway.is-active:has(.toolkit-robot:hover,.toolkit-robot:focus-visible,.toolkit-robot.is-greeting) .robot-character,
+.robot-runway.is-active:has(.toolkit-robot:hover,.toolkit-robot:focus-visible,.toolkit-robot.is-greeting) .robot-leg{animation-play-state:paused}
+.toolkit-robot:hover .robot-wave,.toolkit-robot:focus-visible .robot-wave,.toolkit-robot.is-greeting .robot-wave{animation-name:robot-hello;animation-duration:.45s}
+.toolkit-robot:hover,.toolkit-robot:focus-visible,.toolkit-robot.is-greeting{color:var(--nav-orange)}
+@keyframes robot-crossing{0%,12%{transform:translateX(0)}40%,62%{transform:translateX(var(--robot-travel))}90%,100%{transform:translateX(0)}}
+@keyframes robot-bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+@keyframes robot-step{from{transform:rotate(-17deg)}to{transform:rotate(17deg)}}
+@keyframes robot-wave{0%,4%,8%,44%,48%,52%,56%,92%,96%,100%{transform:rotate(0)}2%,6%,46%,50%,54%,94%,98%{transform:rotate(25deg)}12%,38%,62%,88%{transform:rotate(105deg)}}
+@keyframes robot-hello{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(30deg)}}
+@media(prefers-reduced-motion:reduce){.toolkit-robot{left:calc(50% - 28px)}}
 .toolkit-heading h2{font-size:clamp(32px,4.2vw,52px);line-height:1.15;letter-spacing:-.06em;text-wrap:balance}
 .toolkit-heading p{margin-top:12px;font-size:13px;line-height:1.75;color:var(--muted)}
 .toolkit-stack{position:relative;isolation:isolate;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;max-width:850px;list-style:none;margin:0 auto;padding:30px 24px 36px}
