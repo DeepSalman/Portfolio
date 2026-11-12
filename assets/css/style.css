@@ -173,28 +173,44 @@ h2{font-size:clamp(32px,3.5vw,47px);line-height:1.18;letter-spacing:-.05em}
 .os-invite p:not(.eyebrow){font-size:11px;max-width:330px}
 .os-invite .button{font-size:10px;gap:17px;padding-inline:17px}
 
-.contact-section{padding-top:125px;padding-bottom:80px;display:grid;grid-template-columns:1.3fr 1fr;align-items:end;gap:75px}
-.contact-section h2{font-size:clamp(39px,4.7vw,63px);line-height:1.1}
-.contact-section>div>p:not(.eyebrow){max-width:430px;font-size:12px;line-height:1.9;margin-top:24px}
-.contact-email{display:inline-flex;align-items:center;gap:60px;font-size:23px;letter-spacing:-.05em;border-bottom:1px solid var(--accent);padding:13px 0 10px;color:var(--accent);margin-top:26px}
-.contact-email span{font-size:34px}
-.contact-small-label{font:8px var(--font-mono);letter-spacing:.09em;color:var(--muted)}
-.email-row{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);gap:12px;padding:15px 0}
-.email-row>a{font-size:12px}
+.contact-section{padding-block:78px 64px}
+.contact-panel{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;padding:48px;border:1px solid var(--line);border-radius:20px;background:var(--surface);position:relative;overflow:hidden}
+.contact-panel::before{content:'';position:absolute;top:0;left:48px;width:64px;height:3px;background:var(--nav-orange)}
+.contact-intro{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;min-width:0}
+.contact-kicker{display:flex;align-items:center;gap:10px;font:9px var(--font-mono);letter-spacing:.14em;color:var(--muted);margin-bottom:24px}
+.contact-kicker>span{display:grid;place-items:center;width:27px;height:27px;border:1px solid var(--line);border-radius:50%;font:18px var(--font-sans);color:var(--accent)}
+.contact-section h2{font-size:clamp(36px,4.5vw,58px);line-height:1.08;letter-spacing:-.055em}
+.contact-intro>p{max-width:320px;font-size:13px;line-height:1.8;margin-top:20px}
+.contact-email{display:inline-flex;align-items:center;gap:12px;padding:13px 19px;background:var(--nav-orange);border:1px solid var(--nav-orange);border-radius:8px;color:#fff;font-size:13px;font-weight:650;margin-top:25px;transition:transform .2s,box-shadow .2s}
+.contact-email svg{width:19px;height:19px}
+.contact-email>span{margin-left:24px;font-size:20px;line-height:1}
+.contact-email:hover{transform:translateY(-2px);box-shadow:0 5px 0 var(--line)}
+.email-row{display:flex;align-items:center;gap:8px;max-width:100%;margin-top:13px}
+.email-row>a{min-width:0;overflow-wrap:anywhere;font-size:11px;color:var(--muted)}
 .email-row>a:hover{color:var(--accent)}
-.copy-button{display:grid;place-items:center;width:32px;height:36px;background:transparent;border:0;color:var(--muted)}
-.copy-button:hover{color:var(--accent)}
-.social-links{display:grid;gap:8px;margin-top:17px}
-.social-link{display:grid;grid-template-columns:42px 1fr auto;align-items:center;gap:14px;min-height:68px;padding:10px 15px;border:1px solid var(--line);border-radius:6px;background:var(--surface);transition:border-color .22s,background .22s,transform .22s}
-.social-link:hover,.social-link:focus-visible{border-color:var(--accent);background:color-mix(in srgb,var(--surface) 84%,var(--accent));transform:translateX(3px)}
-.social-icon{width:40px;height:40px;display:grid;place-items:center;border:1px solid var(--line);border-radius:5px;color:var(--accent);background:var(--bg)}
-.social-icon svg{width:21px;height:21px;fill:currentColor;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.social-icon-linkedin{color:#6e9cd4}
-.social-copy{display:flex;flex-direction:column;gap:4px}
-.social-copy strong{font-size:12px;font-weight:600;color:var(--text)}
-.social-copy small{font-size:9px;color:var(--muted)}
-.social-arrow{font-size:16px;color:var(--accent);transition:transform .22s}
+.copy-button{display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;background:transparent;border:0;border-radius:8px;color:var(--muted)}
+.copy-button:hover{color:var(--accent);background:var(--bg)}
+.contact-details{min-width:0;border-left:1px solid var(--line);padding-left:40px}
+.contact-small-label{display:block;font:9px var(--font-mono);letter-spacing:.1em;color:var(--muted);margin-bottom:13px}
+.social-links{display:grid;gap:0}
+.social-link{display:grid;grid-template-columns:36px minmax(0,1fr) 20px;align-items:center;gap:12px;min-height:65px;padding:11px 8px;border-bottom:1px solid var(--line);border-radius:0;transition:background .2s}
+.social-link:last-child{border-bottom:0}
+.social-link:hover,.social-link:focus-visible{background:var(--bg);border-radius:8px}
+.social-icon{width:36px;height:36px;display:grid;place-items:center;border:1px solid var(--line);border-radius:10px;color:var(--text);background:var(--bg)}
+.social-icon svg{width:19px;height:19px;fill:currentColor;stroke:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.social-link:first-child .social-icon svg,.social-icon-instagram svg{fill:none;stroke:currentColor}
+.social-icon-instagram .icon-dot{fill:currentColor;stroke:none}
+.social-link:first-child .social-icon{color:var(--accent)}
+.social-copy{display:flex;flex-direction:column;gap:2px}
+.social-copy strong{font-size:13px;font-weight:600;color:var(--text)}
+.social-copy small{font-size:10px;color:var(--muted)}
+.social-arrow{font-size:18px;color:var(--accent);transition:transform .2s}
 .social-link:hover .social-arrow{transform:translate(2px,-2px)}
+@media(max-width:1000px){.contact-panel{gap:30px;padding:34px}.contact-details{padding-left:26px}}
+@media(max-width:760px){.contact-section{padding-block:50px}.contact-panel{grid-template-columns:1fr;gap:28px;padding:28px}.contact-panel::before{left:28px}.contact-details{padding:24px 0 0;border-left:0;border-top:1px solid var(--line)}.contact-intro>p{max-width:420px}.contact-section h2{font-size:clamp(36px,7vw,48px)}.contact-kicker{margin-bottom:20px}}
+@media(max-width:380px){.contact-panel{padding:22px}.contact-panel::before{left:22px}.email-row>a{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.contact-email:hover,.social-link:hover .social-arrow{transform:none}}
+@media print{.contact-panel{display:block;padding:20px;border-radius:0}.contact-details{border:0;padding:20px 0 0}.contact-email{color:#111;background:none;border-color:#999}}
 .site-footer{border-top:1px solid var(--line);padding-block:26px;display:flex;gap:28px;align-items:center}
 .footer-brand{font-weight:700;font-size:21px;letter-spacing:-.06em;margin-right:20px}
 .footer-brand span{color:var(--accent)}
@@ -223,8 +239,6 @@ h1{font-size:68px}
 .os-invite{grid-template-columns:200px 1fr;gap:28px}
 .os-invite .button{grid-column:2;justify-self:start;margin-top:-12px}
 .os-preview{grid-row:span 2}
-.contact-section{gap:40px}
-.email-row>a{font-size:10px}
 .nav{gap:20px}
 .nav-links{gap:25px}
 }
@@ -291,13 +305,6 @@ h2{font-size:36px}
 .os-invite .button{grid-column:auto;margin-top:0;font-size:11px}
 .os-invite h2{font-size:22px}
 .os-invite p:not(.eyebrow){font-size:12px}
-.contact-section{padding-top:78px;padding-bottom:50px;grid-template-columns:1fr;gap:40px}
-.contact-section h2{font-size:44px}
-.contact-section>div>p:not(.eyebrow){font-size:13px;max-width:480px}
-.contact-email{font-size:23px;margin-top:20px}
-.contact-small-label{font-size:8px}
-.email-row>a{font-size:12px}
-.social-links{justify-content:flex-start;gap:36px;font-size:11px}
 .site-footer{padding-block:25px;gap:20px;flex-wrap:wrap}
 .footer-brand{font-size:22px;margin-right:auto}
 .site-footer>span:first-of-type{order:4;width:100%;font-size:9px}
@@ -334,7 +341,6 @@ h1{font-size:56px}
 .availability{font-size:7px}
 .portrait-stage{height:390px}
 .hero-portrait{height:123%}
-.contact-section h2{font-size:39px}
 .nav-links{gap:20px}
 .nav-link,.nav-contact{font-size:10px}
 .intro-strip>a{font-size:8px}
@@ -496,7 +502,6 @@ em{color:#765137}
 .work-heading>p{max-width:600px;margin:0 auto;font-size:12px;line-height:1.65}
 @media(max-width:760px){.section#work{padding-block:50px}.work-heading{gap:8px;margin-bottom:22px}.work-heading>p{font-size:11px}}
 
-@media(max-width:760px){.social-links{gap:8px;font-size:initial}}
 .social-icon-facebook{color:#6e9cd4}
 .social-icon-instagram{color:#d890a1}
 .social-icon-instagram svg{fill:none}
