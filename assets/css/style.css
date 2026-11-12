@@ -177,13 +177,11 @@ h2{font-size:clamp(32px,3.5vw,47px);line-height:1.18;letter-spacing:-.05em}
 .contact-panel{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;padding:48px;border:1px solid var(--line);border-radius:20px;background:var(--surface);position:relative;overflow:hidden}
 .contact-panel::before{content:'';position:absolute;top:0;left:48px;width:64px;height:3px;background:var(--nav-orange)}
 .contact-intro{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;min-width:0}
-.contact-kicker{display:flex;align-items:center;gap:10px;font:9px var(--font-mono);letter-spacing:.14em;color:var(--muted);margin-bottom:24px}
-.contact-kicker>span{display:grid;place-items:center;width:27px;height:27px;border:1px solid var(--line);border-radius:50%;font:18px var(--font-sans);color:var(--accent)}
+.contact-kicker{display:flex;align-items:center;font:9px var(--font-mono);letter-spacing:.14em;color:var(--muted);margin-bottom:24px}
 .contact-section h2{font-size:clamp(36px,4.5vw,58px);line-height:1.08;letter-spacing:-.055em}
 .contact-intro>p{max-width:320px;font-size:13px;line-height:1.8;margin-top:20px}
 .contact-email{display:inline-flex;align-items:center;gap:12px;padding:13px 19px;background:var(--nav-orange);border:1px solid var(--nav-orange);border-radius:8px;color:#fff;font-size:13px;font-weight:650;margin-top:25px;transition:transform .2s,box-shadow .2s}
 .contact-email svg{width:19px;height:19px}
-.contact-email>span{margin-left:24px;font-size:20px;line-height:1}
 .contact-email:hover{transform:translateY(-2px);box-shadow:0 5px 0 var(--line)}
 .email-row{display:flex;align-items:center;gap:8px;max-width:100%;margin-top:13px}
 .email-row>a{min-width:0;overflow-wrap:anywhere;font-size:11px;color:var(--muted)}
@@ -193,7 +191,7 @@ h2{font-size:clamp(32px,3.5vw,47px);line-height:1.18;letter-spacing:-.05em}
 .contact-details{min-width:0;border-left:1px solid var(--line);padding-left:40px}
 .contact-small-label{display:block;font:9px var(--font-mono);letter-spacing:.1em;color:var(--muted);margin-bottom:13px}
 .social-links{display:grid;gap:0}
-.social-link{display:grid;grid-template-columns:36px minmax(0,1fr) 20px;align-items:center;gap:12px;min-height:65px;padding:11px 8px;border-bottom:1px solid var(--line);border-radius:0;transition:background .2s}
+.social-link{display:grid;grid-template-columns:36px minmax(0,1fr);align-items:center;gap:12px;min-height:65px;padding:11px 8px;border-bottom:1px solid var(--line);border-radius:0;transition:background .2s}
 .social-link:last-child{border-bottom:0}
 .social-link:hover,.social-link:focus-visible{background:var(--bg);border-radius:8px}
 .social-icon{width:36px;height:36px;display:grid;place-items:center;border:1px solid var(--line);border-radius:10px;color:var(--text);background:var(--bg)}
@@ -204,12 +202,10 @@ h2{font-size:clamp(32px,3.5vw,47px);line-height:1.18;letter-spacing:-.05em}
 .social-copy{display:flex;flex-direction:column;gap:2px}
 .social-copy strong{font-size:13px;font-weight:600;color:var(--text)}
 .social-copy small{font-size:10px;color:var(--muted)}
-.social-arrow{font-size:18px;color:var(--accent);transition:transform .2s}
-.social-link:hover .social-arrow{transform:translate(2px,-2px)}
 @media(max-width:1000px){.contact-panel{gap:30px;padding:34px}.contact-details{padding-left:26px}}
 @media(max-width:760px){.contact-section{padding-block:50px}.contact-panel{grid-template-columns:1fr;gap:28px;padding:28px}.contact-panel::before{left:28px}.contact-details{padding:24px 0 0;border-left:0;border-top:1px solid var(--line)}.contact-intro>p{max-width:420px}.contact-section h2{font-size:clamp(36px,7vw,48px)}.contact-kicker{margin-bottom:20px}}
 @media(max-width:380px){.contact-panel{padding:22px}.contact-panel::before{left:22px}.email-row>a{font-size:10px}}
-@media(prefers-reduced-motion:reduce){.contact-email:hover,.social-link:hover .social-arrow{transform:none}}
+@media(prefers-reduced-motion:reduce){.contact-email:hover{transform:none}}
 @media print{.contact-panel{display:block;padding:20px;border-radius:0}.contact-details{border:0;padding:20px 0 0}.contact-email{color:#111;background:none;border-color:#999}}
 .site-footer{border-top:1px solid var(--line);padding-block:26px;display:flex;gap:28px;align-items:center}
 .footer-brand{font-weight:700;font-size:21px;letter-spacing:-.06em;margin-right:20px}
