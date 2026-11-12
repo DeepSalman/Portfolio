@@ -123,7 +123,17 @@ if ('IntersectionObserver' in window && !reducedMotion.matches) {
   const observer = new IntersectionObserver(entries => {
     for (const entry of entries) {
       if (!entry.isIntersecting) continue;
-      entry.target.animate([{ opacity: 0, transform: 'translateY(18px)' }, { opacity: 1, transform: 'translateY(0)' }], {
+      if (entry.target.matches('.toolkit-stack')) {
+        // A single settling sequence keeps every tool readable after the entrance.
+        entry.target.querySelectorAll('li').forEach((tag, index) => {
+          const tilt = index % 2 === 0 ? -5 : 5;
+          tag.animate([
+            { opacity: 0, transform: `translateY(18px) rotate(${tilt}deg) scale(.94)` },
+            { opacity: 1, transform: 'translateY(-3px) rotate(0) scale(1)', offset: .75 },
+            { opacity: 1, transform: 'translateY(0) rotate(0) scale(1)' }
+          ], { duration: 600, delay: index * 35, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' });
+        });
+      } else entry.target.animate([{ opacity: 0, transform: 'translateY(18px)' }, { opacity: 1, transform: 'translateY(0)' }], {
         duration: 650, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'none'
       });
       observer.unobserve(entry.target);
